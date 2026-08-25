@@ -12,12 +12,13 @@ Day 1 (No Output- 22nd & 23rd Aug 2026):
     - understanding of the thesis to be created
 
 
-Day 2(24th Aug 2026):
+Day 2(25th-26th Aug 2026):
     - repo creation
     - process trail document start
-    - requirements document
-    - 
-
+    - requirements document created
+    - source research prompts created
+    - source research validation and alternative comparison created(via AI research agent)
+    - source selection document created(via AI research agent)
 
 Day 3(25th Aug 2026):
 
