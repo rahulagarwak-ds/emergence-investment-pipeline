@@ -20,7 +20,15 @@ Day 2(25th-26th Aug 2026):
     - source research validation and alternative comparison created(via AI research agent)
     - source selection document created(via AI research agent)
 
-Day 3(25th Aug 2026):
+Day 3(26th-27th Aug 2026):
+    - thesis research and documentation(biggest mannual research chunk)
+        - summary from google and chatgpt
+        - 00-process/03-project-documents/00-thesis.md created
+        - architectural prompt created via AI
+        - architecture document created via prompt
+        - pony tail installed for upcoming coding sessions to minimize the tech debt followed by ai assisted coding
+        - added .env and .env.example empty files to prep for coding
+        - added AGENTS.md for default instructions and context to current project for codex
 
 
 Day 4(26th Aug 2026):
