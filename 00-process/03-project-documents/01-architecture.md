@@ -57,7 +57,7 @@ Dependencies move only `CLI → Stage 01 → artifact → Stage 02 → artifact 
 | `stage_02_analysis` | `CandidateSetV1` | Responses Structured Output; optional web search for market evidence; Python validates five scores and total | `02_analysis/analyses.jsonl` with citations, unknowns, coverage, versions | One repair attempt, then structured candidate failure |
 | `stage_03_recommendation` | `AnalysisSetV1` | Python ranks and assigns calls; Responses renders only validated evidence | `03_recommendation/memos/<candidate_id>.md`, ranked `index.md` | Record render failure; never invent a memo |
 
-Scores are Product Adoption 25, Workflow Habit and Importance 25, Employee-to-Team Expansion 20, Enterprise Procurement Path 15, and Founder Execution Fit 15. `Take a meeting` requires top `ceil(0.10 × N)`, score ≥75, coverage ≥70%, and no critical risk; `Watch` requires score ≥55 without critical risk; otherwise `Pass`.
+Scores are Product Adoption 25, Workflow Habit and Importance 25, Employee-to-Team Expansion 20, Enterprise Procurement Path 15, and Founder Execution Fit 15. Evidence coverage is 20% per dimension with at least one cited supporting `EvidenceItem`; missing or uncited evidence adds zero. Critical risks are cited enum values: `identity_unverified`, `requires_upfront_procurement`, `no_team_expansion_path`, `no_enterprise_procurement_path`, or `security_or_compliance_blocker`. `Take a meeting` requires top `ceil(0.10 × N)`, score ≥75, coverage ≥80%, and no critical risk; `Watch` requires score ≥55 without critical risk; otherwise `Pass`. Other risks remain in the memo without automatically setting the call.
 
 ## OpenAI SDK Boundary
 
