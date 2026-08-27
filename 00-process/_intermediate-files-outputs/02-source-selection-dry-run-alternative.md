@@ -5,6 +5,8 @@ Input feed: **the same ten YC Winter 2025 companies used in `01-source-selection
 Alternative source tested: **Hacker News (HN)**  
 Comparison source: **Y Combinator Startup Directory**
 
+> **Decision status:** This document is retained as source-comparison evidence. Its recommendation to use HN as optional enrichment was not adopted and is superseded by `00-process/03-project-documents/00-source-selection.md`. YC is the sole MVP sourcing source.
+
 ## Result
 
 **Cross-reference verdict: HN is useful enrichment, but it fails as a complete alternative source for this input set.** Exact HN evidence exists for 4/10 companies. It materially enriches Mastra and partially confirms Roark, Bezel, and Contrario; it supplies no exact record for the other six.
