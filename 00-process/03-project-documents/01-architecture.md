@@ -33,6 +33,7 @@ flowchart LR
 ├── README.md                    # setup, commands, sample-run link
 ├── pyproject.toml               # deps, CLIs, pytest, Ruff, mypy
 ├── uv.lock
+├── inputs/yc_snapshot.jsonl     # manual or permissioned YC capture
 ├── src/investment_pipeline/
 │   ├── cli.py                   # orchestration only
 │   ├── shared/                  # schemas, config, provenance, OpenAI client
@@ -52,7 +53,7 @@ Dependencies move only `CLI → Stage 01 → artifact → Stage 02 → artifact 
 
 | Stage | Input | Responsibility | Output | Failure behavior |
 |---|---|---|---|---|
-| `stage_01_sourcing` | Topic, YC batch, or URLs | Resolve 10–20 YC records; normalize selected fields with `captured_at`/`self_reported`; dedupe domains; apply proxy, freshness, traction, and provenance rules | `01_sourcing/candidates.json`, `source_refs.jsonl` | Preserve `null` and per-candidate `ErrorRecord`; continue |
+| `stage_01_sourcing` | Topic, YC batch, or URLs | Load the YC snapshot; match topic against name/tagline/description/categories, filter batch, or select exact profile URLs; normalize and dedupe | `01_sourcing/candidates.json`, `source_refs.jsonl` | Only records with `is_current_batch=true` or qualifying YC traction count toward 10–20; if fewer than 10 qualify, stop with `INSUFFICIENT_CANDIDATES` and preserve record errors |
 | `stage_02_analysis` | `CandidateSetV1` | Responses Structured Output; optional web search for market evidence; Python validates five scores and total | `02_analysis/analyses.jsonl` with citations, unknowns, coverage, versions | One repair attempt, then structured candidate failure |
 | `stage_03_recommendation` | `AnalysisSetV1` | Python ranks and assigns calls; Responses renders only validated evidence | `03_recommendation/memos/<candidate_id>.md`, ranked `index.md` | Record render failure; never invent a memo |
 
@@ -64,7 +65,7 @@ Scores are Product Adoption 25, Workflow Habit and Importance 25, Employee-to-Te
 
 ## Data and Run Artifacts
 
-`candidate_id` links `CandidateRecordV1`, evidence/citations, `AnalysisRecordV1`, recommendation, memo, and errors. Nullable facts remain unknown; self-reported claims stay labeled. Each immutable run contains `manifest.json`, `01_sourcing/`, `02_analysis/`, `03_recommendation/`, and `logs.jsonl`. The manifest records input, timestamps, stage status, paths, source URLs, versions, usage, and errors. `--from-artifact` replays downstream stages.
+`candidate_id` links `CandidateRecordV1`, evidence/citations, `AnalysisRecordV1`, recommendation, memo, and errors. Nullable facts remain unknown; self-reported claims stay labeled. Each immutable run contains `manifest.json`, `01_sourcing/`, `02_analysis/`, `03_recommendation/`, and `logs.jsonl`. The manifest records the snapshot path/hash/`captured_at`, input, stage status, paths, source URLs, versions, usage, and errors. `--from-artifact` replays downstream stages.
 
 ## Tests and Evals
 
