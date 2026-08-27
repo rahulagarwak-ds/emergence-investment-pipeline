@@ -51,3 +51,5 @@ Day 4(27th Aug 2026):
 Day 5(28th Aug 2026):
     - Chunk 3 completed evidence-grounded Stage 02 with the official OpenAI Responses structured-output boundary, web-search source validation, one repair attempt, per-candidate failures, prompt/model metadata, nullable unknown scores, deterministic totals, and evidence coverage
     - Official SDK documentation and installed signatures were verified; mocked repair, failure, web-source, and invalid-upstream paths passed with pytest, Ruff, mypy, lockfile, artifact, diff, and secret checks, and the AI-assisted Ponytail review removed a redundant request option
+    - Chunk 4 completed deterministic score ranking and recommendation gates, constrained no-research memo rendering, cited Markdown validation, partial render failures, and the ranked index
+    - AI-assisted policy and boundary tests covered the 11-candidate top-decile ceiling, score and critical-risk gates, tool-free model calls, uncited evidence rejection, memo limits, and failure preservation; pytest, Ruff, mypy, lockfile, diff, and secret checks passed, and Ponytail removed a dead exception branch

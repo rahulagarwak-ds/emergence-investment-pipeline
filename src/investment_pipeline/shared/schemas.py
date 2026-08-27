@@ -15,6 +15,7 @@ from pydantic import (
 from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
 
 SCHEMA_VERSION: Literal["1.0"] = "1.0"
+CANDIDATE_ID_PATTERN = r"^[a-z0-9][a-z0-9-]*$"
 
 
 class ContractModel(BaseModel):
@@ -84,7 +85,7 @@ class TractionSignalV1(ContractModel):
 
 
 class CandidateRecordV1(ContractModel):
-    candidate_id: str = Field(min_length=1)
+    candidate_id: str = Field(pattern=CANDIDATE_ID_PATTERN)
     name: str = Field(min_length=1)
     website_url: HttpUrl
     canonical_domain: str = Field(min_length=1)
@@ -197,7 +198,8 @@ class OpenAIResponseMetadataV1(ContractModel):
 class AnalysisRecordV1(ContractModel):
     schema_version: Literal["1.0"] = SCHEMA_VERSION
     record_type: Literal["analysis"] = "analysis"
-    candidate_id: str = Field(min_length=1)
+    candidate_id: str = Field(pattern=CANDIDATE_ID_PATTERN)
+    candidate_name: str = Field(min_length=1)
     prompt_version: str = Field(min_length=1)
     prompt_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
     response: OpenAIResponseMetadataV1
@@ -255,3 +257,52 @@ class AnalysisSetV1(ContractModel):
     created_at: AwareDatetime
     analyses: list[AnalysisRecordV1]
     errors: list[ErrorRecordV1] = []
+
+    @model_validator(mode="after")
+    def validate_candidate_ids(self) -> Self:
+        candidate_ids = [analysis.candidate_id for analysis in self.analyses]
+        if len(candidate_ids) != len(set(candidate_ids)):
+            raise ValueError("analysis candidate ids must be unique")
+        return self
+
+
+class RecommendationRecordV1(ContractModel):
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    record_type: Literal["recommendation"] = "recommendation"
+    candidate_id: str = Field(pattern=CANDIDATE_ID_PATTERN)
+    candidate_name: str = Field(min_length=1)
+    rank: int = Field(ge=1)
+    total_score: int = Field(ge=0, le=100)
+    evidence_coverage: int = Field(ge=0, le=100, multiple_of=20)
+    critical_risks: list[CriticalRisk]
+    recommendation: Recommendation
+    prompt_version: str = Field(min_length=1)
+    prompt_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    response: OpenAIResponseMetadataV1 | None = None
+    memo_path: str | None = Field(default=None, pattern=r"^memos/[a-z0-9][a-z0-9-]*\.md$")
+
+    @model_validator(mode="after")
+    def validate_memo_metadata(self) -> Self:
+        if (self.response is None) != (self.memo_path is None):
+            raise ValueError(
+                "response metadata and memo path must either both exist or both be null"
+            )
+        return self
+
+
+class RecommendationSetV1(ContractModel):
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    created_at: AwareDatetime
+    recommendations: list[RecommendationRecordV1]
+    errors: list[ErrorRecordV1] = []
+
+    @model_validator(mode="after")
+    def validate_ranks_and_candidates(self) -> Self:
+        if [record.rank for record in self.recommendations] != list(
+            range(1, len(self.recommendations) + 1)
+        ):
+            raise ValueError("recommendations must be in contiguous rank order")
+        candidate_ids = [record.candidate_id for record in self.recommendations]
+        if len(candidate_ids) != len(set(candidate_ids)):
+            raise ValueError("recommendation candidate ids must be unique")
+        return self

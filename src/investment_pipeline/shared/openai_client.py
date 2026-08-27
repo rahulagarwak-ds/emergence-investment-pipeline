@@ -73,7 +73,7 @@ class StructuredOpenAIClient:
                 "instructions": instructions
                 if attempt == 0
                 else instructions
-                + "\n\nREPAIR: Return a fully valid object using only supported evidence URLs.",
+                + "\n\nREPAIR: Return a fully valid object that satisfies every instruction.",
                 "input": input_text,
                 "text_format": output_type,
                 "store": False,

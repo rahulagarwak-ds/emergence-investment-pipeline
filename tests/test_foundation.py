@@ -53,6 +53,7 @@ def test_foundation_imports_and_rejects_malformed_contracts() -> None:
     with pytest.raises(ValidationError):
         AnalysisRecordV1(
             candidate_id="example",
+            candidate_name="Example",
             prompt_version="analysis-v1",
             prompt_hash="0" * 64,
             response=OpenAIResponseMetadataV1(

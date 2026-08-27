@@ -126,6 +126,7 @@ def _build_analysis(
     evidence_coverage = 20 * sum(bool(score.evidence_ids) for score in draft.dimension_scores)
     return AnalysisRecordV1(
         candidate_id=candidate.candidate_id,
+        candidate_name=candidate.name,
         prompt_version=PROMPT_VERSION,
         prompt_hash=_PROMPT_HASH,
         response=metadata,
