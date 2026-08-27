@@ -206,3 +206,9 @@ The document is complete only if a reviewer can answer within two minutes:
 Write only:
 
 `00-process/03-project-documents/01-architecture.md`
+
+
+# Architecture: Prompt 2
+
+We have updated 00-process/03-project-documents/00-source-selection.md document to authoratatively mention the winner of the source we are not selecting any alternate source
+based on this update the 00-process/03-project-documents/01-architecture.md document, also reduce verbosity by 40%
