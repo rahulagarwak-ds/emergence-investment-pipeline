@@ -24,7 +24,7 @@ Reversing the adoption chain is just a way of proving the product value and ther
 
 ## The Evidence
 
-Research [00-process/_intermediate-files-outputs/03-thesis-research-summary.md] shows the procurement pipeline is slow and includes friction before the end user can see the actual value
+The [thesis research summary](../_intermediate-files-outputs/03-thesis-research-summary.md) shows the procurement pipeline is slow and includes friction before the end user can see the actual value
 
 While SaaS has reduced adoption friction via browser access, self-service usage, free trials let employees start using tools without waiting for central deployment and procurement
 

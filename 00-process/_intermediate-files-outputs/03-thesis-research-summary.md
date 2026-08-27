@@ -331,4 +331,14 @@ That is the industry context I would carry into your thesis work.
 
 One caution: your 11 sources aren’t equal-quality evidence. IBM and CIO are useful for establishing shadow-IT mechanisms; SaaSUI and the Friction Economy piece are useful conceptual material; RemoteReps/Demand Gen are practitioner/vendor material; and the 78% Shadow AI claim should ideally be traced to its original WalkMe/Software AG study before becoming a central quantitative premise. Your thesis will be stronger if you distinguish industry evidence from practitioner interpretation rather than treating [1]–[11] as equally authoritative.  
 
-Sources you supplied:  ⁠IBM on Shadow IT,  ⁠CIO on enterprise Shadow IT,  ⁠Shadow AI research summary,  ⁠B2B SaaS design overview,  ⁠B2B SaaS sales overview,  ⁠Demand Gen on B2B purchasing friction, and  ⁠Friction Economy analysis.
+Sources you supplied: IBM on Shadow IT, CIO on enterprise Shadow IT, Shadow AI research summary, B2B SaaS design overview, B2B SaaS sales overview, Demand Gen on B2B purchasing friction, and Friction Economy analysis.
+
+## Referenced sources
+
+- [IBM: What is shadow IT?](https://www.ibm.com/think/topics/shadow-it)
+- [CIO: How to eliminate enterprise shadow IT](https://www.cio.com/article/234745/how-to-eliminate-enterprise-shadow-it.html)
+- [Digital Chiefs: Shadow AI is the new shadow IT](https://www.digital-chiefs.de/en/shadow-ai-is-the-new-shadow-it/)
+- [SaaSUI: B2B SaaS design](https://www.saasui.design/blog/b2b-saas-design)
+- [RemoteReps: B2B SaaS sales](https://remotereps.com/services/sales-outsourcing/b2b-saas-sales)
+- [Demand Gen Report: B2B purchasing friction](https://www.demandgenreport.com/demanding-views/the-demand-engine-why-checkout-friction-is-killing-b2b-deals/52684/)
+- [Friction Economy analysis](https://kurtiskemple.com/blog/friction-economy/)
