@@ -1,4 +1,4 @@
-# Investment Thesis: Bypassing the procurement in B2B - Friction Shift in usage behavior
+# Investment Thesis: B2B Adoption Before Procurement
 
 ## The Argument
 
