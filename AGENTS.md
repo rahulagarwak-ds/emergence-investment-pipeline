@@ -12,6 +12,10 @@ The pipeline has three primary stages:
 
 The system should remain simple, replayable, traceable, and easy for another engineer to understand.
 
+## Process Trail
+
+After every meaningful step add a step for the day into 00-process/_process-trail/process-trail.md making sure the day wise timeline headers are preserved(this day to next day if we spill over)
+
 ## Working Principles
 
 - Read existing code and documentation before making changes.
