@@ -72,3 +72,9 @@ and use HN as a source and compre the exact same inputs as done for prompt 2 for
 remember this is a cross reference completeness check
 your output will be 00-process/_intermediate-files-outputs/02-source-selection-dry-run-alternative.md
 I need a summary of covered metrics and a 1-10 score of the quality and coverage and a quick comparison from the results in 00-process/02-project-key-decisions/01-source-selection-dry-run.md
+
+# Sources Research : Prompt 4
+
+We already have a backup of the current 00-process/03-project-documents/00-source-selection.md document but i noticed in architecture we have a mention of HN as an optional source
+I want the source selection document to be modified to authoratatively say the final selected source(the winner of the source selection) so downstream work can have a clear picture
+no content changes on one section addition as a source selection clear winner
