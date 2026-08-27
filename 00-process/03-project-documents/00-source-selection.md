@@ -10,6 +10,10 @@ Selected source: **Y Combinator Startup Directory**
 - Current-batch filtering can supply 10–20 recent seed-stage candidates from one consistent source.
 - Product and founder text is materially more useful for thesis analysis than launch popularity alone.
 
+## Final source decision
+
+**The Y Combinator Startup Directory is the sole selected sourcing source for the MVP.** Hacker News was evaluated only as a cross-reference during source research; it is not a selected source, optional enrichment, or a required pipeline dependency. Downstream architecture and implementation must source candidate records from YC only.
+
 ## Platform comparison
 
 Each cell is **Quality/Coverage** on a 1–10 scale. Composite = `10 × Σ(weight × quality/10 × coverage/10)`. Correlated fields count once.
