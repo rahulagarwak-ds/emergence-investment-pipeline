@@ -60,7 +60,7 @@ def run_recommendation(
     rendering_enabled = True
 
     for rank, analysis in enumerate(analyses, start=1):
-        recommendation = _recommendation(analysis, rank, meeting_slots)
+        recommendation = assign_recommendation(analysis, rank, meeting_slots)
         metadata: OpenAIResponseMetadataV1 | None = None
         memo_path: str | None = None
 
@@ -95,7 +95,7 @@ def run_recommendation(
                 try:
                     memo = _render_memo(analysis, recommendation, response.parsed)
                     rendered_path = f"memos/{analysis.candidate_id}.md"
-                    (output_dir / rendered_path).write_text(memo, encoding="utf-8")
+                    (output_dir / rendered_path).write_text(memo, encoding="utf-8", newline="\n")
                     memo_path = rendered_path
                     metadata = response.metadata
                 except OSError as exc:
@@ -136,18 +136,19 @@ def run_recommendation(
         recommendations=recommendations,
         errors=errors,
     )
-    (output_dir / "index.md").write_text(_render_index(result), encoding="utf-8")
+    (output_dir / "index.md").write_text(_render_index(result), encoding="utf-8", newline="\n")
     (output_dir / "recommendations.json").write_text(
-        result.model_dump_json(indent=2) + "\n", encoding="utf-8"
+        result.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n"
     )
     return result
 
 
-def _recommendation(
+def assign_recommendation(
     analysis: AnalysisRecordV1,
     rank: int,
     meeting_slots: int,
 ) -> Recommendation:
+    """Apply the documented gates: top decile, score, evidence coverage, critical risks."""
     has_critical_risk = bool(analysis.critical_risks)
     if (
         rank <= meeting_slots

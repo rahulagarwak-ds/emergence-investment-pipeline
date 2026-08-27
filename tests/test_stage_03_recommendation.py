@@ -28,7 +28,7 @@ from investment_pipeline.stage_03_recommendation import run_recommendation
 from investment_pipeline.stage_03_recommendation.recommendation import (
     MEMO_MAX_WORDS,
     MemoDraftV1,
-    _recommendation,
+    assign_recommendation,
 )
 
 
@@ -114,8 +114,9 @@ def test_policy_memos_failures_and_ranked_index(tmp_path: Path) -> None:
     assert "| 1 | Company 01 | 90 | 100% | Take a meeting |" in index
     assert "| 2 | Company 02 | 80 | 100% | Take a meeting | render failed |" in index
 
-    assert _recommendation(_analysis("risky", 90, critical_risk=True), 1, 1) is Recommendation.PASS
-    assert _recommendation(_analysis("second", 85), 2, 1) is Recommendation.WATCH
+    risky = _analysis("risky", 90, critical_risk=True)
+    assert assign_recommendation(risky, 1, 1) is Recommendation.PASS
+    assert assign_recommendation(_analysis("second", 85), 2, 1) is Recommendation.WATCH
 
 
 def _analysis(

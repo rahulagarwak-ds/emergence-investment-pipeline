@@ -82,12 +82,13 @@ Reports are keyed by model and prompt hash. OpenAI Evals is optional later, not 
 `.env.example` defines `OPENAI_API_KEY`, `OPENAI_MODEL`, `OPENAI_REASONING_EFFORT`, `REQUEST_TIMEOUT_SECONDS`, `MAX_CANDIDATES`, and `OUTPUT_DIR`; no model is hardcoded. `README.md` links a committed representative run.
 
 ```bash
+uv run investment-pipeline snapshot --batch "Summer 2026"
 uv run investment-pipeline run --topic "AI agents for SMBs"
 uv run pytest
-uv run investment-evals
+uv run investment-evals outputs/<run_id>
 ```
 
 ## Tradeoffs and Non-goals
 
-- The YC adapter consumes a manually captured or permissioned public-data manifest. Sparse, self-reported traction remains `null`; `is_current_batch` shows cohort recency, not activity.
+- The YC adapter consumes a public-data manifest captured from the yc-oss open dataset by `investment-pipeline snapshot`, with a provenance sidecar. Founder bios and traction are absent from that dataset and remain `null`; `is_current_batch` shows cohort recency, not activity.
 - Files and serial execution suffice for 10–20 candidates. Frontend, database, vector store, queue, workers, Docker, and multi-agent frameworks are excluded.

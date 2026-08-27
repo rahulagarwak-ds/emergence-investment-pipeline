@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Example 01",
+    "slug": "example-01",
+    "website": "https://www.example-01.test",
+    "all_locations": "Test City",
+    "long_description": "Workflow assistant for finance teams that starts with one analyst.",
+    "one_liner": "Workflow assistant one",
+    "team_size": 2,
+    "industries": ["B2B"],
+    "tags": ["AI", "B2B", "Sales"],
+    "batch": "Summer 2026",
+    "status": "Active",
+    "url": "https://www.ycombinator.com/companies/example-01"
+  },
+  {
+    "id": 2,
+    "name": "Example 02",
+    "slug": "example-02",
+    "website": null,
+    "all_locations": null,
+    "long_description": null,
+    "one_liner": "No website yet",
+    "team_size": 1,
+    "industries": ["Consumer"],
+    "tags": [],
+    "batch": "Summer 2026",
+    "status": "Active",
+    "url": "https://www.ycombinator.com/companies/example-02"
+  },
+  {
+    "id": 3,
+    "name": "Not YC",
+    "slug": "not-yc",
+    "website": "https://not-yc.test",
+    "all_locations": "Elsewhere",
+    "long_description": "Record whose profile URL is not a YC company page.",
+    "one_liner": "Should be skipped",
+    "team_size": 4,
+    "industries": ["B2B"],
+    "tags": ["AI"],
+    "batch": "Summer 2026",
+    "status": "Active",
+    "url": "https://elsewhere.test/companies/not-yc"
+  },
+  {
+    "id": 4,
+    "name": "Example 03",
+    "slug": "example-03",
+    "website": "https://example-03.test",
+    "all_locations": "Test City",
+    "long_description": "",
+    "one_liner": "Sparse record",
+    "team_size": 0,
+    "industries": ["B2B"],
+    "tags": null,
+    "batch": "Summer 2026",
+    "status": "Active",
+    "url": "https://www.ycombinator.com/companies/example-03"
+  }
+]

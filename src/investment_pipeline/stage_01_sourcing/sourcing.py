@@ -297,10 +297,12 @@ def _write_artifacts(
     (output_dir / "candidates.json").write_text(
         candidate_set.model_dump_json(indent=2) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     (output_dir / "source_refs.jsonl").write_text(
         "".join(f"{source.model_dump_json()}\n" for source in source_refs),
         encoding="utf-8",
+        newline="\n",
     )
 
 

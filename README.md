@@ -29,10 +29,18 @@ are never overwritten. `--from-artifact` replays downstream stages from a prior 
 `01_sourcing/candidates.json` or `02_analysis/analyses.jsonl` as a new run linked to its parent.
 The representative run is added in a later chunk.
 
-## Checks
+## Checks and evals
 
 ```bash
-uv run pytest
+uv run pytest                                        # offline, deterministic
 uv run ruff check .
-uv run mypy src tests
+uv run mypy src tests evals
+uv run investment-evals outputs/<run_id>             # deterministic graders; report in evals/reports/
+uv run investment-evals outputs/<run_id> --semantic  # adds the model judge; needs OPENAI_API_KEY and OPENAI_MODEL
+LIVE_SMOKE=1 uv run pytest tests/test_live_smoke.py  # one live structured-output call; skipped otherwise
 ```
+
+Tests verify deterministic software behavior with OpenAI mocked. Evals grade a finished run's
+artifacts: grounding of every evidence URL, rank and call consistency with the policy,
+missing-data honesty, and memo structure, citations, and length. The optional semantic judge
+rates thesis adherence, faithfulness, clarity, risk quality, and specificity per memo.

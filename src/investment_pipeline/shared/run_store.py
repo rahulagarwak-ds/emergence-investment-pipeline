@@ -4,6 +4,7 @@ import json
 from datetime import UTC, datetime
 from hashlib import sha256
 from pathlib import Path
+from time import sleep
 
 from pydantic import JsonValue
 
@@ -44,11 +45,19 @@ def write_manifest(run_dir: Path, manifest: RunManifestV1) -> None:
     """Replace manifest.json atomically so a crash never leaves a half-written manifest."""
     manifest.updated_at = datetime.now(UTC)
     staged = run_dir / "manifest.json.tmp"
-    staged.write_text(manifest.model_dump_json(indent=2) + "\n", encoding="utf-8")
-    staged.replace(run_dir / "manifest.json")
+    staged.write_text(manifest.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n")
+    for attempt in range(5):
+        try:
+            staged.replace(run_dir / "manifest.json")
+            return
+        except PermissionError:
+            # ponytail: Windows scanners lock fresh files for a moment; retry briefly, then fail.
+            if attempt == 4:
+                raise
+            sleep(0.1 * (attempt + 1))
 
 
 def append_log(run_dir: Path, event: str, **fields: JsonValue) -> None:
     record = {"at": datetime.now(UTC).isoformat(), "event": event, **fields}
-    with (run_dir / "logs.jsonl").open("a", encoding="utf-8") as handle:
+    with (run_dir / "logs.jsonl").open("a", encoding="utf-8", newline="\n") as handle:
         handle.write(json.dumps(record, default=str) + "\n")

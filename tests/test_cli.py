@@ -1,80 +1,34 @@
 """Orchestration checks: run storage, replay, failure preservation, and live progress."""
 
 import json
-from argparse import Namespace
-from collections import Counter
+from datetime import UTC, datetime
 from hashlib import sha256
 from pathlib import Path
-from types import SimpleNamespace
 from typing import Any
 
 import pytest
+from conftest import FIXTURE, RunPipeline
 
-from investment_pipeline.cli import _parser, run_pipeline
+from investment_pipeline import stage_01_sourcing
+from investment_pipeline.cli import _parser, main
+from investment_pipeline.shared import run_store
 from investment_pipeline.shared.config import PipelineConfig
 from investment_pipeline.shared.errors import ErrorCode
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.run_store import create_run_dir
-from investment_pipeline.shared.schemas import (
-    CitedFindingV1,
-    DimensionScoreV1,
-    EvidenceItemV1,
-    RunManifestV1,
-    StageStatus,
-    ThesisDimension,
-)
-from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1
-from investment_pipeline.stage_03_recommendation.recommendation import MemoDraftV1
-
-_FIXTURE = Path(__file__).parent / "fixtures" / "yc_snapshot.jsonl"
-_SCORES = {
-    "example-01": (25, 25, 20, 15, 5),
-    "example-02": (25, 25, 10, 0, 0),
-    "example-03": (25, 25, 10, 0, 0),
-    "example-04": (25, 25, 10, 0, 0),
-    "example-05": (25, 25, 10, 0, 0),
-}
-
-
-class FakeResponses:
-    """Answer Stage 02 and Stage 03 requests; example-09 analysis and example-08 memo fail."""
-
-    def __init__(self) -> None:
-        self.calls: Counter[str] = Counter()
-
-    def parse(self, **request: Any) -> Any:
-        assert request["store"] is False
-        payload = json.loads(request["input"])
-        draft: AnalysisDraftV1 | MemoDraftV1
-        if request["text_format"] is AnalysisDraftV1:
-            self.calls["analysis"] += 1
-            draft = _analysis_draft(payload)
-        else:
-            self.calls["memo"] += 1
-            draft = _memo_draft(payload["analysis"]["candidate_id"])
-        return SimpleNamespace(
-            id=f"resp-{self.calls.total()}",
-            model="test-model",
-            status="completed",
-            usage=SimpleNamespace(input_tokens=10, output_tokens=5, total_tokens=15),
-            output=[],
-            output_parsed=draft,
-        )
+from investment_pipeline.shared.schemas import RunInputV1, RunManifestV1, StageStatus
 
 
 def test_fresh_run_persists_manifest_logs_and_artifacts(
-    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    run: RunPipeline, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    config, responses = _config(tmp_path), FakeResponses()
+    result = run()
 
-    exit_code = run_pipeline(_args("--snapshot", str(_FIXTURE)), config, _client(config, responses))
-
-    assert exit_code == 0
-    run_dir = _latest_run(config.output_dir)
-    manifest = _manifest(run_dir)
+    assert result.exit_code == 0
+    manifest, run_dir = result.manifest, result.run_dir
     assert manifest.status is StageStatus.COMPLETED
     assert [stage.status for stage in manifest.stages.values()] == [StageStatus.COMPLETED] * 3
-    assert manifest.input.snapshot_sha256 == sha256(_FIXTURE.read_bytes()).hexdigest()
+    assert manifest.input.snapshot_sha256 == sha256(FIXTURE.read_bytes()).hexdigest()
     assert manifest.input.snapshot_captured_at is not None
     assert manifest.versions["model"] == "test-model"
     assert manifest.versions["analysis_prompt"].startswith("analysis-v1@")
@@ -107,12 +61,13 @@ def test_fresh_run_persists_manifest_logs_and_artifacts(
     } <= artifact_paths
     for stage in manifest.stages.values():
         for artifact in stage.artifacts:
-            assert sha256((run_dir / artifact.path).read_bytes()).hexdigest() == artifact.sha256
+            content = (run_dir / artifact.path).read_bytes()
+            assert sha256(content).hexdigest() == artifact.sha256
+            assert b"\r" not in content, "artifacts must hash identically on every OS"
+    assert b"\r" not in (run_dir / "manifest.json").read_bytes()
+    assert b"\r" not in (run_dir / "logs.jsonl").read_bytes()
 
-    events = [
-        json.loads(line)["event"]
-        for line in (run_dir / "logs.jsonl").read_text(encoding="utf-8").splitlines()
-    ]
+    events = [event["event"] for event in _events(run_dir)]
     assert events[0] == "run_started"
     assert events[-1] == "run_finished"
     assert events.count("candidate_analyzed") == 10
@@ -130,20 +85,14 @@ def test_fresh_run_persists_manifest_logs_and_artifacts(
     assert "{" not in out
 
 
-def test_replay_skips_completed_upstream_stages(tmp_path: Path) -> None:
-    config = _config(tmp_path)
-    assert run_pipeline(_args("--snapshot", str(_FIXTURE)), config, _client(config)) == 0
-    first_run = _latest_run(config.output_dir)
-    candidates = first_run / "01_sourcing" / "candidates.json"
+def test_replay_skips_completed_upstream_stages(run: RunPipeline) -> None:
+    first = run()
+    candidates = first.run_dir / "01_sourcing" / "candidates.json"
 
-    responses = FakeResponses()
-    exit_code = run_pipeline(
-        _args("--from-artifact", str(candidates)), config, _client(config, responses)
-    )
-    assert exit_code == 0
-    second_run = _latest_run(config.output_dir)
-    manifest = _manifest(second_run)
-    assert second_run != first_run
+    second = run("--from-artifact", str(candidates))
+    assert second.exit_code == 0
+    assert second.run_dir != first.run_dir
+    manifest = second.manifest
     assert manifest.status is StageStatus.COMPLETED
     assert manifest.stages["01_sourcing"].status is StageStatus.SKIPPED
     assert manifest.stages["02_analysis"].status is StageStatus.COMPLETED
@@ -151,63 +100,51 @@ def test_replay_skips_completed_upstream_stages(tmp_path: Path) -> None:
     assert manifest.input.parent_artifact.path == "candidates.json"
     assert manifest.input.parent_artifact.sha256 == sha256(candidates.read_bytes()).hexdigest()
     assert manifest.input.snapshot_path is None
-    assert (second_run / "01_sourcing" / "candidates.json").read_bytes() == candidates.read_bytes()
-    assert (second_run / "01_sourcing" / "source_refs.jsonl").is_file()
-    assert responses.calls == {"analysis": 11, "memo": 10}
+    assert (second.run_dir / "01_sourcing" / "candidates.json").read_bytes() == (
+        candidates.read_bytes()
+    )
+    assert (second.run_dir / "01_sourcing" / "source_refs.jsonl").is_file()
+    assert second.responses.calls == {"analysis": 11, "memo": 10}
     _assert_paths_are_portable(manifest)
 
-    responses = FakeResponses()
-    analyses = second_run / "02_analysis" / "analyses.jsonl"
-    exit_code = run_pipeline(
-        _args("--from-artifact", str(analyses)), config, _client(config, responses)
-    )
-    assert exit_code == 0
-    third = _manifest(_latest_run(config.output_dir))
-    assert third.stages["01_sourcing"].status is StageStatus.SKIPPED
-    assert third.stages["02_analysis"].status is StageStatus.SKIPPED
-    assert third.stages["03_recommendation"].status is StageStatus.COMPLETED
-    assert third.stages["02_analysis"].summary == {"valid": 9, "failed": 1}
-    assert responses.calls == {"memo": 10}
-    assert len(list(config.output_dir.iterdir())) == 3
+    third = run("--from-artifact", str(second.run_dir / "02_analysis" / "analyses.jsonl"))
+    assert third.exit_code == 0
+    assert third.manifest.stages["01_sourcing"].status is StageStatus.SKIPPED
+    assert third.manifest.stages["02_analysis"].status is StageStatus.SKIPPED
+    assert third.manifest.stages["03_recommendation"].status is StageStatus.COMPLETED
+    assert third.manifest.stages["02_analysis"].summary == {"valid": 9, "failed": 1}
+    assert third.responses.calls == {"memo": 10}
+    assert len(list(first.run_dir.parent.iterdir())) == 3
 
 
 def test_insufficient_candidates_fail_before_any_model_call(
-    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    run: RunPipeline, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    config, responses = _config(tmp_path), FakeResponses()
+    result = run("--yc-batch", "Winter 2025")
 
-    exit_code = run_pipeline(
-        _args("--snapshot", str(_FIXTURE), "--yc-batch", "Winter 2025"),
-        config,
-        _client(config, responses),
-    )
-
-    assert exit_code == 1
-    run_dir = _latest_run(config.output_dir)
-    manifest = _manifest(run_dir)
+    assert result.exit_code == 1
+    manifest = result.manifest
     assert manifest.status is StageStatus.FAILED
     assert manifest.stages["01_sourcing"].status is StageStatus.FAILED
     assert manifest.stages["02_analysis"].status is StageStatus.PENDING
     assert manifest.stages["03_recommendation"].status is StageStatus.PENDING
     assert manifest.stages["01_sourcing"].errors[-1].code is ErrorCode.INSUFFICIENT_CANDIDATES
-    assert (run_dir / "01_sourcing" / "candidates.json").is_file()
-    assert not responses.calls
+    assert (result.run_dir / "01_sourcing" / "candidates.json").is_file()
+    assert not result.responses.calls
     out = capsys.readouterr().out
     assert "1 of 10 required candidates qualify" in out
     assert out.splitlines()[-1].startswith("Failed")
 
 
 def test_missing_model_configuration_stops_with_actionable_message(
-    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+    run: RunPipeline, tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    config = PipelineConfig(_env_file=None, output_dir=tmp_path / "outputs")
+    unconfigured = PipelineConfig(_env_file=None, output_dir=tmp_path / "outputs")
 
-    exit_code = run_pipeline(
-        _args("--snapshot", str(_FIXTURE)), config, StructuredOpenAIClient(config)
-    )
+    result = run(client=StructuredOpenAIClient(unconfigured), settings=unconfigured)
 
-    assert exit_code == 1
-    manifest = _manifest(_latest_run(config.output_dir))
+    assert result.exit_code == 1
+    manifest = result.manifest
     assert manifest.status is StageStatus.FAILED
     assert manifest.stages["01_sourcing"].status is StageStatus.COMPLETED
     assert manifest.stages["02_analysis"].status is StageStatus.FAILED
@@ -216,20 +153,63 @@ def test_missing_model_configuration_stops_with_actionable_message(
     assert "OPENAI_MODEL is required · set it in .env" in capsys.readouterr().out
 
 
-def test_invalid_replay_input_is_recorded_in_a_failed_run(tmp_path: Path) -> None:
-    config = _config(tmp_path)
+def test_replayed_analyses_with_unconfigured_model_fail_in_stage_03(
+    run: RunPipeline, tmp_path: Path
+) -> None:
+    first = run()
+    unconfigured = PipelineConfig(_env_file=None, output_dir=tmp_path / "outputs")
 
-    exit_code = run_pipeline(
-        _args("--from-artifact", str(tmp_path / "missing" / "candidates.json")),
-        config,
-        _client(config),
+    result = run(
+        "--from-artifact",
+        str(first.run_dir / "02_analysis" / "analyses.jsonl"),
+        client=StructuredOpenAIClient(unconfigured),
+        settings=unconfigured,
     )
 
-    assert exit_code == 1
-    manifest = _manifest(_latest_run(config.output_dir))
-    assert manifest.status is StageStatus.FAILED
-    assert manifest.errors[0].code is ErrorCode.INVALID_INPUT
-    assert all(stage.status is StageStatus.PENDING for stage in manifest.stages.values())
+    assert result.exit_code == 1
+    assert result.manifest.stages["02_analysis"].status is StageStatus.SKIPPED
+    assert result.manifest.stages["03_recommendation"].status is StageStatus.FAILED
+    assert result.manifest.stages["03_recommendation"].errors[0].code is ErrorCode.INVALID_CONFIG
+    assert (result.run_dir / "03_recommendation" / "index.md").is_file()
+
+
+def test_invalid_replay_inputs_are_recorded_in_failed_runs(
+    run: RunPipeline, tmp_path: Path
+) -> None:
+    missing = run("--from-artifact", str(tmp_path / "missing" / "candidates.json"))
+    assert missing.exit_code == 1
+    assert missing.manifest.status is StageStatus.FAILED
+    assert missing.manifest.errors[0].code is ErrorCode.INVALID_INPUT
+    assert all(stage.status is StageStatus.PENDING for stage in missing.manifest.stages.values())
+
+    corrupt = tmp_path / "analyses.jsonl"
+    corrupt.write_text('{"record_type": "analysis", "candidate_id": "x"}\n', encoding="utf-8")
+    result = run("--from-artifact", str(corrupt))
+    assert result.exit_code == 1
+    assert result.manifest.errors[0].code is ErrorCode.INVALID_ARTIFACT
+    assert result.manifest.input.parent_artifact is not None
+
+
+def test_unexpected_errors_are_preserved_without_a_traceback_on_screen(
+    run: RunPipeline, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    def explode(*args: object, **kwargs: object) -> None:
+        raise RuntimeError("disk vanished")
+
+    monkeypatch.setattr(stage_01_sourcing, "run_sourcing", explode)
+
+    result = run()
+
+    assert result.exit_code == 1
+    assert result.manifest.status is StageStatus.FAILED
+    crash = next(event for event in _events(result.run_dir) if event["event"] == "run_crashed")
+    assert crash["error"] == "RuntimeError"
+    assert crash["message"] == "disk vanished"
+    assert "_source" in {frame.split(":")[0] for frame in crash["frames"]}
+    assert not any("/" in frame or "\\" in frame for frame in crash["frames"])
+    out = capsys.readouterr().out
+    assert "Traceback" not in out
+    assert "RuntimeError · details in" in out
 
 
 def test_run_directories_are_never_reused(tmp_path: Path) -> None:
@@ -238,83 +218,66 @@ def test_run_directories_are_never_reused(tmp_path: Path) -> None:
     assert first.is_dir() and second.is_dir()
 
 
+def test_manifest_replace_retries_transient_windows_locks(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    now = datetime.now(UTC)
+    manifest = RunManifestV1(
+        run_id="run",
+        status=StageStatus.RUNNING,
+        created_at=now,
+        updated_at=now,
+        input=RunInputV1(selector="snapshot=all"),
+        versions={},
+        stages={},
+    )
+    original_replace = Path.replace
+    denials = {"remaining": 2}
+
+    def flaky_replace(self: Path, target: Path) -> Path:
+        if denials["remaining"]:
+            denials["remaining"] -= 1
+            raise PermissionError(5, "Access is denied")
+        return original_replace(self, target)
+
+    monkeypatch.setattr(run_store, "sleep", lambda _seconds: None)
+    monkeypatch.setattr(Path, "replace", flaky_replace)
+    run_store.write_manifest(tmp_path, manifest)
+    assert (tmp_path / "manifest.json").is_file()
+    assert denials["remaining"] == 0
+
+    denials["remaining"] = 99
+    with pytest.raises(PermissionError):
+        run_store.write_manifest(tmp_path, manifest)
+
+
 def test_parser_accepts_one_selection_mode() -> None:
-    assert _args("--topic", "ai agents").topic == "ai agents"
-    assert _args("--url", "https://a.test", "--url", "https://b.test").urls == [
+    parse = _parser().parse_args
+    assert parse(["run", "--topic", "ai agents"]).topic == "ai agents"
+    assert parse(["run", "--url", "https://a.test", "--url", "https://b.test"]).urls == [
         "https://a.test",
         "https://b.test",
     ]
     with pytest.raises(SystemExit):
-        _args("--topic", "x", "--yc-batch", "y")
+        parse(["run", "--topic", "x", "--yc-batch", "y"])
 
 
-def _analysis_draft(candidate: dict[str, Any]) -> AnalysisDraftV1:
-    candidate_id = candidate["candidate_id"]
-    points = _SCORES.get(candidate_id, (10, 10, 5, 0, 0))
-    source_url = (
-        "https://unsupported.test/evidence"
-        if candidate_id == "example-09"
-        else candidate["source"]["source_url"]
-    )
-    return AnalysisDraftV1(
-        team=[CitedFindingV1(text="Self-reported team evidence", evidence_ids=["e1"])],
-        product=[CitedFindingV1(text="Self-reported product evidence", evidence_ids=["e1"])],
-        market=[],
-        risks=[],
-        open_questions=["What is independently verified?"],
-        unknowns=["Independent traction verification"],
-        evidence=[
-            EvidenceItemV1(
-                evidence_id="e1",
-                claim="YC profile claim",
-                source_url=source_url,
-                observed_at=None,
-                self_reported=True,
-            )
-        ],
-        dimension_scores=[
-            DimensionScoreV1(dimension=dimension, score=score, evidence_ids=["e1"])
-            for dimension, score in zip(ThesisDimension, points, strict=True)
-        ],
-        critical_risks=[],
-    )
+def test_main_rejects_invalid_environment_configuration(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("MAX_CANDIDATES", "50")
+
+    with pytest.raises(SystemExit) as exit_info:
+        main(["run"])
+
+    assert exit_info.value.code == 2
+    assert "invalid setting" in capsys.readouterr().out
 
 
-def _memo_draft(candidate_id: str) -> MemoDraftV1:
-    evidence_id = "missing" if candidate_id == "example-08" else "e1"
-    return MemoDraftV1(
-        rationale=[CitedFindingV1(text="Evidence supports the call.", evidence_ids=[evidence_id])],
-        key_risks=[CitedFindingV1(text="Evidence is self-reported.", evidence_ids=[evidence_id])],
-        decision_changes=["Can adoption be verified?", "Does usage expand to a team?"],
-    )
-
-
-def _args(*extra: str) -> Namespace:
-    return _parser().parse_args(["run", *extra])
-
-
-def _config(tmp_path: Path) -> PipelineConfig:
-    return PipelineConfig(
-        _env_file=None, openai_model="test-model", output_dir=tmp_path / "outputs"
-    )
-
-
-def _client(
-    config: PipelineConfig, responses: FakeResponses | None = None
-) -> StructuredOpenAIClient:
-    return StructuredOpenAIClient(
-        config, client=SimpleNamespace(responses=responses or FakeResponses())
-    )
-
-
-def _latest_run(output_dir: Path) -> Path:
-    return max(output_dir.iterdir())
-
-
-def _manifest(run_dir: Path) -> RunManifestV1:
-    return RunManifestV1.model_validate_json(
-        (run_dir / "manifest.json").read_text(encoding="utf-8")
-    )
+def _events(run_dir: Path) -> list[dict[str, Any]]:
+    lines = (run_dir / "logs.jsonl").read_text(encoding="utf-8").splitlines()
+    return [json.loads(line) for line in lines]
 
 
 def _assert_paths_are_portable(manifest: RunManifestV1) -> None:

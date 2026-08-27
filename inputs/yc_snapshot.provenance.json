@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "dataset": "yc-oss/api",
+  "meta_url": "https://yc-oss.github.io/api/meta.json",
+  "batch_url": "https://yc-oss.github.io/api/batches/summer-2026.json",
+  "dataset_last_updated": "2026-08-27T05:52:19.855Z",
+  "current_batch": "Summer 2026",
+  "captured_at": "2026-08-27T20:41:29.204931Z",
+  "upstream_sha256": "4a3f9381800ea7e7ba5a889c8a29f5f3c7428227c2b12bbd1c7c8282292b6337",
+  "records": 236,
+  "skipped": []
+}

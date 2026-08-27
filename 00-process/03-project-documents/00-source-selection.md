@@ -74,7 +74,7 @@ The small sample is directional, not statistically representative.
 - YC covers only YC-backed companies and has accelerator-selection bias.
 - Founder-authored descriptions and traction claims are not independently verified.
 - `is_current_batch` measures recent cohort disclosure, not ongoing activity. Exact launch dates, funding news, or linked GitHub `pushed_at` may enrich it later when citable.
-- The directory is public, but YC has no documented company-directory API and its terms restrict automated extraction. Production ingestion needs permission or another compliant acquisition method.
+- The directory is public, but YC has no documented company-directory API and its terms restrict automated extraction. The MVP captures a batch from the yc-oss open dataset, a daily republication of YC's public Algolia index limited to launched companies; it carries identity, product text, categories, team size, location, status, and batch, but no founder bios, founding year, or traction claims.
 - Current-batch membership changes as companies are revealed; every run must store `captured_at`.
 
 ## References

@@ -9,7 +9,7 @@ from pathlib import Path
 from shutil import copyfile
 from time import monotonic
 
-from pydantic import HttpUrl, ValidationError
+from pydantic import HttpUrl, JsonValue, ValidationError
 
 from investment_pipeline import stage_01_sourcing, stage_02_analysis, stage_03_recommendation
 from investment_pipeline.shared.config import PipelineConfig
@@ -49,6 +49,8 @@ _REPLAY_STAGES = {"candidates.json": _SOURCING, "analyses.jsonl": _ANALYSIS}
 def main(argv: Sequence[str] | None = None) -> None:
     """Parse arguments, load configuration, and run the pipeline."""
     args = _parser().parse_args(argv)
+    if args.command == "snapshot":
+        sys.exit(capture_snapshot(args))
     try:
         config = PipelineConfig()
     except ValidationError as exc:
@@ -91,7 +93,38 @@ def _parser() -> ArgumentParser:
         default=Path("inputs/yc_snapshot.jsonl"),
         help="YC snapshot JSONL (default: inputs/yc_snapshot.jsonl)",
     )
+    snapshot = commands.add_parser(
+        "snapshot", help="capture a YC batch from the yc-oss open dataset into inputs/"
+    )
+    snapshot.add_argument(
+        "--batch",
+        help='YC batch to capture, for example "Summer 2026" (default: the batch in session)',
+    )
+    snapshot.add_argument(
+        "--output",
+        type=Path,
+        default=Path("inputs/yc_snapshot.jsonl"),
+        help="snapshot JSONL to write (default: inputs/yc_snapshot.jsonl)",
+    )
     return parser
+
+
+def capture_snapshot(args: Namespace) -> int:
+    """Download one YC batch from the open dataset and write the Stage 01 input."""
+    try:
+        provenance = stage_01_sourcing.capture_yc_snapshot(args.batch, args.output)
+    except (OSError, ValueError, KeyError) as exc:
+        target = args.batch or "the current batch"
+        _say("Failed", f"could not capture {target}: {type(exc).__name__}")
+        return 1
+    _say(
+        "Snapshot",
+        f"{provenance.current_batch} · {provenance.records} records · "
+        f"{len(provenance.skipped)} skipped · "
+        f"dataset updated {provenance.dataset_last_updated[:10]} · "
+        f"saved {display_path(args.output)}",
+    )
+    return 0
 
 
 def run_pipeline(args: Namespace, config: PipelineConfig, client: StructuredOpenAIClient) -> int:
@@ -125,8 +158,16 @@ def run_pipeline(args: Namespace, config: PipelineConfig, client: StructuredOpen
     try:
         succeeded = _run_stages(args, config, client, run_dir, manifest)
     except Exception as exc:
+        # Frames as function:line only; file paths would put this machine's directories in a run.
+        frames: list[JsonValue] = [
+            f"{frame.name}:{frame.lineno}" for frame in traceback.extract_tb(exc.__traceback__)
+        ]
         append_log(
-            run_dir, "run_crashed", error=type(exc).__name__, traceback=traceback.format_exc()
+            run_dir,
+            "run_crashed",
+            error=type(exc).__name__,
+            message=str(exc),
+            frames=frames,
         )
         _say("Failed", f"{type(exc).__name__} · details in {display_path(run_dir)}/logs.jsonl")
         succeeded = False

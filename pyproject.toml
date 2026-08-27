@@ -16,6 +16,7 @@ dependencies = [
 
 [project.scripts]
 investment-pipeline = "investment_pipeline.cli:main"
+investment-evals = "evals.run:main"
 
 [dependency-groups]
 dev = [
@@ -25,7 +26,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/investment_pipeline"]
+packages = ["src/investment_pipeline", "evals"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -40,5 +41,5 @@ select = ["B", "E", "F", "I", "UP"]
 [tool.mypy]
 python_version = "3.12"
 strict = true
-files = ["src", "tests"]
+files = ["src", "tests", "evals"]
 plugins = ["pydantic.mypy"]

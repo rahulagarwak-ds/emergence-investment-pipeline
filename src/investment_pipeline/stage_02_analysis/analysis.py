@@ -182,6 +182,7 @@ def _write_artifact(result: AnalysisSetV1, output_dir: Path) -> None:
     (output_dir / "analyses.jsonl").write_text(
         "".join(f"{line}\n" for line in lines),
         encoding="utf-8",
+        newline="\n",
     )
 
 
