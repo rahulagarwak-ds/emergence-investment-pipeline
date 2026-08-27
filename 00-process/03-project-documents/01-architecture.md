@@ -61,7 +61,7 @@ Scores are Product Adoption 25, Workflow Habit and Importance 25, Employee-to-Te
 
 ## OpenAI SDK Boundary
 
-`shared/openai_client.py` alone owns authentication, model/reasoning configuration, timeout, bounded retries, Pydantic parsing, usage, latency, and structured errors. Stage 02 uses [Responses](https://developers.openai.com/api/reference/cli/resources/responses/methods/create), [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs), and web search with returned sources. Stage 03 uses Responses without tools. The manifest stores model, prompt hash, response ID, tokens, latency, and status; hidden chain-of-thought is never stored.
+`shared/openai_client.py` alone owns authentication, model/reasoning configuration, timeout, bounded retries, Pydantic parsing, usage, latency, and structured errors. Stage 02 uses [Responses](https://developers.openai.com/api/reference/cli/resources/responses/methods/create), [Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs), and web search with returned sources. Stage 02 web search may add cited analysis evidence but cannot add, remove, or replace Stage 01 candidates. Stage 03 uses Responses without tools. The manifest stores model, prompt hash, response ID, tokens, latency, and status; hidden chain-of-thought is never stored.
 
 ## Data and Run Artifacts
 
