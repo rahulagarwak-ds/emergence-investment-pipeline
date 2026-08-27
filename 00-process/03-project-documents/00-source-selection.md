@@ -57,6 +57,7 @@ The small sample is directional, not statistically representative.
 - Quality: **8/10** — reliable recent cohort evidence, but not continuous product activity.
 - Coverage: **10/10** across the five YC samples.
 - Score it once; do not also score founded year or batch recency.
+- **Candidate eligibility:** A company counts toward the required 10–20 only when `is_current_batch = true` or its strongest permitted YC traction signal is non-null. Other matched records remain preserved as incomplete but do not count toward the candidate target. `is_current_batch` represents cohort recency, not current product activity.
 
 ## Proxy and no-double-count rules
 
