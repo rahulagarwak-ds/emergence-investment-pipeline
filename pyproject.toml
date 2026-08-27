@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ai-augmented-investment-pipeline"
+version = "0.1.0"
+description = "Evidence-traceable seed-stage investment triage pipeline"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=2,<3",
+    "pydantic>=2.11,<3",
+    "pydantic-settings>=2.10,<3",
+]
+
+[project.scripts]
+investment-pipeline = "investment_pipeline.cli:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17,<2",
+    "pytest>=8.4,<10",
+    "ruff>=0.12,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/investment_pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["B", "E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+plugins = ["pydantic.mypy"]

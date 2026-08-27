@@ -1,0 +1,1 @@
+"""Deterministic YC sourcing stage."""

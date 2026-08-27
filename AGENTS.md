@@ -88,10 +88,10 @@ Do not silently make major scoping, thesis, scoring, or investment decisions.
 ## Repository Boundaries
 
 - `00-process/` contains project understanding, prompts, decisions, and process evidence.
-- `01-src/` contains pipeline implementation and runtime prompts.
-- `02-evals/` contains AI and output-quality evaluations.
-- `03-tests/` contains deterministic software tests.
-- `04-run-results/` contains committed pipeline outputs.
+- `src/` contains pipeline implementation and runtime prompts.
+- `evals/` contains AI and output-quality evaluations.
+- `tests/` contains deterministic software tests.
+- `outputs/` contains committed pipeline outputs.
 - `_resources/` contains supplied reference material.
 
 Do not reorganize these top-level boundaries without explicit instruction.
