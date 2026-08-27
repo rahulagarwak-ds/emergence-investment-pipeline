@@ -1,6 +1,7 @@
 """Structured failures preserved in pipeline artifacts."""
 
 from enum import StrEnum
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, JsonValue
 
@@ -14,6 +15,7 @@ class ErrorCode(StrEnum):
     INSUFFICIENT_CANDIDATES = "INSUFFICIENT_CANDIDATES"
     SOURCE_LOAD_FAILED = "SOURCE_LOAD_FAILED"
     CANDIDATE_NORMALIZATION_FAILED = "CANDIDATE_NORMALIZATION_FAILED"
+    DUPLICATE_CANDIDATE = "DUPLICATE_CANDIDATE"
     MODEL_REQUEST_FAILED = "MODEL_REQUEST_FAILED"
     INVALID_MODEL_OUTPUT = "INVALID_MODEL_OUTPUT"
     MEMO_RENDER_FAILED = "MEMO_RENDER_FAILED"
@@ -24,6 +26,8 @@ class ErrorRecordV1(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
+    schema_version: Literal["1.0"] = "1.0"
+    record_type: Literal["error"] = "error"
     code: ErrorCode
     message: str
     stage: str | None = None

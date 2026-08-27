@@ -45,3 +45,9 @@ Day 4(27th Aug 2026):
     - removed the separate key-decisions directory requirement; final decisions remain in project documents and decision history remains in the process trail
     - Chunk 1 foundation completed with the uv-managed Python package, environment contract, stage boundaries, and strict versioned Pydantic artifact/error schemas
     - import smoke, contract rejection, pytest, Ruff, mypy, lockfile, CLI-help, and secret checks passed; AI-assisted correctness and Ponytail reviews removed the unused exception wrapper
+    - Chunk 2 completed the deterministic, YC-only snapshot stage with validation, literal selectors, canonical-domain deduplication, proxy precedence, eligibility gates, provenance, and preserved partial artifacts
+    - AI-assisted implementation kept stable snapshot order at the 20-candidate cap instead of inventing a pre-analysis ranking; fixture tests, artifact reload, pytest, Ruff, mypy, lockfile, and secret checks passed
+
+Day 5(28th Aug 2026):
+    - Chunk 3 completed evidence-grounded Stage 02 with the official OpenAI Responses structured-output boundary, web-search source validation, one repair attempt, per-candidate failures, prompt/model metadata, nullable unknown scores, deterministic totals, and evidence coverage
+    - Official SDK documentation and installed signatures were verified; mocked repair, failure, web-source, and invalid-upstream paths passed with pytest, Ruff, mypy, lockfile, artifact, diff, and secret checks, and the AI-assisted Ponytail review removed a redundant request option
