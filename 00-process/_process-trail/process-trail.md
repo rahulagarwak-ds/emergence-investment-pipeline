@@ -42,3 +42,4 @@ Day 4(27th Aug 2026):
         - sourcing and Stage 02 web research boundaries clarified
     - AGENTS.md updated with the process-trail instruction for meaningful work
     - end-to-end implementation prompt created for chunked delivery, testing, replayable run artifacts, concise live progress, and Ponytail review
+    - removed the separate key-decisions directory requirement; final decisions remain in project documents and decision history remains in the process trail
