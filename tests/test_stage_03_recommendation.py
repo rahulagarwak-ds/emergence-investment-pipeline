@@ -105,12 +105,12 @@ def test_policy_memos_failures_and_ranked_index(tmp_path: Path) -> None:
     assert responses.attempts["company-02"] == 2
     assert len(list((tmp_path / "memos").glob("*.md"))) == 10
 
-    memo = (tmp_path / "memos" / "company-01.md").read_text()
+    memo = (tmp_path / "memos" / "company-01.md").read_text(encoding="utf-8")
     assert memo.splitlines()[-1] == "**Recommendation: Take a meeting**"
     assert "[e1 · self-reported](<https://evidence.test/company-01>)" in memo
     assert len(memo.split()) <= MEMO_MAX_WORDS
 
-    index = (tmp_path / "index.md").read_text()
+    index = (tmp_path / "index.md").read_text(encoding="utf-8")
     assert "| 1 | Company 01 | 90 | 100% | Take a meeting |" in index
     assert "| 2 | Company 02 | 80 | 100% | Take a meeting | render failed |" in index
 

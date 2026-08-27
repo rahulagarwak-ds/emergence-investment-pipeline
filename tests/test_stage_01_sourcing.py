@@ -33,9 +33,11 @@ def test_snapshot_normalization_deduplication_eligibility_and_artifacts(tmp_path
         ErrorCode.CANDIDATE_NORMALIZATION_FAILED,
     }
 
-    saved = CandidateSetV1.model_validate_json((output_dir / "candidates.json").read_text())
+    saved = CandidateSetV1.model_validate_json(
+        (output_dir / "candidates.json").read_text(encoding="utf-8")
+    )
     assert saved == result
-    assert len((output_dir / "source_refs.jsonl").read_text().splitlines()) == 13
+    assert len((output_dir / "source_refs.jsonl").read_text(encoding="utf-8").splitlines()) == 13
 
 
 def test_selectors_and_insufficient_candidate_failure_are_preserved(tmp_path: Path) -> None:

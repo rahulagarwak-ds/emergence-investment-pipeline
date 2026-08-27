@@ -135,10 +135,8 @@ def test_analysis_repairs_once_preserves_failure_and_calculates_scores(tmp_path:
     external = next(item for item in result.analyses if item.candidate_id == "example-04")
     assert str(external.response.source_urls[0]) == "https://public.test/evidence"
 
-    lines = [
-        json.loads(line)
-        for line in (tmp_path / "02_analysis" / "analyses.jsonl").read_text().splitlines()
-    ]
+    analyses_path = tmp_path / "02_analysis" / "analyses.jsonl"
+    lines = [json.loads(line) for line in analyses_path.read_text(encoding="utf-8").splitlines()]
     assert len(lines) == 10
     assert {line["record_type"] for line in lines} == {"analysis", "error"}
     assert all(request_instruction for request_instruction in responses.instructions)
