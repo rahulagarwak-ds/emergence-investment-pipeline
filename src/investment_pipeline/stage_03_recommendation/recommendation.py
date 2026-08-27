@@ -1,6 +1,7 @@
 """Deterministic ranking, recommendation policy, and constrained memo rendering."""
 
 import json
+from collections.abc import Callable
 from datetime import UTC, datetime
 from functools import partial
 from hashlib import sha256
@@ -25,7 +26,7 @@ from investment_pipeline.shared.schemas import (
 PROMPT_VERSION = "memo-v1"
 MEMO_MAX_WORDS = 350
 _PROMPT = Path(__file__).with_name("prompt_v1.md").read_text(encoding="utf-8")
-_PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
+PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
 _STAGE = "stage_03_recommendation"
 
 
@@ -41,8 +42,12 @@ def run_recommendation(
     analysis_set: AnalysisSetV1,
     output_dir: Path,
     client: StructuredOpenAIClient,
+    on_candidate: Callable[[int, int, str, str], None] | None = None,
 ) -> RecommendationSetV1:
-    """Rank analyses, assign deterministic calls, and write constrained memos."""
+    """Rank analyses, assign deterministic calls, and write constrained memos.
+
+    ``on_candidate`` receives ``(rank, total, candidate_name, call | "render failed")``.
+    """
     output_dir.mkdir(parents=True, exist_ok=True)
     (output_dir / "memos").mkdir(exist_ok=True)
     analyses = sorted(
@@ -113,11 +118,18 @@ def run_recommendation(
                 critical_risks=[risk.risk for risk in analysis.critical_risks],
                 recommendation=recommendation,
                 prompt_version=PROMPT_VERSION,
-                prompt_hash=_PROMPT_HASH,
+                prompt_hash=PROMPT_HASH,
                 response=metadata,
                 memo_path=memo_path,
             )
         )
+        if on_candidate is not None:
+            on_candidate(
+                rank,
+                len(analyses),
+                analysis.candidate_name,
+                recommendation.value if memo_path else "render failed",
+            )
 
     result = RecommendationSetV1(
         created_at=datetime.now(UTC),
@@ -125,6 +137,9 @@ def run_recommendation(
         errors=errors,
     )
     (output_dir / "index.md").write_text(_render_index(result), encoding="utf-8")
+    (output_dir / "recommendations.json").write_text(
+        result.model_dump_json(indent=2) + "\n", encoding="utf-8"
+    )
     return result
 
 

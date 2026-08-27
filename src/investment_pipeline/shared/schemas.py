@@ -9,6 +9,7 @@ from pydantic import (
     ConfigDict,
     Field,
     HttpUrl,
+    JsonValue,
     model_validator,
 )
 
@@ -306,3 +307,49 @@ class RecommendationSetV1(ContractModel):
         if len(candidate_ids) != len(set(candidate_ids)):
             raise ValueError("recommendation candidate ids must be unique")
         return self
+
+
+class StageStatus(StrEnum):
+    PENDING = "pending"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
+    SKIPPED = "skipped"
+
+
+class ArtifactRefV1(ContractModel):
+    path: str = Field(min_length=1)
+    sha256: str = Field(pattern=r"^[0-9a-f]{64}$")
+
+
+class StageRunV1(ContractModel):
+    status: StageStatus = StageStatus.PENDING
+    started_at: AwareDatetime | None = None
+    finished_at: AwareDatetime | None = None
+    artifacts: list[ArtifactRefV1] = []
+    summary: dict[str, JsonValue] = {}
+    response_ids: list[str] = []
+    usage: TokenUsageV1 | None = None
+    latency_ms: int | None = Field(default=None, ge=0)
+    errors: list[ErrorRecordV1] = []
+
+
+class RunInputV1(ContractModel):
+    selector: str = Field(min_length=1)
+    snapshot_path: str | None = None
+    snapshot_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
+    snapshot_captured_at: AwareDatetime | None = None
+    parent_artifact: ArtifactRefV1 | None = None
+
+
+class RunManifestV1(ContractModel):
+    schema_version: Literal["1.0"] = SCHEMA_VERSION
+    run_id: str = Field(min_length=1)
+    status: StageStatus
+    created_at: AwareDatetime
+    updated_at: AwareDatetime
+    input: RunInputV1
+    versions: dict[str, str]
+    stages: dict[str, StageRunV1]
+    source_urls: list[HttpUrl] = []
+    errors: list[ErrorRecordV1] = []

@@ -1,5 +1,7 @@
 """Evidence-grounded Stage 02 analysis."""
 
+import json
+from collections.abc import Callable
 from datetime import UTC, datetime
 from functools import partial
 from hashlib import sha256
@@ -25,7 +27,7 @@ from investment_pipeline.shared.schemas import (
 
 PROMPT_VERSION = "analysis-v1"
 _PROMPT = Path(__file__).with_name("prompt_v1.md").read_text(encoding="utf-8")
-_PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
+PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
 _STAGE = "stage_02_analysis"
 
 
@@ -47,8 +49,12 @@ def run_analysis(
     candidate_set: CandidateSetV1,
     output_dir: Path,
     client: StructuredOpenAIClient,
+    on_candidate: Callable[[int, int, str, str], None] | None = None,
 ) -> AnalysisSetV1:
-    """Analyze exactly the eligible Stage 01 candidates and persist JSONL results."""
+    """Analyze exactly the eligible Stage 01 candidates and persist JSONL results.
+
+    ``on_candidate`` receives ``(index, total, candidate_name, "complete" | "failed")``.
+    """
     if any(error.code is ErrorCode.INSUFFICIENT_CANDIDATES for error in candidate_set.errors):
         result = AnalysisSetV1(
             created_at=datetime.now(UTC),
@@ -66,7 +72,8 @@ def run_analysis(
 
     analyses: list[AnalysisRecordV1] = []
     errors: list[ErrorRecordV1] = []
-    for candidate in candidate_set.candidates:
+    total = len(candidate_set.candidates)
+    for index, candidate in enumerate(candidate_set.candidates, start=1):
         response = client.parse(
             instructions=_PROMPT,
             input_text=candidate.model_dump_json(indent=2),
@@ -76,22 +83,23 @@ def run_analysis(
             validate=partial(_validate_analysis, candidate),
             web_search=True,
         )
-        if response.error is not None:
-            errors.append(response.error)
-            if response.error.code is ErrorCode.INVALID_CONFIG:
-                break
-            continue
-        if response.parsed is None or response.metadata is None:
+        succeeded = response.parsed is not None and response.metadata is not None
+        if response.parsed is not None and response.metadata is not None:
+            analyses.append(_build_analysis(candidate, response.parsed, response.metadata))
+        else:
             errors.append(
-                ErrorRecordV1(
+                response.error
+                or ErrorRecordV1(
                     code=ErrorCode.INVALID_MODEL_OUTPUT,
                     message="OpenAI response was missing parsed output or metadata",
                     stage=_STAGE,
                     candidate_id=candidate.candidate_id,
                 )
             )
-            continue
-        analyses.append(_build_analysis(candidate, response.parsed, response.metadata))
+        if on_candidate is not None:
+            on_candidate(index, total, candidate.name, "complete" if succeeded else "failed")
+        if response.error is not None and response.error.code is ErrorCode.INVALID_CONFIG:
+            break
 
     result = AnalysisSetV1(
         created_at=datetime.now(UTC),
@@ -128,7 +136,7 @@ def _build_analysis(
         candidate_id=candidate.candidate_id,
         candidate_name=candidate.name,
         prompt_version=PROMPT_VERSION,
-        prompt_hash=_PROMPT_HASH,
+        prompt_hash=PROMPT_HASH,
         response=metadata,
         team=draft.team,
         product=draft.product,
@@ -150,6 +158,21 @@ def _validate_analysis(
     metadata: OpenAIResponseMetadataV1,
 ) -> None:
     _build_analysis(candidate, draft, metadata)
+
+
+def load_analyses(path: Path) -> AnalysisSetV1:
+    """Reload a Stage 02 artifact for replay; the set timestamp is the reload time."""
+    analyses: list[AnalysisRecordV1] = []
+    errors: list[ErrorRecordV1] = []
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        record = json.loads(line)
+        if record.get("record_type") == "error":
+            errors.append(ErrorRecordV1.model_validate(record))
+        else:
+            analyses.append(AnalysisRecordV1.model_validate(record))
+    return AnalysisSetV1(created_at=datetime.now(UTC), analyses=analyses, errors=errors)
 
 
 def _write_artifact(result: AnalysisSetV1, output_dir: Path) -> None:
