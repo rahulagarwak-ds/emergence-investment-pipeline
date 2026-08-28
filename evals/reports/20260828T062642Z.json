@@ -1,0 +1,96 @@
+{
+  "run_id": "20260828T062642Z",
+  "model": "gpt-5",
+  "analysis_prompt": "analysis-v2@c5998a5346b555bc5eeff59489a92393091b87464b34358ac187c649ca604e19",
+  "memo_prompt": "memo-v2@faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+  "graded_at": "2026-08-28T06:50:50.524424+00:00",
+  "deterministic": {
+    "findings": [],
+    "passed": true
+  },
+  "semantic": {
+    "judge_prompt": "judge-v1@4e723be639cab367eb7482215f455fba5652eb7985b226f50389e524bb37a174",
+    "ratings": {
+      "rapidfolio": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Light coverage of bottom-up product adoption and employee-to-team expansion weakens adherence to the B2B Adoption Before Procurement thesis."
+      },
+      "withasync": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "The memo underplays founder execution fit despite a low score, offering no rationale or evidence-linked discussion of team capacity or track record."
+      },
+      "prescience-inc": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Rationale leans on positioning and team credentials rather than deeply arguing adoption dynamics (workflow habit, employee-to-team expansion). It could tie evidence more explicitly to how bottom-up usage grows pre-procurement."
+      },
+      "os3": {
+        "thesis_adherence": 5,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "It omits the analysis\u2019s explicit risk about unproven manufacturing/logistics/support readiness, focusing instead on shipment timing."
+      },
+      "archal": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 4,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Rationale leans on generic market tailwinds and competitor validation rather than tightly arguing each adoption dimension."
+      },
+      "assemble": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Rationale leans on product merits and team strength rather than explicitly arguing adoption mechanics (e.g., employee-to-team expansion and procurement path). Make the core rationale map more directly to the five \u201cB2B Adoption Before Procurement\u201d pillars."
+      },
+      "datoric": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "The rationale slightly drifts into generic competition (Appen/Scale) rather than strictly B2B adoption-before-procurement levers."
+      },
+      "dream": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "The rationale focuses on product, competition, and founders rather than explicitly arguing employee-to-team expansion and the enterprise procurement path. It underweights how workflow habit translates into bottoms-up adoption and expansion."
+      },
+      "induction-labs": {
+        "thesis_adherence": 2,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 4,
+        "notes": "Rationale centers on research and benchmark claims rather than tying evidence to adoption-before-procurement pillars (workflow habit, team expansion, and enterprise path)."
+      }
+    },
+    "errors": {},
+    "averages": {
+      "thesis_adherence": 3.67,
+      "faithfulness": 5,
+      "clarity": 4.89,
+      "risk_quality": 4.56,
+      "specificity": 4.89
+    }
+  }
+}

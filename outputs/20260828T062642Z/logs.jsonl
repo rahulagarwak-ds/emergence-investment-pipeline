@@ -1,0 +1,27 @@
+{"at": "2026-08-28T06:26:42.758399+00:00", "event": "run_started", "selector": "topic=\"B2B\""}
+{"at": "2026-08-28T06:26:42.764604+00:00", "event": "stage_started", "stage": "01_sourcing"}
+{"at": "2026-08-28T06:26:42.884842+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "completed", "summary": {"loaded": 236, "matched": 132, "deduplicated": 132, "eligible": 10, "rejected": 122}, "errors": 0}
+{"at": "2026-08-28T06:26:42.889319+00:00", "event": "stage_started", "stage": "02_analysis"}
+{"at": "2026-08-28T06:27:52.547115+00:00", "event": "candidate_analyzed", "index": 1, "total": 10, "candidate": "Async", "status": "complete"}
+{"at": "2026-08-28T06:29:19.076546+00:00", "event": "candidate_analyzed", "index": 2, "total": 10, "candidate": "Induction Labs", "status": "complete"}
+{"at": "2026-08-28T06:31:01.755506+00:00", "event": "candidate_analyzed", "index": 3, "total": 10, "candidate": "OS3", "status": "complete"}
+{"at": "2026-08-28T06:33:17.341374+00:00", "event": "candidate_analyzed", "index": 4, "total": 10, "candidate": "OneTriangle", "status": "failed"}
+{"at": "2026-08-28T06:34:54.696414+00:00", "event": "candidate_analyzed", "index": 5, "total": 10, "candidate": "Prescience, Inc.", "status": "complete"}
+{"at": "2026-08-28T06:36:15.796095+00:00", "event": "candidate_analyzed", "index": 6, "total": 10, "candidate": "Rapidfolio", "status": "complete"}
+{"at": "2026-08-28T06:37:40.323572+00:00", "event": "candidate_analyzed", "index": 7, "total": 10, "candidate": "Assemble", "status": "complete"}
+{"at": "2026-08-28T06:40:43.126636+00:00", "event": "candidate_analyzed", "index": 8, "total": 10, "candidate": "Archal", "status": "complete"}
+{"at": "2026-08-28T06:42:01.714770+00:00", "event": "candidate_analyzed", "index": 9, "total": 10, "candidate": "Datoric", "status": "complete"}
+{"at": "2026-08-28T06:43:33.172476+00:00", "event": "candidate_analyzed", "index": 10, "total": 10, "candidate": "Dream", "status": "complete"}
+{"at": "2026-08-28T06:43:33.195529+00:00", "event": "stage_finished", "stage": "02_analysis", "status": "completed", "summary": {"valid": 9, "failed": 1}, "errors": 1}
+{"at": "2026-08-28T06:43:33.199956+00:00", "event": "stage_started", "stage": "03_recommendation"}
+{"at": "2026-08-28T06:43:53.950796+00:00", "event": "memo_rendered", "rank": 1, "total": 9, "candidate": "Rapidfolio", "status": "Watch"}
+{"at": "2026-08-28T06:44:16.368973+00:00", "event": "memo_rendered", "rank": 2, "total": 9, "candidate": "Async", "status": "Watch"}
+{"at": "2026-08-28T06:44:40.393940+00:00", "event": "memo_rendered", "rank": 3, "total": 9, "candidate": "Prescience, Inc.", "status": "Watch"}
+{"at": "2026-08-28T06:44:55.910255+00:00", "event": "memo_rendered", "rank": 4, "total": 9, "candidate": "OS3", "status": "Watch"}
+{"at": "2026-08-28T06:45:13.044252+00:00", "event": "memo_rendered", "rank": 5, "total": 9, "candidate": "Archal", "status": "Watch"}
+{"at": "2026-08-28T06:45:41.073933+00:00", "event": "memo_rendered", "rank": 6, "total": 9, "candidate": "Assemble", "status": "Watch"}
+{"at": "2026-08-28T06:46:08.696336+00:00", "event": "memo_rendered", "rank": 7, "total": 9, "candidate": "Datoric", "status": "Pass"}
+{"at": "2026-08-28T06:46:24.259806+00:00", "event": "memo_rendered", "rank": 8, "total": 9, "candidate": "Dream", "status": "Pass"}
+{"at": "2026-08-28T06:46:45.039918+00:00", "event": "memo_rendered", "rank": 9, "total": 9, "candidate": "Induction Labs", "status": "Pass"}
+{"at": "2026-08-28T06:46:45.230848+00:00", "event": "stage_finished", "stage": "03_recommendation", "status": "completed", "summary": {"memos": 9, "render_failed": 0, "meeting": 0, "watch": 6, "pass": 3}, "errors": 0}
+{"at": "2026-08-28T06:46:45.237992+00:00", "event": "run_finished", "status": "completed"}

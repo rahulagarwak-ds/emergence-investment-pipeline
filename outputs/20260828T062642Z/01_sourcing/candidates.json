@@ -1,0 +1,322 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-28T06:26:42.807813Z",
+  "input_summary": "topic=\"B2B\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 132,
+    "deduplicated": 132,
+    "eligible": 10,
+    "rejected": 122
+  },
+  "candidates": [
+    {
+      "candidate_id": "withasync",
+      "name": "Async",
+      "website_url": "https://withasync.com/",
+      "canonical_domain": "withasync.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/withasync",
+      "tagline": "AI agents that run small businesses",
+      "description": "Async builds agents that change how businesses can run. Law firms, healthcare clinics and real estate companies hire our AI agents to automate complex work that's never been economical to staff with humans, letting us capture labor spend that didn't previously exist.",
+      "categories": [
+        "B2B",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "withasync",
+        "source_url": "https://www.ycombinator.com/companies/withasync",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "induction-labs",
+      "name": "Induction Labs",
+      "website_url": "https://inductionlabs.com/",
+      "canonical_domain": "inductionlabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/induction-labs",
+      "tagline": "Building intellectually curious AI",
+      "description": "We are scaling foundation models that are curious about the world.\r\n\r\nWe’ve seen general intelligence appear exactly once, and its hallmark has been curiosity: a dissatisfaction with what we already know about the world, an ability to learn from world experience, and a disposition to share knowledge with other individuals. Across generations, these human traits have built modern science, technology, and culture.\r\n\r\nWe think superintelligence will come from models that work the same way: learning from their own observation, updating as they go, growing what they know. These models will start from what humanity knows and discover past us.\r\n\r\nWe believe that scaling curious intelligence is a defining problem of our time. If solved, we will live to see a new era of technological advances, scientific understanding, and human flourishing.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Deep Learning",
+        "Hard Tech",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "induction-labs",
+        "source_url": "https://www.ycombinator.com/companies/induction-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "os3",
+      "name": "OS3",
+      "website_url": "https://os3robotics.com/",
+      "canonical_domain": "os3robotics.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/os3",
+      "tagline": "Full Stack Robotics: Deploying US-Built Robots & Video Action Models",
+      "description": "We are building robots, including custom actuators. Our first model is trained for the robot with 150k hours of video data. \r\n\r\nThe robot, a mobile semi-humanoid priced, is already signed for deployments in hospitality and biotech. Our developer version lets anyone deploy robots in their own verticals, and we already have preorders.\r\n\r\nWe are scaling American robotics while making it accessible to more businesses.",
+      "categories": [
+        "Industrials",
+        "Manufacturing and Robotics",
+        "Hardware",
+        "Robotics",
+        "B2B",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "os3",
+        "source_url": "https://www.ycombinator.com/companies/os3",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "onetriangle",
+      "name": "OneTriangle",
+      "website_url": "https://onetriangle.ai/",
+      "canonical_domain": "onetriangle.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/onetriangle",
+      "tagline": "The cheapest, fastest lightweight inference.",
+      "description": "Inference has surpassed training as AI’s largest compute cost, accelerated by increasing demand for AI and agents. By using proprietary KV cache transfer tech, OneTriangle has cut inference costs by 20% and time by 40% compared to present standards.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Smart Packaging",
+        "Open Source",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 4,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "onetriangle",
+        "source_url": "https://www.ycombinator.com/companies/onetriangle",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "prescience-inc",
+      "name": "Prescience, Inc.",
+      "website_url": "https://www.getprescience.com/",
+      "canonical_domain": "getprescience.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/prescience-inc",
+      "tagline": "Healthcare for the age of abundant intelligence.",
+      "description": "Prescience is the preeminent health benefits platform for the world's most ambitious companies. We save employers 20-50% on health insurance while offering best-in-industry health benefits: www.getprescience.com\r\n\r\nAbout us:\r\nPrescience is building a new healthcare system for America. We train AI systems to: create, operate, insure, and deliver healthcare for employer health plans. Prescience Time Machine – an AlphaGo-like system – steers patients towards “Move 37 health trajectories” that deliver dramatic cost savings for employers. Rishab Jain and Aditya Jain, M.D. are serial entrepreneurs and brothers from Harvard & Harvard Medical School with backgrounds in machine learning and medicine. We believe abundant intelligence will bring an opportunity to fundamentally rebuild the $4.5T healthcare industry around proactive (prescient) health and wellness.",
+      "categories": [
+        "Healthcare",
+        "B2B",
+        "Health Insurance",
+        "Insurance"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "prescience-inc",
+        "source_url": "https://www.ycombinator.com/companies/prescience-inc",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "rapidfolio",
+      "name": "Rapidfolio",
+      "website_url": "https://rapidfolio.com/",
+      "canonical_domain": "rapidfolio.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/rapidfolio",
+      "tagline": "AI for fintechs & banks",
+      "description": "Rapidfolio helps banks and fintechs fully automate back-office workflows like fraud investigations, KYB/KYC and loan underwriting, with accuracy and auditability.\r\n\r\nBuilt by fintech founders and operators, Rapidfolio is on a mission to ensure banks and fintechs scale their customer base without adding another back-office head count.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Fintech",
+        "SaaS",
+        "Enterprise",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": null,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "rapidfolio",
+        "source_url": "https://www.ycombinator.com/companies/rapidfolio",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "assemble",
+      "name": "Assemble",
+      "website_url": "https://www.assemble.ai/",
+      "canonical_domain": "assemble.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/assemble",
+      "tagline": "AI Coworkers for IT teams",
+      "description": "Assemble accelerates IT teams by performing development work inside core enterprise systems like ERP, CRM, and HRIS. Our agents help IT teams scope dependencies, build logic, and validate changes across your systems.",
+      "categories": [
+        "B2B",
+        "SaaS",
+        "Enterprise Software",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 4,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "assemble",
+        "source_url": "https://www.ycombinator.com/companies/assemble",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "archal",
+      "name": "Archal",
+      "website_url": "https://www.archal.ai/",
+      "canonical_domain": "archal.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/archal",
+      "tagline": "API sandboxes, built for AI agents",
+      "description": "Archal provisions sandboxes with the API environments your CI, tests, and evals need. Your coding agent can start the sandbox & environments, connect to your API integrations, run tests, and inspect state changes. Sandboxes and environments are startable within seconds and take milliseconds to reset.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Artificial Intelligence",
+        "Developer Tools",
+        "API"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "archal",
+        "source_url": "https://www.ycombinator.com/companies/archal",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "datoric",
+      "name": "Datoric",
+      "website_url": "https://www.datoric.com/",
+      "canonical_domain": "datoric.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/datoric",
+      "tagline": "Secure training data shaped by experimentation",
+      "description": "Datoric develops custom datasets for voice models, robotics, and world models, treating research, collection, verification, and production as one continuous process. We work closely with frontier model teams to turn emerging limitations into testable data hypotheses, while running our own experiments ahead of customer demand. This allows us to operationalize validated methods into repeatable collection systems at scale.\r\n\r\nData is collected through private invite-only applications separated by modality, customer, and trust level. Every submission remains linked to the contributor, device, task, session, consent, rights, and processing history that produced it, giving our internal QA and fraud models the context to detect problems that may appear legitimate in the finished file. Each collection reveals new failure cases and quality signals that improve the systems behind the next dataset.\r\n\r\nOnce a collection method is validated, it becomes a reusable data recipe for future custom projects or independently collected, rights-cleared data products. This allows Datoric to turn what is emerging at the frontier into datasets available ahead of broader market demand.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Data Labeling",
+        "ML"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "datoric",
+        "source_url": "https://www.ycombinator.com/companies/datoric",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "dream",
+      "name": "Dream",
+      "website_url": "https://www.pingdream.com/",
+      "canonical_domain": "pingdream.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/dream",
+      "tagline": "Pocket-sized AI cameras that catch asset damage.",
+      "description": "Dream makes pocket-sized, battery-powered AI cameras that catch damage teams miss. Car dealerships, equipment rental companies, fleets, and more move expensive assets in and out all day, and undocumented damage is a costly leak.\r\n\r\nDream cameras are simple to set up and work automatically. Each vehicle or machine that passes is photographed from every angle, identified, and reconstructed into a 3D condition record. On return or intake, Dream instantly flags new dents, scrapes, and changes your team might miss, giving one source of truth for every asset's condition over time.\r\n\r\nRyland worked at X/xAI and built aerial damage-detection vision at Vexcel Imaging. Alexander worked at AWS and trained edge-camera models deployed in the wild across Africa and India to detect poachers.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Hardware",
+        "Machine Learning",
+        "Computer Vision"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "dream",
+        "source_url": "https://www.ycombinator.com/companies/dream",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    }
+  ],
+  "incomplete_candidates": [],
+  "errors": []
+}
