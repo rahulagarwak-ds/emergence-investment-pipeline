@@ -17,7 +17,7 @@ from investment_pipeline.stage_02_analysis import load_analyses
 from investment_pipeline.stage_03_recommendation import assign_recommendation
 from investment_pipeline.stage_03_recommendation.recommendation import MEMO_MAX_WORDS
 
-_CITATION = re.compile(r"\[([a-z0-9_-]+)(?: · self-reported)?\]\(<https?://[^>]+>\)", re.IGNORECASE)
+_CITATION = re.compile(r"\[([A-Za-z0-9][A-Za-z0-9_.-]*)(?: · self-reported)?\]\(<https?://[^>]+>\)")
 _RATIONALE, _RISKS, _DECISION = "## Rationale", "## Key risks", "## What would change the decision"
 
 

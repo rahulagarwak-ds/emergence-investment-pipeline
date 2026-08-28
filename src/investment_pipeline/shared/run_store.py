@@ -1,6 +1,7 @@
 """Run directories, manifests, and structured logs shared by the CLI orchestration."""
 
 import json
+from collections.abc import Callable
 from datetime import UTC, datetime
 from hashlib import sha256
 from pathlib import Path
@@ -46,18 +47,31 @@ def write_manifest(run_dir: Path, manifest: RunManifestV1) -> None:
     manifest.updated_at = datetime.now(UTC)
     staged = run_dir / "manifest.json.tmp"
     staged.write_text(manifest.model_dump_json(indent=2) + "\n", encoding="utf-8", newline="\n")
-    for attempt in range(5):
-        try:
-            staged.replace(run_dir / "manifest.json")
-            return
-        except PermissionError:
-            # ponytail: Windows scanners lock fresh files for a moment; retry briefly, then fail.
-            if attempt == 4:
-                raise
-            sleep(0.1 * (attempt + 1))
+    _retry_transient(lambda: staged.replace(run_dir / "manifest.json"))
 
 
 def append_log(run_dir: Path, event: str, **fields: JsonValue) -> None:
     record = {"at": datetime.now(UTC).isoformat(), "event": event, **fields}
-    with (run_dir / "logs.jsonl").open("a", encoding="utf-8", newline="\n") as handle:
-        handle.write(json.dumps(record, default=str) + "\n")
+    line = json.dumps(record, default=str) + "\n"
+
+    def write() -> None:
+        with (run_dir / "logs.jsonl").open("a", encoding="utf-8", newline="\n") as handle:
+            handle.write(line)
+
+    _retry_transient(write)
+
+
+def _retry_transient(operation: Callable[[], object]) -> None:
+    """Run a small file operation, retrying briefly when the OS refuses it.
+
+    ponytail: Windows scanners and cloud-sync clients lock or momentarily hide fresh files;
+    five short retries cover that, then the error propagates.
+    """
+    for attempt in range(5):
+        try:
+            operation()
+            return
+        except (PermissionError, FileNotFoundError):
+            if attempt == 4:
+                raise
+            sleep(0.1 * (attempt + 1))

@@ -5,7 +5,8 @@ Do not add, remove, or replace the candidate.
 
 Produce concise structured findings for team, product, market/competition/why-now, risks, and open
 questions. Every factual finding and critical risk must cite evidence IDs. Each evidence item must
-contain one claim and the exact source URL. Mark every claim taken from the YC profile or the
+contain one claim and the exact source URL; give it a short id such as `E1` or `site_pricing`, never
+the URL itself. Mark every claim taken from the YC profile or the
 company's own pages as self-reported. Represent unavailable facts in `unknowns`; never infer absence
 from missing evidence.
 

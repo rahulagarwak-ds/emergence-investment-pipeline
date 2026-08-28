@@ -35,7 +35,8 @@ class EvidenceDraftV1(ContractModel):
     """Evidence as the model returns it; ``source_url`` stays a string because OpenAI's strict
     schema subset rejects ``format: uri``. Python converts it into ``EvidenceItemV1``."""
 
-    evidence_id: str = Field(min_length=1)
+    # Short tokens only: the id becomes the memo's citation label, so a URL here is unreadable.
+    evidence_id: str = Field(pattern=r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,31}$")
     claim: str = Field(min_length=1)
     source_url: str = Field(min_length=1)
     observed_at: AwareDatetime | None

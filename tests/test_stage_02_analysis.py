@@ -6,6 +6,9 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
+import pytest
+from pydantic import ValidationError
+
 from investment_pipeline.shared.config import PipelineConfig
 from investment_pipeline.shared.errors import ErrorCode
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
@@ -154,6 +157,14 @@ def test_model_facing_schemas_avoid_unsupported_json_schema_formats() -> None:
 
     for draft in (AnalysisDraftV1, MemoDraftV1):
         assert '"uri"' not in json.dumps(draft.model_json_schema()), draft.__name__
+    with pytest.raises(ValidationError):
+        EvidenceDraftV1(
+            evidence_id="https://example.test/page",
+            claim="ids must be short tokens, not URLs",
+            source_url="https://example.test/page",
+            observed_at=None,
+            self_reported=True,
+        )
 
 
 def test_analysis_stops_on_insufficient_stage_01_artifact(tmp_path: Path) -> None:

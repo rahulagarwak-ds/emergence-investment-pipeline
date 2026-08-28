@@ -162,19 +162,30 @@ def run_pipeline(args: Namespace, config: PipelineConfig, client: StructuredOpen
         frames: list[JsonValue] = [
             f"{frame.name}:{frame.lineno}" for frame in traceback.extract_tb(exc.__traceback__)
         ]
-        append_log(
-            run_dir,
-            "run_crashed",
-            error=type(exc).__name__,
-            message=str(exc),
-            frames=frames,
-        )
+        try:
+            append_log(
+                run_dir,
+                "run_crashed",
+                error=type(exc).__name__,
+                message=str(exc),
+                frames=frames,
+            )
+        except OSError as log_exc:
+            # The run directory itself is unwritable; keep the failure visible on screen.
+            print(
+                f"run_crashed {type(exc).__name__}: {exc} (log unavailable: {log_exc})",
+                file=sys.stderr,
+            )
         _say("Failed", f"{type(exc).__name__} · details in {display_path(run_dir)}/logs.jsonl")
         succeeded = False
 
     manifest.status = StageStatus.COMPLETED if succeeded else StageStatus.FAILED
-    write_manifest(run_dir, manifest)
-    append_log(run_dir, "run_finished", status=manifest.status.value)
+    try:
+        write_manifest(run_dir, manifest)
+        append_log(run_dir, "run_finished", status=manifest.status.value)
+    except OSError as exc:
+        print(f"could not finalize {display_path(run_dir)}: {exc}", file=sys.stderr)
+        succeeded = False
     _say("Done" if succeeded else "Failed", f"{display_path(run_dir)}/ · {_elapsed(started)}")
     return 0 if succeeded else 1
 
