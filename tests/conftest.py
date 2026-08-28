@@ -18,6 +18,7 @@ from investment_pipeline.shared.schemas import (
     RunManifestV1,
     ThesisDimension,
 )
+from investment_pipeline.stage_02_analysis import analysis as analysis_module
 from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1, EvidenceDraftV1
 from investment_pipeline.stage_03_recommendation.recommendation import MemoDraftV1
 
@@ -80,8 +81,9 @@ def config(tmp_path: Path) -> PipelineConfig:
 
 
 @pytest.fixture
-def run(config: PipelineConfig) -> RunPipeline:
-    """Run the CLI against the fixture snapshot with a fresh fake per call."""
+def run(config: PipelineConfig, monkeypatch: pytest.MonkeyPatch) -> RunPipeline:
+    """Run the CLI against the fixture snapshot with a fresh fake per call; links resolve as 200."""
+    monkeypatch.setattr(analysis_module, "http_status", lambda url, timeout=10.0: 200)
 
     def _run(
         *cli_args: str,

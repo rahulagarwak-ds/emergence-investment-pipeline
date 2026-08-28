@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from investment_pipeline.shared.schemas import (
+    THESIS_WEIGHTS,
     AnalysisSetV1,
     CandidateSetV1,
     RecommendationSetV1,
@@ -18,6 +19,7 @@ from investment_pipeline.stage_03_recommendation import assign_recommendation
 from investment_pipeline.stage_03_recommendation.recommendation import MEMO_MAX_WORDS
 
 _CITATION = re.compile(r"\[([A-Za-z0-9][A-Za-z0-9_.-]*)(?: · self-reported)?\]\(<https?://[^>]+>\)")
+_LINK = re.compile(r"\]\(<(https?://[^>]+)>\)")
 _RATIONALE, _RISKS, _DECISION = "## Rationale", "## Key risks", "## What would change the decision"
 
 
@@ -162,8 +164,19 @@ def grade_memos(run: GradedRun) -> list[Finding]:
         problems = []
         if lines[0] != f"# {record.candidate_name}":
             problems.append("title does not match the candidate")
-        if analysis and f"**Thesis score:** {analysis.total_score}/100  " not in lines:
+        if analysis and f"**Thesis score:** {analysis.total_score}/100" not in text:
             problems.append("thesis score differs from the analysis")
+        call = f"**Recommendation: {record.recommendation.value}**"
+        header_format = len(lines) > 2 and lines[2].startswith("**Recommendation:")
+        if (lines[2] if header_format else lines[-1]) != call:
+            problems.append("recommendation line does not state the recorded recommendation")
+        if header_format and analysis:
+            for score in analysis.dimension_scores:
+                label = score.dimension.value.replace("_", " ").capitalize()
+                points = "unknown" if score.score is None else str(score.score)
+                row = f"| {label} | {points}/{THESIS_WEIGHTS[score.dimension]} |"
+                if not any(line.startswith(row) for line in lines):
+                    problems.append(f"pillar table row missing or wrong for {label}")
         problems.extend(
             f"missing section {heading!r}"
             for heading in (_RATIONALE, _RISKS, _DECISION)
@@ -179,11 +192,38 @@ def grade_memos(run: GradedRun) -> list[Finding]:
         questions = sections.get(_DECISION, [])
         if not 2 <= len(questions) <= 3 or not all(q.endswith("?") for q in questions):
             problems.append("decision section needs two or three questions")
-        if lines[-1] != f"**Recommendation: {record.recommendation.value}**":
-            problems.append("final line does not state the recorded recommendation")
         if len(text.split()) > MEMO_MAX_WORDS:
             problems.append(f"memo exceeds {MEMO_MAX_WORDS} words")
         findings.extend(Finding("memos", candidate_id, problem) for problem in problems)
+    return findings
+
+
+def grade_citations(run: GradedRun) -> list[Finding]:
+    """Every memo link points at evidence whose URL verified (2xx/3xx) during Stage 02.
+
+    Runs from before link verification are skipped. Whether a link is the *most specific* page
+    for its claim is left to the semantic judge: a first pass flagging root pages whenever a
+    deeper verified page existed produced 52 false positives on one run (homepage claims are
+    legitimately cited to the homepage).
+    """
+    if not any(item.verified_at for a in run.analyses.analyses for item in a.evidence):
+        return []
+    analyses = {analysis.candidate_id: analysis for analysis in run.analyses.analyses}
+    findings: list[Finding] = []
+    for record in run.recommendations.recommendations:
+        analysis, memo = analyses.get(record.candidate_id), run.memos.get(record.candidate_id)
+        if analysis is None or memo is None:
+            continue
+        verified_urls = {_url(item.source_url) for item in analysis.evidence if item.verified}
+        findings.extend(
+            Finding(
+                "citations",
+                record.candidate_id,
+                f"links to a URL that is not verified evidence: {url}",
+            )
+            for url in _LINK.findall(memo)
+            if _url(url) not in verified_urls
+        )
     return findings
 
 
@@ -192,6 +232,7 @@ GRADERS: tuple[Callable[[GradedRun], list[Finding]], ...] = (
     grade_policy,
     grade_missing_data,
     grade_memos,
+    grade_citations,
 )
 
 

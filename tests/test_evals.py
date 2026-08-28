@@ -27,7 +27,7 @@ def test_graders_flag_tampered_outputs(run: RunPipeline) -> None:
     result = run()
     memo = result.run_dir / "03_recommendation" / "memos" / "example-01.md"
     lines = memo.read_text(encoding="utf-8").splitlines()
-    lines[-1] = "**Recommendation: Pass**"
+    lines[2] = "**Recommendation: Pass**"
     lines.insert(lines.index("## Rationale") + 1, "- An uncited claim slipped in.")
     memo.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -53,10 +53,32 @@ def test_graders_flag_tampered_outputs(run: RunPipeline) -> None:
         f.message for f in findings if (f.grader, f.candidate_id) == ("memos", "example-01")
     ]
     assert example_01 == [
+        "recommendation line does not state the recorded recommendation",
         "uncited bullet under '## Rationale'",
-        "final line does not state the recorded recommendation",
     ]
     assert _RENDER_FAILURE in findings
+
+
+def test_citations_grader_flags_unverified_links_and_skips_legacy_runs(run: RunPipeline) -> None:
+    result = run()
+    assert [f for f in _grade(result.run_dir) if f.grader == "citations"] == []
+
+    analyses = result.run_dir / "02_analysis" / "analyses.jsonl"
+    records = [json.loads(line) for line in analyses.read_text(encoding="utf-8").splitlines()]
+    for record in records:
+        if record.get("candidate_id") == "example-03" and record["record_type"] == "analysis":
+            record["evidence"][0]["http_status"] = 403
+    analyses.write_text("\n".join(json.dumps(r) for r in records) + "\n", encoding="utf-8")
+    flagged = [f for f in _grade(result.run_dir) if f.grader == "citations"]
+    assert flagged and all(f.candidate_id == "example-03" for f in flagged)
+    assert "not verified evidence" in flagged[0].message
+
+    for record in records:
+        for item in record.get("evidence", []):
+            item.pop("http_status", None)
+            item.pop("verified_at", None)
+    analyses.write_text("\n".join(json.dumps(r) for r in records) + "\n", encoding="utf-8")
+    assert [f for f in _grade(result.run_dir) if f.grader == "citations"] == []
 
 
 def test_report_is_keyed_by_model_and_prompt_hashes(
@@ -93,6 +115,7 @@ def test_report_is_keyed_by_model_and_prompt_hashes(
     out = capsys.readouterr().out
     assert "grounding     0 findings" in out
     assert "memos         1 finding" in out
+    assert "citations     0 findings" in out
     assert "example-08: memo missing: render failed" in out
 
 

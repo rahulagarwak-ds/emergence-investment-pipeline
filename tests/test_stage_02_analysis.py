@@ -51,6 +51,12 @@ class FakeResponses:
             if external
             else "https://docs.example-05.test/pricing?utm_source=x"
             if own_website
+            else "https://example-06.test/gone"  # answers 404: rejected even after repair
+            if candidate_id == "example-06"
+            else "https://example-07.test/blocked"  # answers 403: kept, but unverified
+            if candidate_id == "example-07"
+            else "https://example-08.test/ratelimited"  # answers 429: kept, but unverified
+            if candidate_id == "example-08"
             else candidate["source"]["source_url"]
         )
         missing_founder_score = candidate_id == "example-03"
@@ -119,20 +125,38 @@ def test_analysis_repairs_once_preserves_failure_and_calculates_scores(tmp_path:
         client=SimpleNamespace(responses=responses),
     )
 
-    result = run_analysis(candidate_set, tmp_path / "02_analysis", client)
+    checked: list[str] = []
 
-    assert len(result.analyses) == 9
+    def check_url(url: str) -> int | None:
+        checked.append(url)
+        return {"/gone": 404, "/blocked": 403, "/ratelimited": 429}.get(url[url.rfind("/") :], 200)
+
+    result = run_analysis(candidate_set, tmp_path / "02_analysis", client, check_url=check_url)
+
+    assert len(result.analyses) == 8
+    assert [error.candidate_id for error in result.errors] == ["example-02", "example-06"]
     assert result.errors[0].code is ErrorCode.INVALID_MODEL_OUTPUT
-    assert result.errors[0].candidate_id == "example-02"
     assert result.errors[0].details["total_tokens"] == 15
+    assert "link returned 404" in str(result.errors[1].details["reason"])
     assert responses.attempts["example-01"] == 2
     assert responses.attempts["example-02"] == 2
+    assert responses.attempts["example-06"] == 2
     assert "REPAIR:" in responses.instructions[1]
+    assert checked.count("https://example-06.test/gone") == 1  # cached across the repair
 
     complete = next(item for item in result.analyses if item.candidate_id == "example-01")
     assert complete.total_score == 5
     assert complete.evidence_coverage == 100
     assert complete.response.usage.total_tokens == 15
+    assert complete.evidence[0].http_status == 200
+    assert complete.evidence[0].verified_at is not None
+    assert complete.evidence[0].verified is True
+    blocked = next(item for item in result.analyses if item.candidate_id == "example-07")
+    assert blocked.evidence[0].http_status == 403
+    assert blocked.evidence[0].verified is False
+    limited = next(item for item in result.analyses if item.candidate_id == "example-08")
+    assert limited.evidence[0].http_status == 429
+    assert limited.evidence[0].verified is False
 
     incomplete = next(item for item in result.analyses if item.candidate_id == "example-03")
     assert incomplete.total_score == 4

@@ -156,6 +156,14 @@ class EvidenceItemV1(ContractModel):
     source_url: HttpUrl
     observed_at: AwareDatetime | None
     self_reported: bool
+    # Link verification (analysis-v2): HTTP status seen when the URL was requested, and when.
+    http_status: int | None = Field(default=None, ge=100, le=599)
+    verified_at: AwareDatetime | None = None
+
+    @property
+    def verified(self) -> bool:
+        """True when the URL answered 2xx/3xx; 403, 429, and failures stay unverified."""
+        return self.http_status is not None and 200 <= self.http_status < 400
 
 
 class CitedFindingV1(ContractModel):

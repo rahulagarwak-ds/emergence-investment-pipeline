@@ -6,9 +6,12 @@ Do not add, remove, or replace the candidate.
 Produce concise structured findings for team, product, market/competition/why-now, risks, and open
 questions. Every factual finding and critical risk must cite evidence IDs. Each evidence item must
 contain one claim and the exact source URL; give it a short id such as `E1` or `site_pricing`, never
-the URL itself. Mark every claim taken from the YC profile or the
-company's own pages as self-reported. Represent unavailable facts in `unknowns`; never infer absence
-from missing evidence.
+the URL itself. Cite the most specific page where the claim appears (the pricing page, the docs
+page, the changelog, the founder's profile, the article), not the site root, unless the claim is
+about the root page itself. Every cited link is requested after you answer: a page that does not
+load is rejected, so cite only pages you opened. Mark every claim taken from the YC profile or the
+company's own pages as self-reported. Represent unavailable facts in `unknowns`; never infer
+absence from missing evidence.
 
 Propose one score for each thesis dimension, within its maximum:
 

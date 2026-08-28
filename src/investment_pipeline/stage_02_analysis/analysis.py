@@ -6,7 +6,9 @@ from datetime import UTC, datetime
 from functools import partial
 from hashlib import sha256
 from pathlib import Path
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit, urlunsplit
+from urllib.request import Request, urlopen
 
 from pydantic import AwareDatetime, Field, HttpUrl
 
@@ -25,10 +27,12 @@ from investment_pipeline.shared.schemas import (
     OpenAIResponseMetadataV1,
 )
 
-PROMPT_VERSION = "analysis-v1"
-_PROMPT = Path(__file__).with_name("prompt_v1.md").read_text(encoding="utf-8")
+PROMPT_VERSION = "analysis-v2"
+_PROMPT = Path(__file__).with_name("prompt_v2.md").read_text(encoding="utf-8")
 PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
 _STAGE = "stage_02_analysis"
+_USER_AGENT = "investment-pipeline/0.1 (evidence link check)"
+UrlCheck = Callable[[str], int | None]
 
 
 class EvidenceDraftV1(ContractModel):
@@ -62,11 +66,14 @@ def run_analysis(
     output_dir: Path,
     client: StructuredOpenAIClient,
     on_candidate: Callable[[int, int, str, str], None] | None = None,
+    check_url: UrlCheck | None = None,
 ) -> AnalysisSetV1:
     """Analyze exactly the eligible Stage 01 candidates and persist JSONL results.
 
     ``on_candidate`` receives ``(index, total, candidate_name, "complete" | "failed")``.
+    ``check_url`` returns the HTTP status of an evidence URL (default: a real request).
     """
+    check_url = check_url or http_status
     if any(error.code is ErrorCode.INSUFFICIENT_CANDIDATES for error in candidate_set.errors):
         result = AnalysisSetV1(
             created_at=datetime.now(UTC),
@@ -86,18 +93,21 @@ def run_analysis(
     errors: list[ErrorRecordV1] = []
     total = len(candidate_set.candidates)
     for index, candidate in enumerate(candidate_set.candidates, start=1):
+        statuses: dict[str, int | None] = {}  # one request per URL per candidate, across repairs
         response = client.parse(
             instructions=_PROMPT,
             input_text=candidate.model_dump_json(indent=2),
             output_type=AnalysisDraftV1,
             stage=_STAGE,
             candidate_id=candidate.candidate_id,
-            validate=partial(_validate_analysis, candidate),
+            validate=partial(_validate_analysis, candidate, check_url, statuses),
             web_search=True,
         )
         succeeded = response.parsed is not None and response.metadata is not None
         if response.parsed is not None and response.metadata is not None:
-            analyses.append(_build_analysis(candidate, response.parsed, response.metadata))
+            analyses.append(
+                _build_analysis(candidate, response.parsed, response.metadata, check_url, statuses)
+            )
         else:
             errors.append(
                 response.error
@@ -126,13 +136,17 @@ def _build_analysis(
     candidate: CandidateRecordV1,
     draft: AnalysisDraftV1,
     metadata: OpenAIResponseMetadataV1,
+    check_url: UrlCheck,
+    statuses: dict[str, int | None],
 ) -> AnalysisRecordV1:
     # Company-authored pages (YC profile, any page on the company's domain) are allowed but must
     # stay self-reported; everything else must be a URL the web search actually returned.
     yc_profile = _normalized_url(candidate.source.source_url)
     web_sources = {_normalized_url(url) for url in metadata.source_urls}
-    evidence_items = [EvidenceItemV1.model_validate(item.model_dump()) for item in draft.evidence]
-    for evidence in evidence_items:
+    checked_at = datetime.now(UTC)
+    evidence_items: list[EvidenceItemV1] = []
+    for item in draft.evidence:
+        evidence = EvidenceItemV1.model_validate(item.model_dump())
         source_url = _normalized_url(evidence.source_url)
         company_authored = source_url == yc_profile or _on_domain(
             evidence.source_url, candidate.canonical_domain
@@ -146,6 +160,20 @@ def _build_analysis(
             raise ValueError(
                 f"company-authored evidence must be marked self-reported: {evidence.source_url}"
             )
+        # Every cited link is requested once. Broken links (404, 5xx, unreachable) are rejected;
+        # pages that exist but refuse us (403 forbidden, 429 rate limited) stay unverified.
+        url = str(evidence.source_url)
+        if url not in statuses:
+            statuses[url] = check_url(url)
+        status = statuses[url]
+        if status is None or (status >= 400 and status not in (403, 429)):
+            raise ValueError(
+                f"evidence {evidence.evidence_id} link returned {status or 'no response'}: {url} "
+                "(cite a page that loads, or drop this evidence)"
+            )
+        evidence_items.append(
+            evidence.model_copy(update={"http_status": status, "verified_at": checked_at})
+        )
 
     total_score = sum(score.score or 0 for score in draft.dimension_scores)
     evidence_coverage = 20 * sum(bool(score.evidence_ids) for score in draft.dimension_scores)
@@ -171,10 +199,30 @@ def _build_analysis(
 
 def _validate_analysis(
     candidate: CandidateRecordV1,
+    check_url: UrlCheck,
+    statuses: dict[str, int | None],
     draft: AnalysisDraftV1,
     metadata: OpenAIResponseMetadataV1,
 ) -> None:
-    _build_analysis(candidate, draft, metadata)
+    _build_analysis(candidate, draft, metadata, check_url, statuses)
+
+
+def http_status(url: str, timeout: float = 10.0) -> int | None:
+    """HTTP status of ``url`` (HEAD, then GET when HEAD is refused); None when unreachable."""
+    for method in ("HEAD", "GET"):
+        request = Request(url, method=method, headers={"User-Agent": _USER_AGENT})
+        try:
+            with urlopen(request, timeout=timeout) as response:
+                return int(response.status)
+        except HTTPError as exc:
+            if method == "HEAD" and exc.code in (403, 405, 501):
+                continue
+            return int(exc.code)
+        except (URLError, TimeoutError, ValueError, OSError):
+            if method == "HEAD":
+                continue
+            return None
+    return None
 
 
 def load_analyses(path: Path) -> AnalysisSetV1:

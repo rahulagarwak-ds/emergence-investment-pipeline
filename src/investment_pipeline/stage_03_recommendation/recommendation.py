@@ -12,10 +12,12 @@ from pydantic import Field
 from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.schemas import (
+    THESIS_WEIGHTS,
     AnalysisRecordV1,
     AnalysisSetV1,
     CitedFindingV1,
     ContractModel,
+    DimensionScoreV1,
     EvidenceItemV1,
     OpenAIResponseMetadataV1,
     Recommendation,
@@ -23,9 +25,10 @@ from investment_pipeline.shared.schemas import (
     RecommendationSetV1,
 )
 
-PROMPT_VERSION = "memo-v1"
+# memo-v2: call in the header, pillar table above the rationale, verified citations only.
+PROMPT_VERSION = "memo-v2"
 MEMO_MAX_WORDS = 350
-_PROMPT = Path(__file__).with_name("prompt_v1.md").read_text(encoding="utf-8")
+_PROMPT = Path(__file__).with_name("prompt_v2.md").read_text(encoding="utf-8")
 PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
 _STAGE = "stage_03_recommendation"
 
@@ -70,6 +73,9 @@ def run_recommendation(
                 input_text=json.dumps(
                     {
                         "fixed_recommendation": recommendation.value,
+                        "verified_evidence_ids": [
+                            item.evidence_id for item in analysis.evidence if item.verified
+                        ],
                         "analysis": analysis.model_dump(mode="json", exclude={"response"}),
                     },
                     indent=2,
@@ -169,6 +175,7 @@ def _validate_draft(
     _metadata: OpenAIResponseMetadataV1,
 ) -> None:
     evidence_ids = {item.evidence_id for item in analysis.evidence}
+    verified_ids = {item.evidence_id for item in analysis.evidence if item.verified}
     referenced_ids = {
         evidence_id
         for point in (*draft.rationale, *draft.key_risks)
@@ -176,6 +183,11 @@ def _validate_draft(
     }
     if unknown_ids := referenced_ids - evidence_ids:
         raise ValueError(f"memo references unknown evidence ids: {sorted(unknown_ids)}")
+    if unverified_ids := referenced_ids - verified_ids:
+        raise ValueError(
+            f"memo cites evidence whose link is not verified: {sorted(unverified_ids)} "
+            f"(use only verified_evidence_ids)"
+        )
 
     text = [
         *(point.text for point in (*draft.rationale, *draft.key_risks)),
@@ -204,8 +216,14 @@ def _render_memo(
     lines = [
         f"# {_single_line(analysis.candidate_name)}",
         "",
-        f"**Thesis score:** {analysis.total_score}/100  ",
+        f"**Recommendation: {recommendation.value}**",
+        "",
+        f"**Thesis score:** {analysis.total_score}/100 · "
         f"**Evidence coverage:** {analysis.evidence_coverage}%",
+        "",
+        "| Pillar | Score | Evidence |",
+        "| --- | ---: | --- |",
+        *(_pillar_row(score, evidence) for score in analysis.dimension_scores),
         "",
         "## Rationale",
         *(_memo_point(point, evidence) for point in draft.rationale),
@@ -215,10 +233,21 @@ def _render_memo(
         "",
         "## What would change the decision",
         *(f"- {question}" for question in draft.decision_changes),
-        "",
-        f"**Recommendation: {recommendation.value}**",
     ]
     return "\n".join(lines) + "\n"
+
+
+def _pillar_row(score: DimensionScoreV1, evidence: dict[str, EvidenceItemV1]) -> str:
+    """One pillar per line; null shows as unknown, and only verified links are clickable."""
+    label = score.dimension.value.replace("_", " ").capitalize()
+    points = "unknown" if score.score is None else str(score.score)
+    links = " ".join(
+        f"[{evidence_id}](<{evidence[evidence_id].source_url}>)"
+        if evidence[evidence_id].verified
+        else f"{evidence_id} (unverified)"
+        for evidence_id in score.evidence_ids
+    )
+    return f"| {label} | {points}/{THESIS_WEIGHTS[score.dimension]} | {links or '—'} |"
 
 
 def _memo_point(point: CitedFindingV1, evidence: dict[str, EvidenceItemV1]) -> str:

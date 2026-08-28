@@ -7,6 +7,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
+import pytest
+
 from investment_pipeline.shared.config import PipelineConfig
 from investment_pipeline.shared.errors import ErrorCode
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
@@ -28,6 +30,8 @@ from investment_pipeline.stage_03_recommendation import run_recommendation
 from investment_pipeline.stage_03_recommendation.recommendation import (
     MEMO_MAX_WORDS,
     MemoDraftV1,
+    _render_memo,
+    _validate_draft,
     assign_recommendation,
 )
 
@@ -106,7 +110,13 @@ def test_policy_memos_failures_and_ranked_index(tmp_path: Path) -> None:
     assert len(list((tmp_path / "memos").glob("*.md"))) == 10
 
     memo = (tmp_path / "memos" / "company-01.md").read_text(encoding="utf-8")
-    assert memo.splitlines()[-1] == "**Recommendation: Take a meeting**"
+    lines = memo.splitlines()
+    assert lines[0] == "# Company 01"
+    assert lines[2] == "**Recommendation: Take a meeting**"
+    assert "**Thesis score:** 90/100 · **Evidence coverage:** 100%" in lines
+    assert "| Product adoption | 25/25 | [e1](<https://evidence.test/company-01>) |" in lines
+    assert "| Founder execution fit | 5/15 | [e1](<https://evidence.test/company-01>) |" in lines
+    assert lines.index("| Pillar | Score | Evidence |") < lines.index("## Rationale")
     assert "[e1 · self-reported](<https://evidence.test/company-01>)" in memo
     assert len(memo.split()) <= MEMO_MAX_WORDS
 
@@ -117,6 +127,22 @@ def test_policy_memos_failures_and_ranked_index(tmp_path: Path) -> None:
     risky = _analysis("risky", 90, critical_risk=True)
     assert assign_recommendation(risky, 1, 1) is Recommendation.PASS
     assert assign_recommendation(_analysis("second", 85), 2, 1) is Recommendation.WATCH
+
+
+def test_unverified_evidence_never_becomes_a_memo_link() -> None:
+    analysis = _analysis("blocked", 60)
+    analysis.evidence[0].http_status = 403
+    draft = MemoDraftV1(
+        rationale=[CitedFindingV1(text="Cites blocked evidence.", evidence_ids=["e1"])],
+        key_risks=[CitedFindingV1(text="Cites blocked evidence.", evidence_ids=["e1"])],
+        decision_changes=["Can the link be verified?", "Is there another source?"],
+    )
+    metadata = analysis.response
+
+    with pytest.raises(ValueError, match="not verified"):
+        _validate_draft(analysis, Recommendation.WATCH, draft, metadata)
+    memo = _render_memo(analysis, Recommendation.WATCH, draft)
+    assert "| Product adoption | 25/25 | e1 (unverified) |" in memo.splitlines()
 
 
 def _analysis(
@@ -163,6 +189,8 @@ def _analysis(
                 source_url=f"https://evidence.test/{candidate_id}",
                 observed_at=None,
                 self_reported=True,
+                http_status=200,
+                verified_at=datetime.now(UTC),
             )
         ],
         dimension_scores=scores,
