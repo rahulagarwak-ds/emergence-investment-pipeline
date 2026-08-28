@@ -46,7 +46,7 @@ class FakeResponses:
             if unsupported
             else "https://public.test/evidence"
             if external
-            else candidate["website_url"]
+            else "https://docs.example-05.test/pricing?utm_source=x"
             if own_website
             else candidate["source"]["source_url"]
         )
@@ -137,8 +137,9 @@ def test_analysis_repairs_once_preserves_failure_and_calculates_scores(tmp_path:
     external = next(item for item in result.analyses if item.candidate_id == "example-04")
     assert str(external.response.source_urls[0]) == "https://public.test/evidence"
     own_site = next(item for item in result.analyses if item.candidate_id == "example-05")
-    assert str(own_site.evidence[0].source_url) == "https://example-05.test/"
+    assert str(own_site.evidence[0].source_url) == "https://docs.example-05.test/pricing?utm_source=x"
     assert own_site.evidence[0].self_reported is True
+    assert "rejected because: unsupported evidence URL" in responses.instructions[1]
 
     analyses_path = tmp_path / "02_analysis" / "analyses.jsonl"
     lines = [json.loads(line) for line in analyses_path.read_text(encoding="utf-8").splitlines()]

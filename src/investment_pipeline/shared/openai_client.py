@@ -73,8 +73,10 @@ class StructuredOpenAIClient:
                 "model": self._model,
                 "instructions": instructions
                 if attempt == 0
-                else instructions
-                + "\n\nREPAIR: Return a fully valid object that satisfies every instruction.",
+                else (
+                    f"{instructions}\n\nREPAIR: your previous output was rejected because: "
+                    f"{last_reason}. Return a fully valid object that satisfies every instruction."
+                ),
                 "input": input_text,
                 "text_format": output_type,
                 "store": False,

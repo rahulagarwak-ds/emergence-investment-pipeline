@@ -4,6 +4,7 @@ import re
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from investment_pipeline.shared.schemas import (
     AnalysisSetV1,
@@ -58,28 +59,30 @@ def load_run(run_dir: Path) -> GradedRun:
 
 
 def grade_grounding(run: GradedRun) -> list[Finding]:
-    """Every evidence URL is the candidate's YC profile or website, or a web-search source."""
+    """Every evidence URL is the YC profile, a page on the company's domain, or a web-search source;
+    company-authored evidence must be marked self-reported."""
     if run.candidates is None:
         return []
-    company_urls = {
-        c.candidate_id: {_url(c.yc_profile_url), _url(c.website_url)}
-        for c in run.candidates.candidates
-    }
+    candidates = {c.candidate_id: c for c in run.candidates.candidates}
     findings: list[Finding] = []
     for analysis in run.analyses.analyses:
-        allowed = {
-            *company_urls.get(analysis.candidate_id, set()),
-            *(_url(url) for url in analysis.response.source_urls),
-        }
-        findings.extend(
-            Finding(
-                "grounding",
-                analysis.candidate_id,
-                f"evidence {item.evidence_id} cites an unsupported URL: {item.source_url}",
+        candidate = candidates.get(analysis.candidate_id)
+        if candidate is None:
+            continue
+        sources = {_url(url) for url in analysis.response.source_urls}
+        for item in analysis.evidence:
+            host = (urlsplit(str(item.source_url)).hostname or "").casefold()
+            company_page = _url(item.source_url) == _url(candidate.yc_profile_url) or (
+                host == candidate.canonical_domain
+                or host.endswith(f".{candidate.canonical_domain}")
             )
-            for item in analysis.evidence
-            if _url(item.source_url) not in allowed
-        )
+            if not company_page and _url(item.source_url) not in sources:
+                message = f"evidence {item.evidence_id} cites an unsupported URL: {item.source_url}"
+            elif company_page and not item.self_reported:
+                message = f"evidence {item.evidence_id} is company-authored but not self-reported"
+            else:
+                continue
+            findings.append(Finding("grounding", analysis.candidate_id, message))
     return findings
 
 
@@ -205,7 +208,8 @@ def _sections(lines: list[str]) -> dict[str, list[str]]:
 
 
 def _url(url: object) -> str:
-    return str(url).casefold().rstrip("/")
+    parsed = urlsplit(str(url))
+    return f"{parsed.scheme}://{parsed.netloc}{parsed.path}".casefold().rstrip("/")
 
 
 def _read(path: Path) -> str:

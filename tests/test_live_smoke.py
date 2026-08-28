@@ -2,6 +2,7 @@
 
 import os
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import pytest
 
@@ -36,10 +37,8 @@ def test_live_structured_analysis_round_trip(tmp_path: Path) -> None:
     assert response.error is None, response.error
     assert response.parsed is not None and response.metadata is not None
     assert response.metadata.usage.total_tokens > 0
-    allowed = {
-        str(candidate.source.source_url).rstrip("/"),
-        str(candidate.website_url).rstrip("/"),
-        *(str(url).rstrip("/") for url in response.metadata.source_urls),
-    }
+    sources = {str(url).rstrip("/") for url in response.metadata.source_urls}
     for item in response.parsed.evidence:
-        assert str(item.source_url).rstrip("/") in allowed, item
+        host = (urlsplit(item.source_url).hostname or "").casefold()
+        company_page = host.endswith(candidate.canonical_domain) or host.endswith("ycombinator.com")
+        assert company_page or item.source_url.rstrip("/") in sources, item

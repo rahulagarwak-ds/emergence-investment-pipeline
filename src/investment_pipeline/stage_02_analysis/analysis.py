@@ -126,19 +126,25 @@ def _build_analysis(
     draft: AnalysisDraftV1,
     metadata: OpenAIResponseMetadataV1,
 ) -> AnalysisRecordV1:
-    # Company-authored pages (YC profile, own website) are allowed but must stay self-reported.
-    company_urls = {
-        _normalized_url(candidate.source.source_url),
-        _normalized_url(candidate.website_url),
-    }
-    allowed_urls = company_urls | {_normalized_url(url) for url in metadata.source_urls}
+    # Company-authored pages (YC profile, any page on the company's domain) are allowed but must
+    # stay self-reported; everything else must be a URL the web search actually returned.
+    yc_profile = _normalized_url(candidate.source.source_url)
+    web_sources = {_normalized_url(url) for url in metadata.source_urls}
     evidence_items = [EvidenceItemV1.model_validate(item.model_dump()) for item in draft.evidence]
     for evidence in evidence_items:
         source_url = _normalized_url(evidence.source_url)
-        if source_url not in allowed_urls:
-            raise ValueError(f"unsupported evidence URL: {evidence.source_url}")
-        if source_url in company_urls and not evidence.self_reported:
-            raise ValueError("company-authored evidence must be marked self-reported")
+        company_authored = source_url == yc_profile or _on_domain(
+            evidence.source_url, candidate.canonical_domain
+        )
+        if not company_authored and source_url not in web_sources:
+            raise ValueError(
+                f"unsupported evidence URL: {evidence.source_url} (cite only the YC profile, "
+                "pages on the company's own domain, or URLs returned by web search)"
+            )
+        if company_authored and not evidence.self_reported:
+            raise ValueError(
+                f"company-authored evidence must be marked self-reported: {evidence.source_url}"
+            )
 
     total_score = sum(score.score or 0 for score in draft.dimension_scores)
     evidence_coverage = 20 * sum(bool(score.evidence_ids) for score in draft.dimension_scores)
@@ -197,13 +203,13 @@ def _write_artifact(result: AnalysisSetV1, output_dir: Path) -> None:
 
 
 def _normalized_url(url: HttpUrl) -> str:
+    """Compare URLs without case, trailing slash, query string, or fragment."""
     parsed = urlsplit(str(url))
     return urlunsplit(
-        (
-            parsed.scheme.casefold(),
-            parsed.netloc.casefold(),
-            parsed.path.rstrip("/"),
-            parsed.query,
-            "",
-        )
+        (parsed.scheme.casefold(), parsed.netloc.casefold(), parsed.path.rstrip("/"), "", "")
     )
+
+
+def _on_domain(url: HttpUrl, canonical_domain: str) -> bool:
+    host = (urlsplit(str(url)).hostname or "").casefold()
+    return host == canonical_domain or host.endswith(f".{canonical_domain}")
