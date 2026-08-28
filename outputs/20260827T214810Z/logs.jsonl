@@ -1,0 +1,16 @@
+{"at": "2026-08-27T21:48:10.136475+00:00", "event": "run_started", "selector": "replay=outputs/20260827T213043Z/02_analysis/analyses.jsonl"}
+{"at": "2026-08-27T21:48:10.181467+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "skipped", "summary": {}, "errors": 0}
+{"at": "2026-08-27T21:48:10.230994+00:00", "event": "stage_finished", "stage": "02_analysis", "status": "skipped", "summary": {"valid": 10, "failed": 0}, "errors": 0}
+{"at": "2026-08-27T21:48:10.239116+00:00", "event": "stage_started", "stage": "03_recommendation"}
+{"at": "2026-08-27T21:48:21.420204+00:00", "event": "memo_rendered", "rank": 1, "total": 10, "candidate": "Rapidfolio", "status": "Watch"}
+{"at": "2026-08-27T21:48:30.274191+00:00", "event": "memo_rendered", "rank": 2, "total": 10, "candidate": "Datoric", "status": "Watch"}
+{"at": "2026-08-27T21:48:38.771827+00:00", "event": "memo_rendered", "rank": 3, "total": 10, "candidate": "Prescience, Inc.", "status": "Watch"}
+{"at": "2026-08-27T21:48:49.854018+00:00", "event": "memo_rendered", "rank": 4, "total": 10, "candidate": "Async", "status": "Watch"}
+{"at": "2026-08-27T21:48:58.175162+00:00", "event": "memo_rendered", "rank": 5, "total": 10, "candidate": "Dream", "status": "Watch"}
+{"at": "2026-08-27T21:49:12.517846+00:00", "event": "memo_rendered", "rank": 6, "total": 10, "candidate": "OneTriangle", "status": "Pass"}
+{"at": "2026-08-27T21:49:23.733548+00:00", "event": "memo_rendered", "rank": 7, "total": 10, "candidate": "OS3", "status": "Pass"}
+{"at": "2026-08-27T21:49:33.013575+00:00", "event": "memo_rendered", "rank": 8, "total": 10, "candidate": "Archal", "status": "Pass"}
+{"at": "2026-08-27T21:49:41.678935+00:00", "event": "memo_rendered", "rank": 9, "total": 10, "candidate": "Assemble", "status": "Pass"}
+{"at": "2026-08-27T21:49:49.974669+00:00", "event": "memo_rendered", "rank": 10, "total": 10, "candidate": "Induction Labs", "status": "Pass"}
+{"at": "2026-08-27T21:49:50.331745+00:00", "event": "stage_finished", "stage": "03_recommendation", "status": "completed", "summary": {"memos": 10, "render_failed": 0, "meeting": 0, "watch": 5, "pass": 5}, "errors": 0}
+{"at": "2026-08-27T21:49:50.351041+00:00", "event": "run_finished", "status": "completed"}

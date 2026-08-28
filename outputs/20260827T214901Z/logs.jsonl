@@ -1,0 +1,4 @@
+{"at": "2026-08-27T21:49:01.900323+00:00", "event": "run_started", "selector": "topic=\"AI agents for SMBs\""}
+{"at": "2026-08-27T21:49:01.901388+00:00", "event": "stage_started", "stage": "01_sourcing"}
+{"at": "2026-08-27T21:49:01.982256+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "failed", "summary": {"loaded": 236, "matched": 0, "deduplicated": 0, "eligible": 0, "rejected": 0}, "errors": 1}
+{"at": "2026-08-27T21:49:01.986904+00:00", "event": "run_finished", "status": "failed"}

@@ -1,0 +1,28 @@
+{"at": "2026-08-27T21:49:09.334312+00:00", "event": "run_started", "selector": "topic=\"healthcare\""}
+{"at": "2026-08-27T21:49:09.339628+00:00", "event": "stage_started", "stage": "01_sourcing"}
+{"at": "2026-08-27T21:49:09.432655+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "completed", "summary": {"loaded": 236, "matched": 23, "deduplicated": 23, "eligible": 10, "rejected": 13}, "errors": 0}
+{"at": "2026-08-27T21:49:09.441581+00:00", "event": "stage_started", "stage": "02_analysis"}
+{"at": "2026-08-27T21:52:24.368580+00:00", "event": "candidate_analyzed", "index": 1, "total": 10, "candidate": "Async", "status": "complete"}
+{"at": "2026-08-27T21:53:04.943665+00:00", "event": "candidate_analyzed", "index": 2, "total": 10, "candidate": "Evergrove", "status": "complete"}
+{"at": "2026-08-27T21:54:40.696620+00:00", "event": "candidate_analyzed", "index": 3, "total": 10, "candidate": "Sunflower", "status": "complete"}
+{"at": "2026-08-27T21:56:16.228421+00:00", "event": "candidate_analyzed", "index": 4, "total": 10, "candidate": "Prescience, Inc.", "status": "complete"}
+{"at": "2026-08-27T21:56:45.252015+00:00", "event": "candidate_analyzed", "index": 5, "total": 10, "candidate": "Cova", "status": "complete"}
+{"at": "2026-08-27T21:57:29.935767+00:00", "event": "candidate_analyzed", "index": 6, "total": 10, "candidate": "Illume Labs", "status": "complete"}
+{"at": "2026-08-27T21:58:07.993234+00:00", "event": "candidate_analyzed", "index": 7, "total": 10, "candidate": "WonderTx", "status": "complete"}
+{"at": "2026-08-27T21:58:47.888623+00:00", "event": "candidate_analyzed", "index": 8, "total": 10, "candidate": "Atlas Discovery", "status": "complete"}
+{"at": "2026-08-27T21:59:15.292450+00:00", "event": "candidate_analyzed", "index": 9, "total": 10, "candidate": "Gutgutgoose", "status": "complete"}
+{"at": "2026-08-27T21:59:42.972877+00:00", "event": "candidate_analyzed", "index": 10, "total": 10, "candidate": "Insurf", "status": "complete"}
+{"at": "2026-08-27T21:59:43.041869+00:00", "event": "stage_finished", "stage": "02_analysis", "status": "completed", "summary": {"valid": 10, "failed": 0}, "errors": 0}
+{"at": "2026-08-27T21:59:43.052562+00:00", "event": "stage_started", "stage": "03_recommendation"}
+{"at": "2026-08-27T21:59:51.809565+00:00", "event": "memo_rendered", "rank": 1, "total": 10, "candidate": "Evergrove", "status": "Watch"}
+{"at": "2026-08-27T21:59:59.748810+00:00", "event": "memo_rendered", "rank": 2, "total": 10, "candidate": "Cova", "status": "Watch"}
+{"at": "2026-08-27T22:00:10.109347+00:00", "event": "memo_rendered", "rank": 3, "total": 10, "candidate": "Async", "status": "Watch"}
+{"at": "2026-08-27T22:00:18.828074+00:00", "event": "memo_rendered", "rank": 4, "total": 10, "candidate": "Insurf", "status": "Watch"}
+{"at": "2026-08-27T22:00:30.062106+00:00", "event": "memo_rendered", "rank": 5, "total": 10, "candidate": "Sunflower", "status": "Pass"}
+{"at": "2026-08-27T22:00:40.833594+00:00", "event": "memo_rendered", "rank": 6, "total": 10, "candidate": "Atlas Discovery", "status": "Pass"}
+{"at": "2026-08-27T22:00:49.360763+00:00", "event": "memo_rendered", "rank": 7, "total": 10, "candidate": "Prescience, Inc.", "status": "Pass"}
+{"at": "2026-08-27T22:01:02.144040+00:00", "event": "memo_rendered", "rank": 8, "total": 10, "candidate": "WonderTx", "status": "Pass"}
+{"at": "2026-08-27T22:01:12.705143+00:00", "event": "memo_rendered", "rank": 9, "total": 10, "candidate": "Illume Labs", "status": "Pass"}
+{"at": "2026-08-27T22:01:22.617460+00:00", "event": "memo_rendered", "rank": 10, "total": 10, "candidate": "Gutgutgoose", "status": "Pass"}
+{"at": "2026-08-27T22:01:22.988742+00:00", "event": "stage_finished", "stage": "03_recommendation", "status": "completed", "summary": {"memos": 10, "render_failed": 0, "meeting": 0, "watch": 4, "pass": 6}, "errors": 0}
+{"at": "2026-08-27T22:01:23.032446+00:00", "event": "run_finished", "status": "completed"}

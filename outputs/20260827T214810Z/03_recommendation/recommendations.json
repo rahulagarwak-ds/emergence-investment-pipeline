@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T21:49:49.975732Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "rapidfolio",
+      "candidate_name": "Rapidfolio",
+      "rank": 1,
+      "total_score": 72,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0da65ba6764c41fd016a90b09d01a487d09d4762ace3e064e1",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11142,
+        "usage": {
+          "input_tokens": 2962,
+          "output_tokens": 825,
+          "total_tokens": 3787
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/rapidfolio.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "datoric",
+      "candidate_name": "Datoric",
+      "rank": 2,
+      "total_score": 69,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_08f9fb7a9d0f15a7016a90b0a5e30c87d0854078c205b6d236",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8815,
+        "usage": {
+          "input_tokens": 2870,
+          "output_tokens": 792,
+          "total_tokens": 3662
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/datoric.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "prescience-inc",
+      "candidate_name": "Prescience, Inc.",
+      "rank": 3,
+      "total_score": 66,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_096bfa6f705d5c80016a90b0aebce487d0b628e8648f837fcc",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8458,
+        "usage": {
+          "input_tokens": 2589,
+          "output_tokens": 798,
+          "total_tokens": 3387
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/prescience-inc.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "withasync",
+      "candidate_name": "Async",
+      "rank": 4,
+      "total_score": 62,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0b5bcbe3b4bb36ce016a90b0b7386887d087d4d023c3b877de",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11039,
+        "usage": {
+          "input_tokens": 2998,
+          "output_tokens": 711,
+          "total_tokens": 3709
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/withasync.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "dream",
+      "candidate_name": "Dream",
+      "rank": 5,
+      "total_score": 55,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0f66375125ac5aac016a90b0c26d6087d093970ab414816f6d",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8284,
+        "usage": {
+          "input_tokens": 2477,
+          "output_tokens": 698,
+          "total_tokens": 3175
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/dream.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "onetriangle",
+      "candidate_name": "OneTriangle",
+      "rank": 6,
+      "total_score": 54,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0c704e85e48f5d6e016a90b0cab0c487d0ba872832a20f629c",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 14305,
+        "usage": {
+          "input_tokens": 3967,
+          "output_tokens": 997,
+          "total_tokens": 4964
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/onetriangle.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "os3",
+      "candidate_name": "OS3",
+      "rank": 7,
+      "total_score": 54,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0d1551aecd914325016a90b0d8fa3c87d09747193cac620048",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11178,
+        "usage": {
+          "input_tokens": 3558,
+          "output_tokens": 1114,
+          "total_tokens": 4672
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/os3.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "archal",
+      "candidate_name": "Archal",
+      "rank": 8,
+      "total_score": 49,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0253ad682cf9b7e0016a90b0e432f887d08cf8cadd42b8dfc0",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9220,
+        "usage": {
+          "input_tokens": 2158,
+          "output_tokens": 872,
+          "total_tokens": 3030
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/archal.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "assemble",
+      "candidate_name": "Assemble",
+      "rank": 9,
+      "total_score": 48,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0f0e9d84baf877f8016a90b0ed796087d08b8caba2978af3fb",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8627,
+        "usage": {
+          "input_tokens": 2743,
+          "output_tokens": 871,
+          "total_tokens": 3614
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/assemble.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "induction-labs",
+      "candidate_name": "Induction Labs",
+      "rank": 10,
+      "total_score": 20,
+      "evidence_coverage": 40,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0af2cd88775bef95016a90b0f625c887d09db66e374cae3865",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8251,
+        "usage": {
+          "input_tokens": 2046,
+          "output_tokens": 677,
+          "total_tokens": 2723
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/induction-labs.md"
+    }
+  ],
+  "errors": []
+}

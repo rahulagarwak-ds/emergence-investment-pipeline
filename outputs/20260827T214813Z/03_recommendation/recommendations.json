@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T21:59:04.119510Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "withasync",
+      "candidate_name": "Async",
+      "rank": 1,
+      "total_score": 70,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_02ee481e73409463016a90b2ac8c5887d0bc88f112896a1ba4",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8348,
+        "usage": {
+          "input_tokens": 3513,
+          "output_tokens": 867,
+          "total_tokens": 4380
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/withasync.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "os3",
+      "candidate_name": "OS3",
+      "rank": 2,
+      "total_score": 67,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0d3795672ca5a97e016a90b2b47a1887d0a09c84cc4a81bbba",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8274,
+        "usage": {
+          "input_tokens": 2894,
+          "output_tokens": 969,
+          "total_tokens": 3863
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/os3.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "rapidfolio",
+      "candidate_name": "Rapidfolio",
+      "rank": 3,
+      "total_score": 65,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_05cf679726a248d4016a90b2bdb63087d0a42f22f1f0b9b90d",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 32658,
+        "usage": {
+          "input_tokens": 3455,
+          "output_tokens": 817,
+          "total_tokens": 4272
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/rapidfolio.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "archal",
+      "candidate_name": "Archal",
+      "rank": 4,
+      "total_score": 64,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_05ac2d2d834c6a59016a90b2dd766087d08e3cb27b3b686c80",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11229,
+        "usage": {
+          "input_tokens": 2064,
+          "output_tokens": 1147,
+          "total_tokens": 3211
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/archal.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "onetriangle",
+      "candidate_name": "OneTriangle",
+      "rank": 5,
+      "total_score": 62,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0313157ef70c91a3016a90b2e8b22087d0911ad0d35e912e42",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 18779,
+        "usage": {
+          "input_tokens": 3790,
+          "output_tokens": 1186,
+          "total_tokens": 4976
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/onetriangle.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "prescience-inc",
+      "candidate_name": "Prescience, Inc.",
+      "rank": 6,
+      "total_score": 61,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "requires_upfront_procurement"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_091aa3636d57db46016a90b2fc21b487d090c6c337c1a36f08",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9860,
+        "usage": {
+          "input_tokens": 2694,
+          "output_tokens": 860,
+          "total_tokens": 3554
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/prescience-inc.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "datoric",
+      "candidate_name": "Datoric",
+      "rank": 7,
+      "total_score": 58,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "requires_upfront_procurement"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0ae69032fa855810016a90b30560fc87d0b923d43457605f7f",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11043,
+        "usage": {
+          "input_tokens": 2794,
+          "output_tokens": 1010,
+          "total_tokens": 3804
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/datoric.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "dream",
+      "candidate_name": "Dream",
+      "rank": 8,
+      "total_score": 45,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "requires_upfront_procurement"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_04eb52965ff0e5f8016a90b310783887d0aa1e1e9d620cbe36",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10018,
+        "usage": {
+          "input_tokens": 2720,
+          "output_tokens": 891,
+          "total_tokens": 3611
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/dream.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "assemble",
+      "candidate_name": "Assemble",
+      "rank": 9,
+      "total_score": 42,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0e7be8ee4ea054a5016a90b31aa61087d0b847d88c2c5e9069",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7319,
+        "usage": {
+          "input_tokens": 2613,
+          "output_tokens": 757,
+          "total_tokens": 3370
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/assemble.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "induction-labs",
+      "candidate_name": "Induction Labs",
+      "rank": 10,
+      "total_score": 25,
+      "evidence_coverage": 60,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_05935c456b8885ee016a90b321ed4087d0b7b6a2dcfe8608fd",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 6683,
+        "usage": {
+          "input_tokens": 2898,
+          "output_tokens": 710,
+          "total_tokens": 3608
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/induction-labs.md"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,317 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T21:49:09.353857Z",
+  "input_summary": "topic=\"healthcare\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 23,
+    "deduplicated": 23,
+    "eligible": 10,
+    "rejected": 13
+  },
+  "candidates": [
+    {
+      "candidate_id": "withasync",
+      "name": "Async",
+      "website_url": "https://withasync.com/",
+      "canonical_domain": "withasync.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/withasync",
+      "tagline": "AI agents that run small businesses",
+      "description": "Async builds agents that change how businesses can run. Law firms, healthcare clinics and real estate companies hire our AI agents to automate complex work that's never been economical to staff with humans, letting us capture labor spend that didn't previously exist.",
+      "categories": [
+        "B2B",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "withasync",
+        "source_url": "https://www.ycombinator.com/companies/withasync",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "evergrove",
+      "name": "Evergrove",
+      "website_url": "https://www.evergrovelabs.com/",
+      "canonical_domain": "evergrovelabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/evergrove",
+      "tagline": "Voice agents that accelerate care coordination in workers' comp",
+      "description": "We've built voice agents for the largest work comp managed care orgs and specialist PT networks in the country, making >500K calls annually and accelerating the speed at which they coordinate care. On average, our customers see a 40% increase in workflow completion, 10x decrease in cycle times, and >60% reduction in cost.\r\n\r\nWe think voice agents are the starting point for solving slow and fragmented care coordination in this market. Companies that manage an injured worker's care rely on short-staffed contact centres and archaic methods of info exchange: phone, fax, and email. Every delay along the path of care leads to slower rehab of the injured worker, lower throughput for providers, and higher expense for the insurer/employer.",
+      "categories": [
+        "Healthcare",
+        "Insurance",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "evergrove",
+        "source_url": "https://www.ycombinator.com/companies/evergrove",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "sunflower",
+      "name": "Sunflower",
+      "website_url": "https://sunflowerclinic.com/",
+      "canonical_domain": "sunflowerclinic.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/sunflower",
+      "tagline": "We are building an AI-native telemedicine clinic for addiction. 🌻",
+      "description": "Sunflower is building an AI-native telemedicine clinic for addiction. There are over 18,750 patients on a waitlist for Therapy or Meds, representing $153M worth of TAM just waiting to be served. \r\n\r\nWe started by launching Sunflower Sober, the first AI Sponsor for addiction which grew to 100 MAU in less than 6 months and currently driving about $1.5M in run-rate worth of subscription app revenue.  \r\n\r\nSunflower Sober is currently pacing to add over 800,000 new users a year which means we are growing literally faster than Alcoholics Anonymous. \r\n\r\nWe have built one of the largest and most deeply loved brands within sobriety, and now we are building the clinical services underneath this brand to better fulfill on our mission & serve Medicaid who spends over $30B a year on SUD services. \r\n\r\nSunflower is founded by Koby who previously led Growth at Rupa from $5M to $75M/year. Our team includes clinical leaders (MDs / LPCs) from the Mayo Clinic, Choose Your Horizon, & Charlie Health.",
+      "categories": [
+        "Healthcare",
+        "Healthcare Services"
+      ],
+      "founders": [],
+      "team_size": 15,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "sunflower",
+        "source_url": "https://www.ycombinator.com/companies/sunflower",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "prescience-inc",
+      "name": "Prescience, Inc.",
+      "website_url": "https://www.getprescience.com/",
+      "canonical_domain": "getprescience.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/prescience-inc",
+      "tagline": "Healthcare for the age of abundant intelligence.",
+      "description": "Prescience is the preeminent health benefits platform for the world's most ambitious companies. We save employers 20-50% on health insurance while offering best-in-industry health benefits: www.getprescience.com\r\n\r\nAbout us:\r\nPrescience is building a new healthcare system for America. We train AI systems to: create, operate, insure, and deliver healthcare for employer health plans. Prescience Time Machine – an AlphaGo-like system – steers patients towards “Move 37 health trajectories” that deliver dramatic cost savings for employers. Rishab Jain and Aditya Jain, M.D. are serial entrepreneurs and brothers from Harvard & Harvard Medical School with backgrounds in machine learning and medicine. We believe abundant intelligence will bring an opportunity to fundamentally rebuild the $4.5T healthcare industry around proactive (prescient) health and wellness.",
+      "categories": [
+        "Healthcare",
+        "B2B",
+        "Health Insurance",
+        "Insurance"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "prescience-inc",
+        "source_url": "https://www.ycombinator.com/companies/prescience-inc",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "cova",
+      "name": "Cova",
+      "website_url": "https://cova.care/",
+      "canonical_domain": "cova.care",
+      "yc_profile_url": "https://www.ycombinator.com/companies/cova",
+      "tagline": "Financial infrastructure for family caregiving",
+      "description": "Cova is an AI-native home care agency, licensed in Michigan. We serve Medicaid, LTCI, and private-pay patients; we pay caregivers the highest base rate in the state; and we help unpaid family caregivers get paid through programs they didn't know they qualified for. Our entire operation runs on AI agents, which means less overhead and more value passed directly to the people doing the real work.",
+      "categories": [
+        "Healthcare",
+        "Consumer Health Services",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Detroit, MI, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "cova",
+        "source_url": "https://www.ycombinator.com/companies/cova",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "illume-labs",
+      "name": "Illume Labs",
+      "website_url": "https://www.illumelabs.ai/",
+      "canonical_domain": "illumelabs.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/illume-labs",
+      "tagline": "24/7 Personal Health & Longevity Companion",
+      "description": "Illume is a 24/7 AI personal health & longevity companion that connects your wearables, blood panels, and genomic data to text you personalized and actionable insights. We pull in your health data and fuse it into one secure model. You get daily text updates on what changed, what it means, and what to do next; conversational health Q&A like \"What should I do to improve my bloodwork?\"; cross-data trend detection that catches patterns individual platforms miss; and a full platform to dig deeper, explore your health data, and text your Illume agent anytime. We're 3 MIT grads & friends, with experience at Windsurf, MIT CSAIL, Eli Lilly, & the Broad Institute.",
+      "categories": [
+        "Healthcare",
+        "Consumer Health and Wellness",
+        "Artificial Intelligence",
+        "Generative AI",
+        "Health Tech",
+        "Biotech",
+        "Health & Wellness"
+      ],
+      "founders": [],
+      "team_size": 3,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "illume-labs",
+        "source_url": "https://www.ycombinator.com/companies/illume-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "wondertx",
+      "name": "WonderTx",
+      "website_url": "https://wondertx.ai/",
+      "canonical_domain": "wondertx.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/wondertx",
+      "tagline": "Extrapolative AI to unlock First-in-Class drugs",
+      "description": "We’re an AI-native biotech, working on replacing needles with pills. Many drugs, like insulin or Ozempic, are wonderful except you have to inject them. We discover new molecules that you can take as a pill instead. Because the pills operate on biology which has been shown to be effective in people, rather than merely in animal models of disease, we avoid what has historically been the single biggest risk in drug discovery.  This should dramatically increase our probability of success.\r\n\r\nThere’s $200B of treatable diseases and validated human biology without a pill because discovery programs lack a tractable chemical starting point. This is a zero-shot inference problem, because these targets have no training data, so LLMs and other historical interpolative AI approaches are insufficient. Instead, we are building our own extrapolative frontier models that reason beyond their training data. Most critically, we have repeatedly validated our platform on both our own and partner programs. On 4 biologically- and structurally-diverse targets where we had zero training data, we successfully picked binders that were validated experimentally, with confirmation ranging from primary screen hits to crystallographic structures.",
+      "categories": [
+        "Healthcare",
+        "Therapeutics",
+        "AI-powered Drug Discovery",
+        "Generative AI",
+        "Biotech"
+      ],
+      "founders": [],
+      "team_size": 3,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA; Remote",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "wondertx",
+        "source_url": "https://www.ycombinator.com/companies/wondertx",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "atlas-discovery",
+      "name": "Atlas Discovery",
+      "website_url": "https://atlasdiscovery.bio/",
+      "canonical_domain": "atlasdiscovery.bio",
+      "yc_profile_url": "https://www.ycombinator.com/companies/atlas-discovery",
+      "tagline": "Predicting human response to drugs in clinical trials",
+      "description": "Predicting human response to drugs in clinical trials",
+      "categories": [
+        "Healthcare",
+        "Drug Discovery and Delivery",
+        "AI-powered Drug Discovery",
+        "Drug discovery",
+        "Biotechnology"
+      ],
+      "founders": [],
+      "team_size": 3,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "atlas-discovery",
+        "source_url": "https://www.ycombinator.com/companies/atlas-discovery",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "gutgutgoose",
+      "name": "Gutgutgoose",
+      "website_url": "https://gutgutgoose.com/",
+      "canonical_domain": "gutgutgoose.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/gutgutgoose",
+      "tagline": "We sequence your gut and build the probiotics it’s missing",
+      "description": "Most data companies pay for their data. Ours pays for itself.\r\nCustomers send us a stool sample. We sequence it, build a metabolic model of that gut, and simulate whether each probiotic strain has an open niche it can colonize. We formulate the best candidates, then re-sequence 90 days later to see what actually took hold and what changed. Each cycle gives us the baseline gut, the intervention, and the outcome. At scale, the endgame is models that predict chronic disease years before symptoms.",
+      "categories": [
+        "Healthcare",
+        "Consumer",
+        "Biotech",
+        "Personalization",
+        "Health & Wellness"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "gutgutgoose",
+        "source_url": "https://www.ycombinator.com/companies/gutgutgoose",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "insurf",
+      "name": "Insurf",
+      "website_url": "https://www.insurf.io/",
+      "canonical_domain": "insurf.io",
+      "yc_profile_url": "https://www.ycombinator.com/companies/insurf",
+      "tagline": "The AI-Native Decision Infrastructure for Health Insurance",
+      "description": "Insurf is the AI-native data and decision layer for health insurance. Our model Surely identifies the lowest-cost coverage for anyone, saving individuals, families, and companies thousands per employee. Our product Inveto collects the data from hospitals and clinics that informs Surely.",
+      "categories": [
+        "Healthcare",
+        "Artificial Intelligence",
+        "Health Tech",
+        "Insurance",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "insurf",
+        "source_url": "https://www.ycombinator.com/companies/insurf",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    }
+  ],
+  "incomplete_candidates": [],
+  "errors": []
+}

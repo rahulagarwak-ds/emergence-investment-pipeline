@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T22:01:22.618689Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "evergrove",
+      "candidate_name": "Evergrove",
+      "rank": 1,
+      "total_score": 73,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_04e6095e61af70eb016a90b3501b5c87d098b384febf2ef6f5",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8719,
+        "usage": {
+          "input_tokens": 2783,
+          "output_tokens": 812,
+          "total_tokens": 3595
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/evergrove.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "cova",
+      "candidate_name": "Cova",
+      "rank": 2,
+      "total_score": 69,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_094d825023da7779016a90b35848bc87d0b2b800882c181481",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7904,
+        "usage": {
+          "input_tokens": 2334,
+          "output_tokens": 736,
+          "total_tokens": 3070
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/cova.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "withasync",
+      "candidate_name": "Async",
+      "rank": 3,
+      "total_score": 69,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_084f06cf177d6c49016a90b360db6887d08db3c5befb558727",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10325,
+        "usage": {
+          "input_tokens": 3552,
+          "output_tokens": 893,
+          "total_tokens": 4445
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/withasync.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "insurf",
+      "candidate_name": "Insurf",
+      "rank": 4,
+      "total_score": 62,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0a9d7a01200f4467016a90b36a949887d08b190b2dfd974605",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8682,
+        "usage": {
+          "input_tokens": 2779,
+          "output_tokens": 743,
+          "total_tokens": 3522
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/insurf.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "sunflower",
+      "candidate_name": "Sunflower",
+      "rank": 5,
+      "total_score": 51,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0611b0fc550ec7a6016a90b3734f9887d0a213cc3580ce063d",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11229,
+        "usage": {
+          "input_tokens": 2376,
+          "output_tokens": 963,
+          "total_tokens": 3339
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/sunflower.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "atlas-discovery",
+      "candidate_name": "Atlas Discovery",
+      "rank": 6,
+      "total_score": 46,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0b81ad783dea2303016a90b37e914887d09d3d4f8fa74e276f",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10736,
+        "usage": {
+          "input_tokens": 2381,
+          "output_tokens": 940,
+          "total_tokens": 3321
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/atlas-discovery.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "prescience-inc",
+      "candidate_name": "Prescience, Inc.",
+      "rank": 7,
+      "total_score": 46,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "requires_upfront_procurement"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0da2aa4df904ce69016a90b3894d0c87d0ac1d3c508d3e02b3",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8490,
+        "usage": {
+          "input_tokens": 2562,
+          "output_tokens": 807,
+          "total_tokens": 3369
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/prescience-inc.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "wondertx",
+      "candidate_name": "WonderTx",
+      "rank": 8,
+      "total_score": 42,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_08c82a2dee774803016a90b391d89c87d09f6aba5b6186fd78",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 12777,
+        "usage": {
+          "input_tokens": 3017,
+          "output_tokens": 1207,
+          "total_tokens": 4224
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/wondertx.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "illume-labs",
+      "candidate_name": "Illume Labs",
+      "rank": 9,
+      "total_score": 37,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_070308d2ddf9991e016a90b39e9cf887d0926e4ee57ce95deb",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10555,
+        "usage": {
+          "input_tokens": 2656,
+          "output_tokens": 988,
+          "total_tokens": 3644
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/illume-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "gutgutgoose",
+      "candidate_name": "Gutgutgoose",
+      "rank": 10,
+      "total_score": 33,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_052fdf6c57556943016a90b3a9369087d0aa04ab5f9d521c8b",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9906,
+        "usage": {
+          "input_tokens": 2188,
+          "output_tokens": 958,
+          "total_tokens": 3146
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/gutgutgoose.md"
+    }
+  ],
+  "errors": []
+}

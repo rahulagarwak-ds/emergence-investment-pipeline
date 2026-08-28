@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260827T214810Z",
+  "status": "completed",
+  "created_at": "2026-08-27T21:48:10.132290Z",
+  "updated_at": "2026-08-27T21:49:50.344850Z",
+  "input": {
+    "selector": "replay=outputs/20260827T213043Z/02_analysis/analyses.jsonl",
+    "snapshot_path": null,
+    "snapshot_sha256": null,
+    "snapshot_captured_at": null,
+    "parent_artifact": {
+      "path": "outputs/20260827T213043Z/02_analysis/analyses.jsonl",
+      "sha256": "7690b7eb18e474b0a31807bf9ec0fcc2519cf3788f56882a3a40aafe8a1baff4"
+    }
+  },
+  "versions": {
+    "schema": "1.0",
+    "analysis_prompt": "analysis-v1@1f2ee6fac6363a92945980475067430d5ce0dff89be8802f1f819f7ce7926c0d",
+    "memo_prompt": "memo-v1@73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+    "model": "gpt-5",
+    "reasoning_effort": "low"
+  },
+  "stages": {
+    "01_sourcing": {
+      "status": "skipped",
+      "started_at": null,
+      "finished_at": "2026-08-27T21:48:10.181124Z",
+      "artifacts": [],
+      "summary": {},
+      "response_ids": [],
+      "usage": null,
+      "latency_ms": null,
+      "errors": []
+    },
+    "02_analysis": {
+      "status": "skipped",
+      "started_at": null,
+      "finished_at": "2026-08-27T21:48:10.184955Z",
+      "artifacts": [
+        {
+          "path": "02_analysis/analyses.jsonl",
+          "sha256": "7690b7eb18e474b0a31807bf9ec0fcc2519cf3788f56882a3a40aafe8a1baff4"
+        }
+      ],
+      "summary": {
+        "valid": 10,
+        "failed": 0
+      },
+      "response_ids": [
+        "resp_00f20ec47767d011016a90ac85b52487d0b01b29fd552d23b7",
+        "resp_04cda115380d1c97016a90acb33bd887d09e3bfec10949bee9",
+        "resp_0a1dc9ee1fb30f92016a90acde51c087d0b10cda75addab7fd",
+        "resp_019913e7f97fb32d016a90ad5c4a5487d0b7feccbf1e5e20e1",
+        "resp_02aeb8ef3752f775016a90ae0d513c87d0a3bba99a8c8fbc68",
+        "resp_06deebafcad8af32016a90ae314be087d09b3de0b4dea8de04",
+        "resp_05aee8a2f88b821b016a90af0b5e0c87d0b4e146f8751eaeab",
+        "resp_0882a189d6b1e14e016a90af3e8dc087d08d9d7319540a0450",
+        "resp_0a34fe490fa76162016a90af6f71a887d09ac76d6acb81dd85",
+        "resp_0fbf8b7f7b9e7630016a90af98718887d0894f183f3dcbb85a"
+      ],
+      "usage": {
+        "input_tokens": 197223,
+        "output_tokens": 39480,
+        "total_tokens": 236703
+      },
+      "latency_ms": 837975,
+      "errors": []
+    },
+    "03_recommendation": {
+      "status": "completed",
+      "started_at": "2026-08-27T21:48:10.239058Z",
+      "finished_at": "2026-08-27T21:49:49.978901Z",
+      "artifacts": [
+        {
+          "path": "03_recommendation/index.md",
+          "sha256": "0d250b4fcd772d65ad68bcf702ef9ce931f811d050e4b8622100e7879f7b50db"
+        },
+        {
+          "path": "03_recommendation/memos/archal.md",
+          "sha256": "a0ec36e3471d0e4bb184760b83e6d45ca28c0df1ae9ca7c0b4ca4bfc58b005d8"
+        },
+        {
+          "path": "03_recommendation/memos/assemble.md",
+          "sha256": "cae281efdabd06f602726ff21fbba03e16f8c24c19533c501f9f27f067b61f41"
+        },
+        {
+          "path": "03_recommendation/memos/datoric.md",
+          "sha256": "682eb89a3a96ade5d21e9d7145665ae216d41f1983911b107764f79c7b0f61a5"
+        },
+        {
+          "path": "03_recommendation/memos/dream.md",
+          "sha256": "1099c4a1129edc0f2555040887af9a96a4822f4e93123ded4a446f94ddd14663"
+        },
+        {
+          "path": "03_recommendation/memos/induction-labs.md",
+          "sha256": "47c9067f4f48b18ebc8a4ced5663ddc7e3705366f192d0dfa7bda83d496df854"
+        },
+        {
+          "path": "03_recommendation/memos/onetriangle.md",
+          "sha256": "3195f9b1e73d716d941a1d74f2a5a874e4d57cc96e3c094afc26bd471ec98566"
+        },
+        {
+          "path": "03_recommendation/memos/os3.md",
+          "sha256": "6bbbb66d98cbf3c0b1cb868496a79fec2ff39963f51a647b5cc522c38c1fe628"
+        },
+        {
+          "path": "03_recommendation/memos/prescience-inc.md",
+          "sha256": "5456a7d4df45861e1abb9313b153a1057c728bf19d6400e0c1bf3d9c1f1effd1"
+        },
+        {
+          "path": "03_recommendation/memos/rapidfolio.md",
+          "sha256": "31f299afda26a380454556d589b158e2f73863eeacd035973f5d2c080b22953b"
+        },
+        {
+          "path": "03_recommendation/memos/withasync.md",
+          "sha256": "5f831a4b177eec4e882ce9a4496a46f01af8c56562e1632695115c63309d2420"
+        },
+        {
+          "path": "03_recommendation/recommendations.json",
+          "sha256": "02a285a4d58d55f042f3ef17f72ae20c7b1580037e8b9cbe577e6719868a67f5"
+        }
+      ],
+      "summary": {
+        "memos": 10,
+        "render_failed": 0,
+        "meeting": 0,
+        "watch": 5,
+        "pass": 5
+      },
+      "response_ids": [
+        "resp_0da65ba6764c41fd016a90b09d01a487d09d4762ace3e064e1",
+        "resp_08f9fb7a9d0f15a7016a90b0a5e30c87d0854078c205b6d236",
+        "resp_096bfa6f705d5c80016a90b0aebce487d0b628e8648f837fcc",
+        "resp_0b5bcbe3b4bb36ce016a90b0b7386887d087d4d023c3b877de",
+        "resp_0f66375125ac5aac016a90b0c26d6087d093970ab414816f6d",
+        "resp_0c704e85e48f5d6e016a90b0cab0c487d0ba872832a20f629c",
+        "resp_0d1551aecd914325016a90b0d8fa3c87d09747193cac620048",
+        "resp_0253ad682cf9b7e0016a90b0e432f887d08cf8cadd42b8dfc0",
+        "resp_0f0e9d84baf877f8016a90b0ed796087d08b8caba2978af3fb",
+        "resp_0af2cd88775bef95016a90b0f625c887d09db66e374cae3865"
+      ],
+      "usage": {
+        "input_tokens": 28368,
+        "output_tokens": 8355,
+        "total_tokens": 36723
+      },
+      "latency_ms": 99319,
+      "errors": []
+    }
+  },
+  "source_urls": [],
+  "errors": []
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T21:49:01.913390Z",
+  "input_summary": "topic=\"AI agents for SMBs\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 0,
+    "deduplicated": 0,
+    "eligible": 0,
+    "rejected": 0
+  },
+  "candidates": [],
+  "incomplete_candidates": [],
+  "errors": [
+    {
+      "schema_version": "1.0",
+      "record_type": "error",
+      "code": "INSUFFICIENT_CANDIDATES",
+      "message": "Only 0 eligible candidates; at least 10 are required",
+      "stage": "stage_01_sourcing",
+      "candidate_id": null,
+      "retryable": false,
+      "details": {
+        "eligible": 0,
+        "required": 10
+      }
+    }
+  ]
+}
