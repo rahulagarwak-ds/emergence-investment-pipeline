@@ -58,14 +58,17 @@ def load_run(run_dir: Path) -> GradedRun:
 
 
 def grade_grounding(run: GradedRun) -> list[Finding]:
-    """Every evidence URL is the candidate's YC profile or a source the web search returned."""
+    """Every evidence URL is the candidate's YC profile or website, or a web-search source."""
     if run.candidates is None:
         return []
-    profiles = {c.candidate_id: _url(c.yc_profile_url) for c in run.candidates.candidates}
+    company_urls = {
+        c.candidate_id: {_url(c.yc_profile_url), _url(c.website_url)}
+        for c in run.candidates.candidates
+    }
     findings: list[Finding] = []
     for analysis in run.analyses.analyses:
         allowed = {
-            profiles.get(analysis.candidate_id),
+            *company_urls.get(analysis.candidate_id, set()),
             *(_url(url) for url in analysis.response.source_urls),
         }
         findings.extend(

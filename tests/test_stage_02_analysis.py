@@ -12,12 +12,11 @@ from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.schemas import (
     CitedFindingV1,
     DimensionScoreV1,
-    EvidenceItemV1,
     ThesisDimension,
 )
 from investment_pipeline.stage_01_sourcing import SourcingSelectorV1, run_sourcing
 from investment_pipeline.stage_02_analysis import run_analysis
-from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1
+from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1, EvidenceDraftV1
 
 _FIXTURE = Path(__file__).parent / "fixtures" / "yc_snapshot.jsonl"
 
@@ -41,11 +40,14 @@ class FakeResponses:
             candidate_id == "example-01" and self.attempts[candidate_id] == 1
         )
         external = candidate_id == "example-04"
+        own_website = candidate_id == "example-05"
         source_url = (
             "https://unsupported.test/evidence"
             if unsupported
             else "https://public.test/evidence"
             if external
+            else candidate["website_url"]
+            if own_website
             else candidate["source"]["source_url"]
         )
         missing_founder_score = candidate_id == "example-03"
@@ -76,7 +78,7 @@ class FakeResponses:
             open_questions=["What is independently verified?"],
             unknowns=["Independent traction verification"],
             evidence=[
-                EvidenceItemV1(
+                EvidenceDraftV1(
                     evidence_id="e1",
                     claim="YC profile claim",
                     source_url=source_url,
@@ -134,12 +136,23 @@ def test_analysis_repairs_once_preserves_failure_and_calculates_scores(tmp_path:
     assert incomplete.evidence_coverage == 80
     external = next(item for item in result.analyses if item.candidate_id == "example-04")
     assert str(external.response.source_urls[0]) == "https://public.test/evidence"
+    own_site = next(item for item in result.analyses if item.candidate_id == "example-05")
+    assert str(own_site.evidence[0].source_url) == "https://example-05.test/"
+    assert own_site.evidence[0].self_reported is True
 
     analyses_path = tmp_path / "02_analysis" / "analyses.jsonl"
     lines = [json.loads(line) for line in analyses_path.read_text(encoding="utf-8").splitlines()]
     assert len(lines) == 10
     assert {line["record_type"] for line in lines} == {"analysis", "error"}
     assert all(request_instruction for request_instruction in responses.instructions)
+
+
+def test_model_facing_schemas_avoid_unsupported_json_schema_formats() -> None:
+    """OpenAI strict structured outputs reject ``format: uri``; keep URLs as strings in drafts."""
+    from investment_pipeline.stage_03_recommendation.recommendation import MemoDraftV1
+
+    for draft in (AnalysisDraftV1, MemoDraftV1):
+        assert '"uri"' not in json.dumps(draft.model_json_schema()), draft.__name__
 
 
 def test_analysis_stops_on_insufficient_stage_01_artifact(tmp_path: Path) -> None:

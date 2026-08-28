@@ -38,6 +38,7 @@ def test_live_structured_analysis_round_trip(tmp_path: Path) -> None:
     assert response.metadata.usage.total_tokens > 0
     allowed = {
         str(candidate.source.source_url).rstrip("/"),
+        str(candidate.website_url).rstrip("/"),
         *(str(url).rstrip("/") for url in response.metadata.source_urls),
     }
     for item in response.parsed.evidence:

@@ -67,6 +67,7 @@ class StructuredOpenAIClient:
 
         started = monotonic()
         last_metadata: OpenAIResponseMetadataV1 | None = None
+        last_reason = "no parsed output"
         for attempt in range(2):
             request: dict[str, Any] = {
                 "model": self._model,
@@ -103,13 +104,15 @@ class StructuredOpenAIClient:
                         stage=stage,
                         candidate_id=candidate_id,
                         retryable=True,
+                        details={"error": str(exc)[:500]},
                     )
                 )
-            except (ValidationError, ValueError):
+            except (ValidationError, ValueError) as exc:
+                last_reason = str(exc)[:500]
                 if attempt == 0:
                     continue
 
-        details: dict[str, str | int] = {"attempts": 2}
+        details: dict[str, str | int] = {"attempts": 2, "reason": last_reason}
         if last_metadata is not None:
             details.update(
                 response_id=last_metadata.response_id,

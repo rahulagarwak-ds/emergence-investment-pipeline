@@ -8,7 +8,7 @@ from hashlib import sha256
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
-from pydantic import HttpUrl
+from pydantic import AwareDatetime, Field, HttpUrl
 
 from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
@@ -31,6 +31,17 @@ PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
 _STAGE = "stage_02_analysis"
 
 
+class EvidenceDraftV1(ContractModel):
+    """Evidence as the model returns it; ``source_url`` stays a string because OpenAI's strict
+    schema subset rejects ``format: uri``. Python converts it into ``EvidenceItemV1``."""
+
+    evidence_id: str = Field(min_length=1)
+    claim: str = Field(min_length=1)
+    source_url: str = Field(min_length=1)
+    observed_at: AwareDatetime | None
+    self_reported: bool
+
+
 class AnalysisDraftV1(ContractModel):
     """Model-owned fields before deterministic totals and metadata are added."""
 
@@ -40,7 +51,7 @@ class AnalysisDraftV1(ContractModel):
     risks: list[CitedFindingV1]
     open_questions: list[str]
     unknowns: list[str]
-    evidence: list[EvidenceItemV1]
+    evidence: list[EvidenceDraftV1]
     dimension_scores: list[DimensionScoreV1]
     critical_risks: list[CriticalRiskFindingV1]
 
@@ -115,20 +126,19 @@ def _build_analysis(
     draft: AnalysisDraftV1,
     metadata: OpenAIResponseMetadataV1,
 ) -> AnalysisRecordV1:
-    allowed_urls = {
+    # Company-authored pages (YC profile, own website) are allowed but must stay self-reported.
+    company_urls = {
         _normalized_url(candidate.source.source_url),
-        *(_normalized_url(url) for url in metadata.source_urls),
+        _normalized_url(candidate.website_url),
     }
-    candidate_source = _normalized_url(candidate.source.source_url)
-    for evidence in draft.evidence:
+    allowed_urls = company_urls | {_normalized_url(url) for url in metadata.source_urls}
+    evidence_items = [EvidenceItemV1.model_validate(item.model_dump()) for item in draft.evidence]
+    for evidence in evidence_items:
         source_url = _normalized_url(evidence.source_url)
         if source_url not in allowed_urls:
             raise ValueError(f"unsupported evidence URL: {evidence.source_url}")
-        if (
-            source_url == candidate_source
-            and evidence.self_reported != candidate.source.self_reported
-        ):
-            raise ValueError("YC evidence self-reported label does not match source provenance")
+        if source_url in company_urls and not evidence.self_reported:
+            raise ValueError("company-authored evidence must be marked self-reported")
 
     total_score = sum(score.score or 0 for score in draft.dimension_scores)
     evidence_coverage = 20 * sum(bool(score.evidence_ids) for score in draft.dimension_scores)
@@ -144,7 +154,7 @@ def _build_analysis(
         risks=draft.risks,
         open_questions=draft.open_questions,
         unknowns=draft.unknowns,
-        evidence=draft.evidence,
+        evidence=evidence_items,
         dimension_scores=draft.dimension_scores,
         total_score=total_score,
         evidence_coverage=evidence_coverage,

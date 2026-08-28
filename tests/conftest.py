@@ -15,11 +15,10 @@ from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.schemas import (
     CitedFindingV1,
     DimensionScoreV1,
-    EvidenceItemV1,
     RunManifestV1,
     ThesisDimension,
 )
-from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1
+from investment_pipeline.stage_02_analysis.analysis import AnalysisDraftV1, EvidenceDraftV1
 from investment_pipeline.stage_03_recommendation.recommendation import MemoDraftV1
 
 FIXTURE = Path(__file__).parent / "fixtures" / "yc_snapshot.jsonl"
@@ -131,7 +130,7 @@ def _analysis_draft(candidate: dict[str, Any]) -> AnalysisDraftV1:
         open_questions=["What is independently verified?"],
         unknowns=["Independent traction verification"],
         evidence=[
-            EvidenceItemV1(
+            EvidenceDraftV1(
                 evidence_id="e1",
                 claim="YC profile claim",
                 source_url=source_url,
