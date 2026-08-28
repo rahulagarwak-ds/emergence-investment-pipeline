@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-28T07:35:02.704265Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "libra-robotics",
+      "candidate_name": "Libra Robotics",
+      "rank": 1,
+      "total_score": 74,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0cd9b0fbdd823f24016a9139e3008887d0bf8f06f28b4d6cda",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9029,
+        "usage": {
+          "input_tokens": 3872,
+          "output_tokens": 816,
+          "total_tokens": 4688
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/libra-robotics.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "understudy-labs",
+      "candidate_name": "Understudy Labs",
+      "rank": 2,
+      "total_score": 74,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0064f78f0243f97d016a9139ebbf1487d0a36e20a561a331f9",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7357,
+        "usage": {
+          "input_tokens": 4327,
+          "output_tokens": 804,
+          "total_tokens": 5131
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/understudy-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "control-seat",
+      "candidate_name": "Control Seat",
+      "rank": 3,
+      "total_score": 73,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0258cdd31b43e475016a9139f3100c87d0a7f53576ddadad66",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9606,
+        "usage": {
+          "input_tokens": 4561,
+          "output_tokens": 1015,
+          "total_tokens": 5576
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/control-seat.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "poth-labs",
+      "candidate_name": "Poth Labs",
+      "rank": 4,
+      "total_score": 69,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0617baba3bb95640016a9139fcad5c87d0987880f71e0f198a",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7921,
+        "usage": {
+          "input_tokens": 4667,
+          "output_tokens": 901,
+          "total_tokens": 5568
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/poth-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "evergrove",
+      "candidate_name": "Evergrove",
+      "rank": 5,
+      "total_score": 68,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0fd180aef4a17840016a913a0497d487d08f1934cbe0a8a73c",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8946,
+        "usage": {
+          "input_tokens": 2983,
+          "output_tokens": 980,
+          "total_tokens": 3963
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/evergrove.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "rapidfolio",
+      "candidate_name": "Rapidfolio",
+      "rank": 6,
+      "total_score": 68,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0402c1a21de1f5a4016a913a0d8bac87d0a7d4d6b172329df8",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7975,
+        "usage": {
+          "input_tokens": 3434,
+          "output_tokens": 656,
+          "total_tokens": 4090
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/rapidfolio.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "zomma",
+      "candidate_name": "Zomma",
+      "rank": 7,
+      "total_score": 64,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_03a41f81903966ff016a913a158b3087d0b0d618621f357781",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8913,
+        "usage": {
+          "input_tokens": 3220,
+          "output_tokens": 958,
+          "total_tokens": 4178
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/zomma.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "marker",
+      "candidate_name": "Marker",
+      "rank": 8,
+      "total_score": 58,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0f7b0358375ea1ed016a913a1e70b087d084bac89fc9105f0e",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9048,
+        "usage": {
+          "input_tokens": 3036,
+          "output_tokens": 1064,
+          "total_tokens": 4100
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/marker.md"
+    }
+  ],
+  "errors": []
+}

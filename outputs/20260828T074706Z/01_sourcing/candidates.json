@@ -1,0 +1,622 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-28T07:47:06.710173Z",
+  "input_summary": "topic=\"AI agents\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 34,
+    "deduplicated": 34,
+    "eligible": 20,
+    "rejected": 14
+  },
+  "candidates": [
+    {
+      "candidate_id": "withasync",
+      "name": "Async",
+      "website_url": "https://withasync.com/",
+      "canonical_domain": "withasync.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/withasync",
+      "tagline": "AI agents that run small businesses",
+      "description": "Async builds agents that change how businesses can run. Law firms, healthcare clinics and real estate companies hire our AI agents to automate complex work that's never been economical to staff with humans, letting us capture labor spend that didn't previously exist.",
+      "categories": [
+        "B2B",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "withasync",
+        "source_url": "https://www.ycombinator.com/companies/withasync",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "archal",
+      "name": "Archal",
+      "website_url": "https://www.archal.ai/",
+      "canonical_domain": "archal.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/archal",
+      "tagline": "API sandboxes, built for AI agents",
+      "description": "Archal provisions sandboxes with the API environments your CI, tests, and evals need. Your coding agent can start the sandbox & environments, connect to your API integrations, run tests, and inspect state changes. Sandboxes and environments are startable within seconds and take milliseconds to reset.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Artificial Intelligence",
+        "Developer Tools",
+        "API"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "archal",
+        "source_url": "https://www.ycombinator.com/companies/archal",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "atlia",
+      "name": "Atlia",
+      "website_url": "https://www.atlia.com/",
+      "canonical_domain": "atlia.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/atlia",
+      "tagline": "The AI-native property management company",
+      "description": "We manage short-term rental properties by running operations completely autonomously. By replacing costly human coordination with AI agents, we cut traditional management fees in half so Airbnb hosts take home 10% to 20% more revenue with zero effort. This lets us offer the best owner and guest experiences with the lowest management rates in the country.",
+      "categories": [
+        "Real Estate and Construction",
+        "Housing and Real Estate",
+        "Artificial Intelligence",
+        "Real Estate",
+        "Big Data"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "atlia",
+        "source_url": "https://www.ycombinator.com/companies/atlia",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "cova",
+      "name": "Cova",
+      "website_url": "https://cova.care/",
+      "canonical_domain": "cova.care",
+      "yc_profile_url": "https://www.ycombinator.com/companies/cova",
+      "tagline": "Financial infrastructure for family caregiving",
+      "description": "Cova is an AI-native home care agency, licensed in Michigan. We serve Medicaid, LTCI, and private-pay patients; we pay caregivers the highest base rate in the state; and we help unpaid family caregivers get paid through programs they didn't know they qualified for. Our entire operation runs on AI agents, which means less overhead and more value passed directly to the people doing the real work.",
+      "categories": [
+        "Healthcare",
+        "Consumer Health Services",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Detroit, MI, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "cova",
+        "source_url": "https://www.ycombinator.com/companies/cova",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "marker",
+      "name": "Marker",
+      "website_url": "https://onmarker.com/",
+      "canonical_domain": "onmarker.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/marker",
+      "tagline": "Platform and FDEs for rebuilding businesses agent-first",
+      "description": "Marker embeds with companies, learns how their organization actually works, and ships custom AI agents into production in weeks via the Marker Command Center. Each agent deepens our understanding, so the next one launches faster until the whole org is agent-first.",
+      "categories": [
+        "B2B",
+        "Productivity",
+        "Artificial Intelligence",
+        "Generative AI",
+        "SaaS",
+        "Workflow Automation"
+      ],
+      "founders": [],
+      "team_size": 3,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA; Remote",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "marker",
+        "source_url": "https://www.ycombinator.com/companies/marker",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "amorphic-labs",
+      "name": "Amorphic Labs",
+      "website_url": "https://www.agentmuxer.com/",
+      "canonical_domain": "agentmuxer.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/amorphic-labs",
+      "tagline": "OpenRouter for Agent Capabilities",
+      "description": "The next billion software users are AI agents, yet agents still can't act on their own: every paid tool they need runs through a human making accounts, managing API keys, and guessing which provider is best. We are the capability marketplace built for agents: one MCP and one balance through which agents find, pay for, and use APIs, data, skills, other agents, and software at runtime, with every request routed to the best provider based on benchmarks from real tasks and outcome feedback from the agents themselves.",
+      "categories": [
+        "B2B",
+        "Engineering, Product and Design",
+        "Artificial Intelligence",
+        "Marketplace"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "amorphic-labs",
+        "source_url": "https://www.ycombinator.com/companies/amorphic-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "rindler",
+      "name": "Rindler",
+      "website_url": "https://rindler.ai/",
+      "canonical_domain": "rindler.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/rindler",
+      "tagline": "The translation layer between AI agents and the web",
+      "description": "Rindler turns any website into deterministic abstractions that AI agents can operate on with speed, efficiency, and reliability.\r\n\r\nRindler drives a real browser to execute tasks on websites. It signs in, handles one-time verification codes, navigates to the right screen, retrieves records or completes forms, and returns structured output in a caller-defined schema.\r\n\r\nMost browser agents re-process and re-compute the same website every time they visit it. Rindler remembers. Our infrastructure gets faster and cheaper the more it is used, and when a site changes underneath it, Rindler detects the break and heals itself.\r\n\r\nFor operations leaders, Rindler takes on the repetitive website work your team does by hand, giving them their time back for the work that matters.\r\n\r\nFor agent builders, Rindler is a single endpoint that carries out tasks on the web, so you do not have to build or run browser infrastructure of your own.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Workflow Automation",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Boston, MA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "rindler",
+        "source_url": "https://www.ycombinator.com/companies/rindler",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "olam-labs",
+      "name": "Olam Labs",
+      "website_url": "https://olamlabs.ai/",
+      "canonical_domain": "olamlabs.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/olam-labs",
+      "tagline": "Building multi-agent simulations for model evals and training.",
+      "description": "Multi-agent environments let us evaluate and train models in complex, simulated worlds. We work with researchers on both evaluations and training for character and agentic performance typically difficult to assess for using current popular datasets. \r\n\r\nPlay one of our first releases, Multi-Agent Arena (https://olamlabs.ai/arena), where humans come play social strategy games against multiple AI agents. It's currently top 50 on OpenRouter and has thousands of matches played each day. We use Multi-Agent Arena to build datasets on agentic performance and real-world socialization.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Reinforcement Learning",
+        "Gaming",
+        "Data Engineering"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "olam-labs",
+        "source_url": "https://www.ycombinator.com/companies/olam-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "trope",
+      "name": "Trope",
+      "website_url": "https://trope.ai/",
+      "canonical_domain": "trope.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/trope",
+      "tagline": "AI FDE that deploys custom AI agents into ERPs",
+      "description": "Trope deploys AI agents into ERPs for mid-market companies.\r\n\r\nNo two ERPs are the same. Every ERP has been configured over months by implementation consultants.\r\n\r\nThat means every useful AI agent requires customization, leaving ERP vendors, consulting firms, and customers stuck with slow deployments, subpar solutions, and services that are too expensive to scale.\r\n\r\nTrope’s AI FDE learns each company’s ERP and business processes, then builds, tests, and deploys the agents automatically, turning that last mile from services into software.",
+      "categories": [
+        "B2B",
+        "SaaS",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "trope",
+        "source_url": "https://www.ycombinator.com/companies/trope",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "rex-inc",
+      "name": "Rex",
+      "website_url": "https://www.rex.inc/",
+      "canonical_domain": "rex.inc",
+      "yc_profile_url": "https://www.ycombinator.com/companies/rex-inc",
+      "tagline": "AI-native BPO for enterprise order-to-cash",
+      "description": "Rex is an AI-native service for order to cash. Rex replace manual operations with AI agents that continuously manage invoices, customers and exceptions.\r\n\r\nOrder to cash is a $60B outsourced function because the work is too messy for traditional automation. Every customer has different context, exceptions do not follow clean rules, and the next step is often buried in emails, portals, handoffs, or someone’s memory. Rex agents run continuously in the background and resolve work to SLA standards so cash keeps moving. We're live with pre-IPO tech companies, managing  >$500m in receivables from F100 companies, cutting manual follow-up cycles from weeks to hours.\r\n\r\nWe founded Rex after spending four years building Sequence, an a16z-backed finance ops platform, from zero to Series A — where we saw firsthand that at-scale, O2C still runs on manual labour.\r\n\r\nRex is the #1 winner of the Vercel AI Accelerator out of 2,500 teams, selected by Guillermo Rauch and leaders from OpenAI, Anthropic, Browserbase and more.",
+      "categories": [
+        "B2B",
+        "Finance and Accounting",
+        "Artificial Intelligence",
+        "Enterprise",
+        "Enterprise Software"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "rex-inc",
+        "source_url": "https://www.ycombinator.com/companies/rex-inc",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "realpact",
+      "name": "RealPact",
+      "website_url": "https://realpact.ai/",
+      "canonical_domain": "realpact.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/realpact",
+      "tagline": "AI-native OS for Real Estate Brokerages",
+      "description": "RealPact builds AI agents that handle the paperwork behind real estate transactions. They find property records like deeds, tax records, permits, parcel data, and MLS information, then use that data to fill out contracts, organize documents, track deadlines, and help brokerages close deals faster.\r\n\r\nWe are starting by automating transactions and will expand into other parts of brokerage operations. Much of the software used across the real estate industry is outdated. With today’s advances in AI, we can build agents that handle this operational work and create modern software around how brokerages actually work.\r\n\r\nWe currently sell to brokerages in New Hampshire and are expanding quickly.",
+      "categories": [
+        "Real Estate and Construction",
+        "Housing and Real Estate",
+        "Real Estate",
+        "Enterprise Software",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "realpact",
+        "source_url": "https://www.ycombinator.com/companies/realpact",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "buildbox",
+      "name": "Buildbox",
+      "website_url": "https://heybuildbox.com/",
+      "canonical_domain": "heybuildbox.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/buildbox",
+      "tagline": "Understand how users experience your AI agents",
+      "description": "Buildbox helps product teams improve the human-agent experience. We analyze user intent, agent behavior, and outcomes to find where users get stuck or lose trust, then turn those findings into ranked, reproducible issues.",
+      "categories": [
+        "B2B",
+        "Analytics",
+        "Artificial Intelligence",
+        "Enterprise Software"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "buildbox",
+        "source_url": "https://www.ycombinator.com/companies/buildbox",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "joinmarble",
+      "name": "Marble",
+      "website_url": "https://joinmarble.ai/",
+      "canonical_domain": "joinmarble.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/joinmarble",
+      "tagline": "The autonomous back-of-house for restaurants.",
+      "description": "Marble is the first AI-native operating system for the restaurant back-of-house. \r\n\r\nRestaurants, cafes and bars still run on a patchwork of disconnected point solutions, spreadsheets, clipboards and tribal knowledge, which costs the industry billions each year in stockouts, food waste, and lost profit. \r\n\r\nMarble replaces that entire stack with one system. Computer vision and voice AI capture real-time inventory levels 90% faster than manual counts, ML models forecast item-level demand at 97% accuracy, and AI agents run dozens of end-to-end workflows autonomously, from procurement and invoice reconciliation to scheduling, food prep, menu engineering, and more.",
+      "categories": [
+        "B2B",
+        "SaaS",
+        "Restaurant Tech",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "joinmarble",
+        "source_url": "https://www.ycombinator.com/companies/joinmarble",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "contextdev",
+      "name": "Context.dev",
+      "website_url": "https://context.dev/",
+      "canonical_domain": "context.dev",
+      "yc_profile_url": "https://www.ycombinator.com/companies/contextdev",
+      "tagline": "We give AI agents realtime web context.",
+      "description": "Context.dev gives AI agents structured data from any website through a single API.\r\n\r\nWe help developers build smarter agents & products that depend on accurate, fresh web data.\r\n\r\nIf you need structured data from the internet, you need Context.dev\r\n\r\nProud to power agentic products at Mintlify, Super, Vizzy, Klarna, and 400+ other companies.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "AI",
+        "APIs"
+      ],
+      "founders": [],
+      "team_size": 1,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "contextdev",
+        "source_url": "https://www.ycombinator.com/companies/contextdev",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "screenpipe",
+      "name": "screenpipe",
+      "website_url": "https://screenpipe.com/",
+      "canonical_domain": "screenpipe.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/screenpipe",
+      "tagline": "AI powered by everything you've seen, said or heard",
+      "description": "screenpipe record and learns how you work and turns it into a searchable memory, documents, and AI agents. Data is stored on your device or where your team choose, open source.",
+      "categories": [
+        "B2B",
+        "Productivity",
+        "SaaS",
+        "Enterprise",
+        "Enterprise Software",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "screenpipe",
+        "source_url": "https://www.ycombinator.com/companies/screenpipe",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "stratum-industries",
+      "name": "Stratum Industries",
+      "website_url": "https://stratumindustries.co/",
+      "canonical_domain": "stratumindustries.co",
+      "yc_profile_url": "https://www.ycombinator.com/companies/stratum-industries",
+      "tagline": "Applied AI for Governments.",
+      "description": "Stratum Industries is the applied AI company for governments. We build AI agents that automate the slow, complex manual workflows governments run on, starting with application review, where files are still reviewed by hand, one at a time, leaving millions stuck in queues. \r\n\r\nStratum's agents review applications end to end with a human in the loop and full auditability, clearing entire backlogs in a fraction of the time. Our mission is to deploy AI across every vertical inside the government, saving agencies tens of billions in administrative cost and making the government one of the most efficient institutions in the world.",
+      "categories": [
+        "Government",
+        "Artificial Intelligence",
+        "GovTech",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "stratum-industries",
+        "source_url": "https://www.ycombinator.com/companies/stratum-industries",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "talentpluto",
+      "name": "Pluto",
+      "website_url": "https://talentpluto.com/",
+      "canonical_domain": "talentpluto.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/talentpluto",
+      "tagline": "AI voice agent that helps professionals get discovered",
+      "description": "Resumes made careers readable. LinkedIn made them filterable. Pluto makes them searchable.\r\n\r\nProfessionals spend 10 minutes talking to Pluto's voice agent about what they've done, what they're great at, and what they want next. Pluto turns that into a structured picture of who someone actually is, capturing the competency and intent that resumes and LinkedIn don't.\r\n\r\nWhen companies and AI agents go looking to hire, Pluto makes the right people discoverable.\r\n\r\n25K+ professionals have shared their career context with Pluto, and 50+ companies, including Mercor, Warp, and Rho, use it to find and reach the right people. Long term, we're building the professional data layer AI agents will use to understand and find people.",
+      "categories": [
+        "B2B",
+        "Recruiting and Talent",
+        "Artificial Intelligence",
+        "Careers",
+        "Conversational AI"
+      ],
+      "founders": [],
+      "team_size": 5,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "talentpluto",
+        "source_url": "https://www.ycombinator.com/companies/talentpluto",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "machine0",
+      "name": "machine0",
+      "website_url": "https://machine0.io/",
+      "canonical_domain": "machine0.io",
+      "yc_profile_url": "https://www.ycombinator.com/companies/machine0",
+      "tagline": "Cloud computers for AI agents",
+      "description": "machine0 is a CLI for agent compute: `machine0 new mybox` gives your agent a full cloud VM, billed by the minute, from small up to 60 vCPU / 240 GB and 8×H100s. Agents drive it themselves via CLI or MCP.\r\n\r\nAgent workloads are moving from ephemeral to always-on. A coding agent working on a hard feature runs 6-8 hours. Auto-research agents run for days. machine0 is the environment in which these agents run.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Developer Tools",
+        "Cloud Computing"
+      ],
+      "founders": [],
+      "team_size": 1,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Paris, Île-de-France, France",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "machine0",
+        "source_url": "https://www.ycombinator.com/companies/machine0",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "ooak-data",
+      "name": "Ooak Data",
+      "website_url": "https://ooakdata.com/",
+      "canonical_domain": "ooakdata.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/ooak-data",
+      "tagline": "We turn company data into training data",
+      "description": "Ooak Data turns internal company data into a training ground where AI agents can be tested on real work.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Reinforcement Learning"
+      ],
+      "founders": [],
+      "team_size": 5,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "ooak-data",
+        "source_url": "https://www.ycombinator.com/companies/ooak-data",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "whitespace",
+      "name": "Whitespace",
+      "website_url": "https://whitespacehq.ai/",
+      "canonical_domain": "whitespacehq.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/whitespace",
+      "tagline": "AI Operating System for Wholesale Distributors",
+      "description": "Whitespace is the AI operating system for wholesale distributors. It connects to their systems and inboxes to build a living model of their business, then deploys self-improving AI agents to automate work like inventory planning, customer support, and order entry.",
+      "categories": [
+        "B2B",
+        "Supply Chain and Logistics",
+        "SaaS",
+        "Supply Chain",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "whitespace",
+        "source_url": "https://www.ycombinator.com/companies/whitespace",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    }
+  ],
+  "incomplete_candidates": [],
+  "errors": []
+}

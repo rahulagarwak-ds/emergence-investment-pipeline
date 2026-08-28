@@ -1,0 +1,347 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260828T074706Z",
+  "status": "failed",
+  "created_at": "2026-08-28T07:47:06.669489Z",
+  "updated_at": "2026-08-28T07:47:56.974644Z",
+  "input": {
+    "selector": "topic=\"AI agents\"",
+    "snapshot_path": "inputs/yc_snapshot.jsonl",
+    "snapshot_sha256": "e3bf5abfdfd28bb1d19e80df817887f3fbdd65794accf2c811c5b1fa568e3636",
+    "snapshot_captured_at": "2026-08-27T20:41:29.204931Z",
+    "parent_artifact": null
+  },
+  "versions": {
+    "schema": "1.0",
+    "analysis_prompt": "analysis-v2@c5998a5346b555bc5eeff59489a92393091b87464b34358ac187c649ca604e19",
+    "memo_prompt": "memo-v3@faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+    "model": "gpt-5",
+    "reasoning_effort": "low"
+  },
+  "stages": {
+    "01_sourcing": {
+      "status": "completed",
+      "started_at": "2026-08-28T07:47:06.672495Z",
+      "finished_at": "2026-08-28T07:47:06.714641Z",
+      "artifacts": [
+        {
+          "path": "01_sourcing/candidates.json",
+          "sha256": "826cfff4c6d8b8af101c56f12e2dd48e3971263841d73197ddadef8b2392c8bf"
+        },
+        {
+          "path": "01_sourcing/source_refs.jsonl",
+          "sha256": "b565a5b2f7a3a7690268c28d44cf568946a3984c69360c020d158f800f218257"
+        }
+      ],
+      "summary": {
+        "loaded": 236,
+        "matched": 34,
+        "deduplicated": 34,
+        "eligible": 20,
+        "rejected": 14
+      },
+      "response_ids": [],
+      "usage": null,
+      "latency_ms": null,
+      "errors": []
+    },
+    "02_analysis": {
+      "status": "failed",
+      "started_at": "2026-08-28T07:47:06.789068Z",
+      "finished_at": "2026-08-28T07:47:56.956564Z",
+      "artifacts": [
+        {
+          "path": "02_analysis/analyses.jsonl",
+          "sha256": "3d809bad17b59e50278d909badee1361c162fa6548fd0b0b30fd3988e1eb87f2"
+        }
+      ],
+      "summary": {
+        "valid": 0,
+        "failed": 20
+      },
+      "response_ids": [],
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      },
+      "latency_ms": 0,
+      "errors": [
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "withasync",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "archal",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "atlia",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "cova",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "marker",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "amorphic-labs",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "rindler",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "olam-labs",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "trope",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "rex-inc",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "realpact",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "buildbox",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "joinmarble",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "contextdev",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "screenpipe",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "stratum-industries",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "talentpluto",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "machine0",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "ooak-data",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        },
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "MODEL_REQUEST_FAILED",
+          "message": "OpenAI request failed: RateLimitError",
+          "stage": "stage_02_analysis",
+          "candidate_id": "whitespace",
+          "retryable": true,
+          "details": {
+            "error": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+          }
+        }
+      ]
+    },
+    "03_recommendation": {
+      "status": "pending",
+      "started_at": null,
+      "finished_at": null,
+      "artifacts": [],
+      "summary": {},
+      "response_ids": [],
+      "usage": null,
+      "latency_ms": null,
+      "errors": []
+    }
+  },
+  "source_urls": [
+    "https://www.ycombinator.com/companies/withasync",
+    "https://www.ycombinator.com/companies/archal",
+    "https://www.ycombinator.com/companies/atlia",
+    "https://www.ycombinator.com/companies/cova",
+    "https://www.ycombinator.com/companies/marker",
+    "https://www.ycombinator.com/companies/amorphic-labs",
+    "https://www.ycombinator.com/companies/rindler",
+    "https://www.ycombinator.com/companies/olam-labs",
+    "https://www.ycombinator.com/companies/trope",
+    "https://www.ycombinator.com/companies/rex-inc",
+    "https://www.ycombinator.com/companies/realpact",
+    "https://www.ycombinator.com/companies/buildbox",
+    "https://www.ycombinator.com/companies/joinmarble",
+    "https://www.ycombinator.com/companies/contextdev",
+    "https://www.ycombinator.com/companies/screenpipe",
+    "https://www.ycombinator.com/companies/stratum-industries",
+    "https://www.ycombinator.com/companies/talentpluto",
+    "https://www.ycombinator.com/companies/machine0",
+    "https://www.ycombinator.com/companies/ooak-data",
+    "https://www.ycombinator.com/companies/whitespace"
+  ],
+  "errors": []
+}

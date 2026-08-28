@@ -6,13 +6,3 @@
 __pycache__/
 *.py[cod]
 .DS_Store
-outputs/*
-!outputs/.gitkeep
-!outputs/20260827T213043Z/
-!outputs/20260827T214810Z/
-!outputs/20260827T214813Z/
-!outputs/20260827T214901Z/
-!outputs/20260827T214909Z/
-!outputs/20260827T222312Z/
-!outputs/20260827T222314Z/
-!outputs/20260828T062642Z/

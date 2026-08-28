@@ -1,0 +1,27 @@
+{"at": "2026-08-28T05:34:16.326861+00:00", "event": "run_started", "selector": "topic=\"workflow\""}
+{"at": "2026-08-28T05:34:16.327980+00:00", "event": "stage_started", "stage": "01_sourcing"}
+{"at": "2026-08-28T05:34:16.403547+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "completed", "summary": {"loaded": 236, "matched": 27, "deduplicated": 27, "eligible": 10, "rejected": 17}, "errors": 0}
+{"at": "2026-08-28T05:34:16.406317+00:00", "event": "stage_started", "stage": "02_analysis"}
+{"at": "2026-08-28T05:35:17.954243+00:00", "event": "candidate_analyzed", "index": 1, "total": 10, "candidate": "Evergrove", "status": "complete"}
+{"at": "2026-08-28T05:36:31.910135+00:00", "event": "candidate_analyzed", "index": 2, "total": 10, "candidate": "Rapidfolio", "status": "complete"}
+{"at": "2026-08-28T05:37:28.350717+00:00", "event": "candidate_analyzed", "index": 3, "total": 10, "candidate": "Libra Robotics", "status": "complete"}
+{"at": "2026-08-28T05:38:52.653076+00:00", "event": "candidate_analyzed", "index": 4, "total": 10, "candidate": "Control Seat", "status": "complete"}
+{"at": "2026-08-28T05:40:00.820268+00:00", "event": "candidate_analyzed", "index": 5, "total": 10, "candidate": "Poth Labs", "status": "complete"}
+{"at": "2026-08-28T05:41:07.812892+00:00", "event": "candidate_analyzed", "index": 6, "total": 10, "candidate": "Palette", "status": "complete"}
+{"at": "2026-08-28T05:43:04.458983+00:00", "event": "candidate_analyzed", "index": 7, "total": 10, "candidate": "Marker", "status": "complete"}
+{"at": "2026-08-28T05:44:07.004124+00:00", "event": "candidate_analyzed", "index": 8, "total": 10, "candidate": "Rindler", "status": "complete"}
+{"at": "2026-08-28T05:47:32.223695+00:00", "event": "candidate_analyzed", "index": 9, "total": 10, "candidate": "Zomma", "status": "failed"}
+{"at": "2026-08-28T05:48:50.900090+00:00", "event": "candidate_analyzed", "index": 10, "total": 10, "candidate": "Understudy Labs", "status": "complete"}
+{"at": "2026-08-28T05:48:50.926711+00:00", "event": "stage_finished", "stage": "02_analysis", "status": "completed", "summary": {"valid": 9, "failed": 1}, "errors": 1}
+{"at": "2026-08-28T05:48:50.929782+00:00", "event": "stage_started", "stage": "03_recommendation"}
+{"at": "2026-08-28T05:49:03.671059+00:00", "event": "memo_rendered", "rank": 1, "total": 9, "candidate": "Libra Robotics", "status": "Watch"}
+{"at": "2026-08-28T05:49:18.963983+00:00", "event": "memo_rendered", "rank": 2, "total": 9, "candidate": "Poth Labs", "status": "Watch"}
+{"at": "2026-08-28T05:49:30.600347+00:00", "event": "memo_rendered", "rank": 3, "total": 9, "candidate": "Understudy Labs", "status": "Watch"}
+{"at": "2026-08-28T05:49:45.687622+00:00", "event": "memo_rendered", "rank": 4, "total": 9, "candidate": "Control Seat", "status": "Pass"}
+{"at": "2026-08-28T05:50:00.879541+00:00", "event": "memo_rendered", "rank": 5, "total": 9, "candidate": "Evergrove", "status": "Watch"}
+{"at": "2026-08-28T05:50:12.847224+00:00", "event": "memo_rendered", "rank": 6, "total": 9, "candidate": "Rindler", "status": "Pass"}
+{"at": "2026-08-28T05:50:25.968536+00:00", "event": "memo_rendered", "rank": 7, "total": 9, "candidate": "Marker", "status": "Pass"}
+{"at": "2026-08-28T05:50:36.956608+00:00", "event": "memo_rendered", "rank": 8, "total": 9, "candidate": "Rapidfolio", "status": "Watch"}
+{"at": "2026-08-28T05:50:50.086636+00:00", "event": "memo_rendered", "rank": 9, "total": 9, "candidate": "Palette", "status": "Pass"}
+{"at": "2026-08-28T05:50:50.238689+00:00", "event": "stage_finished", "stage": "03_recommendation", "status": "completed", "summary": {"memos": 9, "render_failed": 0, "meeting": 0, "watch": 5, "pass": 4}, "errors": 0}
+{"at": "2026-08-28T05:50:50.245129+00:00", "event": "run_finished", "status": "completed"}

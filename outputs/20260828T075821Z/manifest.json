@@ -1,0 +1,375 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260828T075821Z",
+  "status": "completed",
+  "created_at": "2026-08-28T07:58:21.177858Z",
+  "updated_at": "2026-08-28T08:10:16.416528Z",
+  "input": {
+    "selector": "topic=\"AI agents\"",
+    "snapshot_path": "inputs/yc_snapshot.jsonl",
+    "snapshot_sha256": "e3bf5abfdfd28bb1d19e80df817887f3fbdd65794accf2c811c5b1fa568e3636",
+    "snapshot_captured_at": "2026-08-27T20:41:29.204931Z",
+    "parent_artifact": null
+  },
+  "versions": {
+    "schema": "1.0",
+    "analysis_prompt": "analysis-v2@c5998a5346b555bc5eeff59489a92393091b87464b34358ac187c649ca604e19",
+    "memo_prompt": "memo-v3@faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "low"
+  },
+  "stages": {
+    "01_sourcing": {
+      "status": "completed",
+      "started_at": "2026-08-28T07:58:21.180264Z",
+      "finished_at": "2026-08-28T07:58:21.198504Z",
+      "artifacts": [
+        {
+          "path": "01_sourcing/candidates.json",
+          "sha256": "0ab4fee46ea3099f63e822d3d7f02dda4547657dfb1301227d7cbe0c0221b887"
+        },
+        {
+          "path": "01_sourcing/source_refs.jsonl",
+          "sha256": "b565a5b2f7a3a7690268c28d44cf568946a3984c69360c020d158f800f218257"
+        }
+      ],
+      "summary": {
+        "loaded": 236,
+        "matched": 34,
+        "deduplicated": 34,
+        "eligible": 20,
+        "rejected": 14
+      },
+      "response_ids": [],
+      "usage": null,
+      "latency_ms": null,
+      "errors": []
+    },
+    "02_analysis": {
+      "status": "completed",
+      "started_at": "2026-08-28T07:58:21.274283Z",
+      "finished_at": "2026-08-28T08:08:50.189039Z",
+      "artifacts": [
+        {
+          "path": "02_analysis/analyses.jsonl",
+          "sha256": "f43e8a1beec850cd2d6565301b533f92715bdc8be49cbe26fc5661e56237e5df"
+        }
+      ],
+      "summary": {
+        "valid": 19,
+        "failed": 1
+      },
+      "response_ids": [
+        "resp_0352cd56f27d9996016a913f9ee61487d085a8b63de595ec9e",
+        "resp_0598ecfe96724c4d016a913fcfccf087d0a2cae0e4d51c8af3",
+        "resp_05f7c2922ada4697016a913fe2f92887d0bb902cf903fa08d3",
+        "resp_0f9bdcdb32c4d726016a9140001bcc87d0b137bd2af4456a72",
+        "resp_01abe5a77f2b6d81016a91401852c887d09f016220eadc2d70",
+        "resp_0839611e219685ac016a914030c4d487d08a624c1962e703be",
+        "resp_04784caa1ef321d6016a91407a4b0c87d0b5d6553f9e9e2686",
+        "resp_092aec2e3405c1de016a914095fdcc87d0b815a5c7f970ce23",
+        "resp_049b52407e44bf6d016a9140d690ec87d08e2c05caaceabd23",
+        "resp_00bef9f7907253db016a9140f226e887d09d903621e05dcc09",
+        "resp_0cec2de073e09bf9016a91412ac70887d0abdc66cd469c30be",
+        "resp_09badf08650dfa20016a914141b8a087d0960c910f7214f203",
+        "resp_0bb4728d7826b2a4016a9141560a4c87d0b2583b3ec0920a30",
+        "resp_0d454a932d806e1e016a914173d02087d084c03ab37dcf291e",
+        "resp_095221dfe87697c0016a9141924f5c87d08ad99e5bec5bad9f",
+        "resp_05693320050c0a0c016a9141a64a1c87d086fe8a739395e2cd",
+        "resp_064a050125067800016a9141c6f0a887d09f64f7036a5ab4e4",
+        "resp_07908dd1a1d24897016a9141e2d0f487d08456198d5f7ba548",
+        "resp_0622752050aeabd5016a9141fc40c487d0bb8012c3055d5adb"
+      ],
+      "usage": {
+        "input_tokens": 348317,
+        "output_tokens": 37650,
+        "total_tokens": 385967
+      },
+      "latency_ms": 537023,
+      "errors": [
+        {
+          "schema_version": "1.0",
+          "record_type": "error",
+          "code": "INVALID_MODEL_OUTPUT",
+          "message": "OpenAI returned invalid structured output after one repair attempt",
+          "stage": "stage_02_analysis",
+          "candidate_id": "rindler",
+          "retryable": false,
+          "details": {
+            "attempts": 2,
+            "reason": "evidence E2 link returned 410: https://rindler.ai/docs (cite a page that loads, or drop this evidence)",
+            "response_id": "resp_08c7624dd381fdc4016a914062e6f487d0856b052e8511f36e",
+            "model": "gpt-5.6-luna",
+            "latency_ms": 49693,
+            "input_tokens": 14312,
+            "output_tokens": 1951,
+            "total_tokens": 16263
+          }
+        }
+      ]
+    },
+    "03_recommendation": {
+      "status": "completed",
+      "started_at": "2026-08-28T08:08:50.210720Z",
+      "finished_at": "2026-08-28T08:10:15.803933Z",
+      "artifacts": [
+        {
+          "path": "03_recommendation/index.md",
+          "sha256": "db6501edb032f0090c15c6e427dd471f314c6f99e95adc5dcb7c9b64fbbb443d"
+        },
+        {
+          "path": "03_recommendation/memos/amorphic-labs.md",
+          "sha256": "b85ae5fb9453fd6ea344d8a719bf90c45a506423de71418a2506a68cbb60d9dc"
+        },
+        {
+          "path": "03_recommendation/memos/archal.md",
+          "sha256": "a30b9b83e38e41357ec1fd642361a814891425731ae0b2f858816707b77cf68b"
+        },
+        {
+          "path": "03_recommendation/memos/atlia.md",
+          "sha256": "72fe7e1d4b6c118c361996b33a38c47b4c019b264e25031481c7ca8d020fe26b"
+        },
+        {
+          "path": "03_recommendation/memos/buildbox.md",
+          "sha256": "34118c9dd65d0715e7a15b0d4fb4e6b100cb58de1ecc09a4c1d2339589fec0b6"
+        },
+        {
+          "path": "03_recommendation/memos/contextdev.md",
+          "sha256": "0f63d0a6cf2ec5912322d37fbe65eb0dc43c5755fcbdd3ce808c0399a9c7b06b"
+        },
+        {
+          "path": "03_recommendation/memos/cova.md",
+          "sha256": "314db00dfa6e0d957e06df7afece74c704e8f7343bea6a649db98484e78f134f"
+        },
+        {
+          "path": "03_recommendation/memos/joinmarble.md",
+          "sha256": "e5dc09f88b13bfef09aff17bd762622240496cdeb575f9d32c59dcf07dea4eda"
+        },
+        {
+          "path": "03_recommendation/memos/machine0.md",
+          "sha256": "1d6204456add5a6ca0210483e96c1ef4a08d5893cf9c10ae106a0b3828316e2f"
+        },
+        {
+          "path": "03_recommendation/memos/marker.md",
+          "sha256": "b3401de16e793e226910ae3d359404bfe574babbeb33ad15fec9f384df589292"
+        },
+        {
+          "path": "03_recommendation/memos/olam-labs.md",
+          "sha256": "1a7b6a4c9e3b8518490f9872ceaefb8ae0504f4ee68cb816d95a90df08e573b6"
+        },
+        {
+          "path": "03_recommendation/memos/ooak-data.md",
+          "sha256": "34f72f7bc38915c6ca56dcb6c4cbf8725897ef2c56171eeb6614b70331b683b3"
+        },
+        {
+          "path": "03_recommendation/memos/realpact.md",
+          "sha256": "b791b6f59a1e904dfde0b4be4e53769fc9fd72bf1fdd3899b80300a77c806810"
+        },
+        {
+          "path": "03_recommendation/memos/rex-inc.md",
+          "sha256": "d8fc76f6b7d0ce2bf60b717f9651a696359a7559cd35d57678dcdd409e90eb3d"
+        },
+        {
+          "path": "03_recommendation/memos/screenpipe.md",
+          "sha256": "a2732d2d0fb81ed26e2453ec93752b982672fb08dbcb3ac3ec161b64bf5a5ca0"
+        },
+        {
+          "path": "03_recommendation/memos/stratum-industries.md",
+          "sha256": "05e06f1fbac9604d95367de7b60c44d38efcea2bcc545c09eb19179056811f96"
+        },
+        {
+          "path": "03_recommendation/memos/talentpluto.md",
+          "sha256": "4038d2764325e345963ddcb17105818c4331435f97f5d57851cac86aa5ae4cd1"
+        },
+        {
+          "path": "03_recommendation/memos/trope.md",
+          "sha256": "fadd6c2cfc141cc21c851a74adec7cb610f8bb0d08c45277dbd62441a3aaeeae"
+        },
+        {
+          "path": "03_recommendation/memos/whitespace.md",
+          "sha256": "34ffe60ad7d583c36d80f81ddb0667f8d9c4268c29ee829f5605c185a6e91d55"
+        },
+        {
+          "path": "03_recommendation/memos/withasync.md",
+          "sha256": "674c1bf2329ec34fdc1f78acc46dd9189b0cd0f8276ca34d8e27d0b874093178"
+        },
+        {
+          "path": "03_recommendation/recommendations.json",
+          "sha256": "09a90a10699e0d83df3996021c5d3f5ff94a2ea03c636b59437823eca3ade70f"
+        }
+      ],
+      "summary": {
+        "memos": 19,
+        "render_failed": 0,
+        "meeting": 2,
+        "watch": 13,
+        "pass": 4
+      },
+      "response_ids": [
+        "resp_069a5c05dd9e4a92016a914212ba0c87d08de6d3e7798ae85d",
+        "resp_05f9dd554e7b6b0f016a9142173cb887d08fecb788ff9d3faa",
+        "resp_0e229debb04934b7016a91421c14e887d0a724664aaa62969e",
+        "resp_0b4cee4dcf216a98016a914222bbbc87d085ffa00f73efbe9e",
+        "resp_0e079d635ed5f95b016a914226950c87d0b9307a040e2b58cc",
+        "resp_04ed9618f7ea09ce016a91422a951487d08dd6bd2168ae583f",
+        "resp_0b0fedd1f29953a2016a91422ea12087d0b8db64054f368ff3",
+        "resp_0d16d0a351215c40016a9142348a2487d0955213bf1636002b",
+        "resp_0f1a2051956ced42016a914238c1b087d0b093469f08179e96",
+        "resp_011577d348cd5480016a91423c907087d0af3013f5e8417523",
+        "resp_0c9862f46df25314016a9142418b7c87d0ab4314cdfc2f1e54",
+        "resp_03e0ebfb9cc39627016a914246731887d08f1d360f8eb002fb",
+        "resp_0d15a5e292450443016a91424c303887d09a35d0e90faa6a90",
+        "resp_0db91a9dadc121e3016a91424f62f887d0accb70bbc773e522",
+        "resp_019b25f6163e6631016a914253425887d0b06432a30bb2a784",
+        "resp_02255e4d2dbb19c4016a914257277887d092814ad7c17ea243",
+        "resp_0bdc00ff28dfe503016a91425cc45c87d0b120061fc7162226",
+        "resp_0531a9e1914941c2016a9142604b2487d0aa44c212883da8b2",
+        "resp_02d896df497ce322016a91426412c087d093d0612a6f1d600f"
+      ],
+      "usage": {
+        "input_tokens": 55503,
+        "output_tokens": 6085,
+        "total_tokens": 61588
+      },
+      "latency_ms": 85542,
+      "errors": []
+    }
+  },
+  "source_urls": [
+    "https://www.ycombinator.com/companies/withasync",
+    "https://www.ycombinator.com/companies/archal",
+    "https://www.ycombinator.com/companies/atlia",
+    "https://www.ycombinator.com/companies/cova",
+    "https://www.ycombinator.com/companies/marker",
+    "https://www.ycombinator.com/companies/amorphic-labs",
+    "https://www.ycombinator.com/companies/rindler",
+    "https://www.ycombinator.com/companies/olam-labs",
+    "https://www.ycombinator.com/companies/trope",
+    "https://www.ycombinator.com/companies/rex-inc",
+    "https://www.ycombinator.com/companies/realpact",
+    "https://www.ycombinator.com/companies/buildbox",
+    "https://www.ycombinator.com/companies/joinmarble",
+    "https://www.ycombinator.com/companies/contextdev",
+    "https://www.ycombinator.com/companies/screenpipe",
+    "https://www.ycombinator.com/companies/stratum-industries",
+    "https://www.ycombinator.com/companies/talentpluto",
+    "https://www.ycombinator.com/companies/machine0",
+    "https://www.ycombinator.com/companies/ooak-data",
+    "https://www.ycombinator.com/companies/whitespace",
+    "https://archal.ai/",
+    "https://archal.ai/product",
+    "https://docs.archal.ai/introduction",
+    "https://docs.archal.ai/quickstart",
+    "https://docs.archal.ai/",
+    "https://www.archal.ai/",
+    "https://www.atlia.com/short-term-rental-property-management/",
+    "https://www.atlia.com/",
+    "https://www.atlia.com/about/",
+    "https://www.atlia.com/airbnb-property-management-san-diego/",
+    "https://www.atlia.com/airbnb-property-management-fort-lauderdale/",
+    "https://www.atlia.com/?market=san-diego",
+    "https://www.atlia.com/airbnb-property-management-cost/",
+    "https://www.atlia.com/self-manage-airbnb-vs-property-manager/",
+    "https://www.linkedin.com/company/atlia",
+    "https://www.linkedin.com/posts/y-combinator_atlia-yc-s26-is-the-ai-native-short-term-activity-7488280949831655425-YJ3y",
+    "https://www.atlia.com/airbnb-management-fees/",
+    "https://www.atlia.com/editorial-policy/",
+    "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001562401/ef0579aa-caea-4713-a251-4439a24ea4c9.pdf",
+    "https://www.tricapnc.com/pdf/state-of-the-pm-industry-report.pdf",
+    "https://www.reddit.com/r/PptyMgmtSoftware/comments/1ufmoej/building_software_for_property_managers_can_you/",
+    "https://en.wikipedia.org/wiki/Property_management",
+    "https://en.wikipedia.org/wiki/RealPage",
+    "https://www.reddit.com/r/Renters/comments/1uetdam/is_my_apartment_run_by_ai_or/",
+    "https://www.reddit.com/r/AiAutomations/comments/1vqdv4v/title_building_out_an_ai_ops_layer_for_property/",
+    "https://www.sec.gov/Archives/edgar/data/1838615/000114036126018300/ny20066517x3_ars.pdf",
+    "https://24338351.fs1.hubspotusercontent-na1.net/hubfs/24338351/AI_Real%20Estate.pdf",
+    "https://www.linkedin.com/company/olam-labs",
+    "https://olamlabs.ai/about",
+    "https://www.ycombinator.com/companies/olam-labs/jobs",
+    "https://www.gpagent.ai/yc/company/olam-labs",
+    "https://jp.linkedin.com/in/nikolos-huang",
+    "https://olamlabs.ai/",
+    "https://olamlabs.ai/research",
+    "https://olamlabs.ai/research/multi-agent-arena",
+    "https://olamlabs.ai/research/tokenshire/may-2026/watch",
+    "https://olamlabs.ai/evaluations/poker/agent-preference",
+    "https://www.olam.business/ori-goshen-yoav-shoham-ai21-co-founders",
+    "https://oulurepo.oulu.fi/bitstream/handle/10024/62456/nbnfioulu-202605133310.pdf?isAllowed=y&sequence=1",
+    "https://en.wikipedia.org/wiki/LinkedIn",
+    "https://olamlabs.ai/arena",
+    "https://www.rex.inc/company",
+    "https://www.rex.inc/",
+    "https://www.rex.inc/resources/ai-ar/ai-order-to-cash",
+    "https://www.rex.inc/go/ai-order-to-cash",
+    "https://www.rex.inc/bpo",
+    "https://info.joinrex.app/about-us",
+    "https://www.rex.inc/compass",
+    "https://rex.ai/who-we-are",
+    "https://www.rexshares.com/our-team/",
+    "https://www.rex.inc/ai-security",
+    "https://rexcomputing.com/",
+    "https://www.rexorganization.com/static/Press/2023/Rex%20Fact%20Sheet%202023.pdf",
+    "https://www.rexshares.com/wp-content/uploads/2025/10/rexgrowth-sai_102425_web.pdf",
+    "https://www.rexshares.com/wp-content/uploads/2026/02/sai-rex-autocallable-income-etf.pdf",
+    "https://invest.rexd.com/wp-content/uploads/2025/10/REX-Investor-Deck-v20250825.pdf",
+    "https://arxiv.org/abs/2307.08962",
+    "https://arxiv.org/abs/2203.06107",
+    "https://arxiv.org/abs/2203.14645",
+    "https://arxiv.org/abs/1111.7170",
+    "https://en.wikipedia.org/wiki/List_of_Generator_Rex_characters",
+    "https://realpact.ai/terms",
+    "https://realpact.ai/",
+    "https://app.realpact.ai/",
+    "https://app.realpact.ai/login",
+    "https://realpact.ai/case-studies/dinosaurs-are-comfortable",
+    "https://joinmarble.ai/",
+    "https://www.linkedin.com/posts/achaliha_im-thrilled-to-announce-the-launch-of-marble-activity-7488653924938457089-URml",
+    "https://www.linkedin.com/company/joinmarble",
+    "https://app.dealroom.co/companies/marble_11",
+    "https://www.linkedin.com/posts/y-combinator_marble-yc-s26-is-the-autonomous-back-of-house-activity-7488652133836144640-QLCR",
+    "https://www.linkedin.com/posts/aakarkhanna_im-thrilled-to-announce-the-launch-of-marble-activity-7488654361649115136-FwvC",
+    "https://marble.ai/about",
+    "https://digg.com/tech/sv6ijiki",
+    "https://www.linkedin.com/posts/markkovarski_marble-is-an-ai-operating-system-for-restaurants-activity-7488966000441401344-EPb_",
+    "https://www.crunchbase.com/organization/marble-286c",
+    "https://platform.joinmarble.ai/",
+    "https://www.reddit.com/r/YangForPresidentHQ/comments/csu2o0",
+    "https://www.scai.in/wp-content/uploads/2025/10/THE-RESTAURANT-AI-PLAYBOOK.pdf",
+    "https://en.wikipedia.org/wiki/Owner.com",
+    "https://arxiv.org/abs/2601.14349",
+    "https://arxiv.org/abs/2511.09324",
+    "https://arxiv.org/abs/2506.22992",
+    "https://arxiv.org/abs/2605.06507",
+    "https://en.wikipedia.org/wiki/Adam_Guild",
+    "https://stratumindustries.co/",
+    "https://stratumindustries.co/vision",
+    "https://www.ycombinator.com/companies/industry/government",
+    "https://www.ycombinator.com/companies/industry/GovTech",
+    "https://www.linkedin.com/posts/raj-jagiasi_today-vihaan-and-i-are-launching-stratum-activity-7488696490433884161-MuCC",
+    "https://dealroom.co/news/145241-stratum-industries-launches-ai-agents-for-government-workflows/",
+    "https://www.ycombinator.com/companies/industry/Artificial%20Intelligence",
+    "https://www.linkedin.com/posts/raj-jagiasi_stratum-industries-is-building-the-next-generation-activity-7488829886556717056-BDOg",
+    "https://www.cbinsights.com/company/stratum-industries",
+    "https://in.linkedin.com/in/pranav-krishnakumar-374614276",
+    "https://lemstudio.co/yc-companies/stratum-industries-32523",
+    "https://www.nsf.gov.lk/images/pdf/annualreport/2022.pdf",
+    "https://futuremineralsforum.com/media/lmyl1c0k/fmf26-official-event-brochure_080126.pdf",
+    "https://v2.imarcexpo.com/_media/upload/resourcing-tomorrow-program-68b4f7d9a5331.pdf",
+    "https://euprojects.netcom.it.uc3m.es/5g-dive/wp-content/uploads/2021/05/D1.1_Final_updated-with-review-comments.pdf",
+    "https://australianminingreview.com.au/wp-content/uploads/2023/11/AMR_OCT2023_BEC_WEB.pdf",
+    "https://www.ecostat.kerala.gov.in/storage/publications/348.pdf",
+    "https://talentpluto.com/",
+    "https://talentpluto.com/stories-list/stories/agentmail-candidate",
+    "https://talentpluto.com/stories-list",
+    "https://talentpluto.com/stories-list/stories/sam-simcare-candidate",
+    "https://talentpluto.com/stories-list/stories/benjamin-oasys-candidate",
+    "https://talentpluto.com/join",
+    "https://talentpluto.com/stories-list/stories/antimetal-candidate",
+    "https://talentpluto.com/company-stories-list/stories/warp-company",
+    "https://talentpluto.com/company-stories-list/stories/antimetal-company",
+    "https://talentpluto.com/stories-list/stories/warp-candidate",
+    "https://talentpluto.com/companies",
+    "https://talentpluto.com/company-stories-list/stories/rho-company"
+  ],
+  "errors": []
+}

@@ -1,0 +1,484 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-28T08:10:15.802095Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "rex-inc",
+      "candidate_name": "Rex",
+      "rank": 1,
+      "total_score": 84,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Take a meeting",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_069a5c05dd9e4a92016a914212ba0c87d08de6d3e7798ae85d",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4484,
+        "usage": {
+          "input_tokens": 2883,
+          "output_tokens": 329,
+          "total_tokens": 3212
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/rex-inc.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "whitespace",
+      "candidate_name": "Whitespace",
+      "rank": 2,
+      "total_score": 79,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Take a meeting",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_05f9dd554e7b6b0f016a9142173cb887d08fecb788ff9d3faa",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4225,
+        "usage": {
+          "input_tokens": 2568,
+          "output_tokens": 293,
+          "total_tokens": 2861
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/whitespace.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "joinmarble",
+      "candidate_name": "Marble",
+      "rank": 3,
+      "total_score": 77,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0e229debb04934b7016a91421c14e887d0a724664aaa62969e",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 7278,
+        "usage": {
+          "input_tokens": 2128,
+          "output_tokens": 318,
+          "total_tokens": 2446
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/joinmarble.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "withasync",
+      "candidate_name": "Async",
+      "rank": 4,
+      "total_score": 77,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0b4cee4dcf216a98016a914222bbbc87d085ffa00f73efbe9e",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3836,
+        "usage": {
+          "input_tokens": 2618,
+          "output_tokens": 316,
+          "total_tokens": 2934
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/withasync.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "contextdev",
+      "candidate_name": "Context.dev",
+      "rank": 5,
+      "total_score": 75,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0e079d635ed5f95b016a914226950c87d0b9307a040e2b58cc",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3815,
+        "usage": {
+          "input_tokens": 3515,
+          "output_tokens": 309,
+          "total_tokens": 3824
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/contextdev.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "cova",
+      "candidate_name": "Cova",
+      "rank": 6,
+      "total_score": 75,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_04ed9618f7ea09ce016a91422a951487d08dd6bd2168ae583f",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4167,
+        "usage": {
+          "input_tokens": 2400,
+          "output_tokens": 289,
+          "total_tokens": 2689
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/cova.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "realpact",
+      "candidate_name": "RealPact",
+      "rank": 7,
+      "total_score": 75,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0b0fedd1f29953a2016a91422ea12087d0b8db64054f368ff3",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 5990,
+        "usage": {
+          "input_tokens": 3345,
+          "output_tokens": 492,
+          "total_tokens": 3837
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/realpact.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "olam-labs",
+      "candidate_name": "Olam Labs",
+      "rank": 8,
+      "total_score": 71,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0d16d0a351215c40016a9142348a2487d0955213bf1636002b",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4194,
+        "usage": {
+          "input_tokens": 2457,
+          "output_tokens": 329,
+          "total_tokens": 2786
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/olam-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "screenpipe",
+      "candidate_name": "screenpipe",
+      "rank": 9,
+      "total_score": 71,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0f1a2051956ced42016a914238c1b087d0b093469f08179e96",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3813,
+        "usage": {
+          "input_tokens": 3692,
+          "output_tokens": 301,
+          "total_tokens": 3993
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/screenpipe.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "talentpluto",
+      "candidate_name": "Pluto",
+      "rank": 10,
+      "total_score": 69,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_011577d348cd5480016a91423c907087d0af3013f5e8417523",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 5001,
+        "usage": {
+          "input_tokens": 3174,
+          "output_tokens": 323,
+          "total_tokens": 3497
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/talentpluto.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "marker",
+      "candidate_name": "Marker",
+      "rank": 11,
+      "total_score": 68,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "security_or_compliance_blocker"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0c9862f46df25314016a9142418b7c87d0ab4314cdfc2f1e54",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4544,
+        "usage": {
+          "input_tokens": 3230,
+          "output_tokens": 322,
+          "total_tokens": 3552
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/marker.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "atlia",
+      "candidate_name": "Atlia",
+      "rank": 12,
+      "total_score": 65,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_03e0ebfb9cc39627016a914246731887d08f1d360f8eb002fb",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 6073,
+        "usage": {
+          "input_tokens": 2630,
+          "output_tokens": 342,
+          "total_tokens": 2972
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/atlia.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "archal",
+      "candidate_name": "Archal",
+      "rank": 13,
+      "total_score": 63,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0d15a5e292450443016a91424c303887d09a35d0e90faa6a90",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3203,
+        "usage": {
+          "input_tokens": 2449,
+          "output_tokens": 266,
+          "total_tokens": 2715
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/archal.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "trope",
+      "candidate_name": "Trope",
+      "rank": 14,
+      "total_score": 61,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0db91a9dadc121e3016a91424f62f887d0accb70bbc773e522",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3865,
+        "usage": {
+          "input_tokens": 2976,
+          "output_tokens": 336,
+          "total_tokens": 3312
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/trope.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "buildbox",
+      "candidate_name": "Buildbox",
+      "rank": 15,
+      "total_score": 60,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_019b25f6163e6631016a914253425887d0b06432a30bb2a784",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3897,
+        "usage": {
+          "input_tokens": 3423,
+          "output_tokens": 338,
+          "total_tokens": 3761
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/buildbox.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "machine0",
+      "candidate_name": "machine0",
+      "rank": 16,
+      "total_score": 57,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_02255e4d2dbb19c4016a914257277887d092814ad7c17ea243",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4992,
+        "usage": {
+          "input_tokens": 4011,
+          "output_tokens": 299,
+          "total_tokens": 4310
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/machine0.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "ooak-data",
+      "candidate_name": "Ooak Data",
+      "rank": 17,
+      "total_score": 53,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0bdc00ff28dfe503016a91425cc45c87d0b120061fc7162226",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4137,
+        "usage": {
+          "input_tokens": 3036,
+          "output_tokens": 273,
+          "total_tokens": 3309
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/ooak-data.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "stratum-industries",
+      "candidate_name": "Stratum Industries",
+      "rank": 18,
+      "total_score": 45,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_0531a9e1914941c2016a9142604b2487d0aa44c212883da8b2",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 3777,
+        "usage": {
+          "input_tokens": 2099,
+          "output_tokens": 301,
+          "total_tokens": 2400
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/stratum-industries.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "amorphic-labs",
+      "candidate_name": "Amorphic Labs",
+      "rank": 19,
+      "total_score": 41,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v3",
+      "prompt_hash": "faefcfe44ccb408e5991be950309bb9cbdea9e934ecb62fa99606e2ea8a3a3a3",
+      "response": {
+        "response_id": "resp_02d896df497ce322016a91426412c087d093d0612a6f1d600f",
+        "model": "gpt-5.6-luna",
+        "latency_ms": 4251,
+        "usage": {
+          "input_tokens": 2869,
+          "output_tokens": 309,
+          "total_tokens": 3178
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/amorphic-labs.md"
+    }
+  ],
+  "errors": []
+}

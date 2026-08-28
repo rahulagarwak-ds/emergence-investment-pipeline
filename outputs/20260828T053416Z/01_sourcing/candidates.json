@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-28T05:34:16.339523Z",
+  "input_summary": "topic=\"workflow\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 27,
+    "deduplicated": 27,
+    "eligible": 10,
+    "rejected": 17
+  },
+  "candidates": [
+    {
+      "candidate_id": "evergrove",
+      "name": "Evergrove",
+      "website_url": "https://www.evergrovelabs.com/",
+      "canonical_domain": "evergrovelabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/evergrove",
+      "tagline": "Voice agents that accelerate care coordination in workers' comp",
+      "description": "We've built voice agents for the largest work comp managed care orgs and specialist PT networks in the country, making >500K calls annually and accelerating the speed at which they coordinate care. On average, our customers see a 40% increase in workflow completion, 10x decrease in cycle times, and >60% reduction in cost.\r\n\r\nWe think voice agents are the starting point for solving slow and fragmented care coordination in this market. Companies that manage an injured worker's care rely on short-staffed contact centres and archaic methods of info exchange: phone, fax, and email. Every delay along the path of care leads to slower rehab of the injured worker, lower throughput for providers, and higher expense for the insurer/employer.",
+      "categories": [
+        "Healthcare",
+        "Insurance",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "New York City, NY, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "evergrove",
+        "source_url": "https://www.ycombinator.com/companies/evergrove",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "rapidfolio",
+      "name": "Rapidfolio",
+      "website_url": "https://rapidfolio.com/",
+      "canonical_domain": "rapidfolio.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/rapidfolio",
+      "tagline": "AI for fintechs & banks",
+      "description": "Rapidfolio helps banks and fintechs fully automate back-office workflows like fraud investigations, KYB/KYC and loan underwriting, with accuracy and auditability.\r\n\r\nBuilt by fintech founders and operators, Rapidfolio is on a mission to ensure banks and fintechs scale their customer base without adding another back-office head count.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Fintech",
+        "SaaS",
+        "Enterprise",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": null,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "rapidfolio",
+        "source_url": "https://www.ycombinator.com/companies/rapidfolio",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "libra-robotics",
+      "name": "Libra Robotics",
+      "website_url": "https://www.librabots.com/",
+      "canonical_domain": "librabots.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/libra-robotics",
+      "tagline": "Robotic crews for large-scale infrastructure construction",
+      "description": "We’re building collaborative robotic crews for large-scale infrastructure projects, including solar farms and data centers.\r\n\r\n002C: “002A, 5.3 mm left.”\r\n002B: “002A, you’re running low. Next pallet is on the way.”\r\n002C: “Am I clear to come in?”\r\n002A: “Aligned. Panel released. You’re clear.”\r\n002C: “Fastening.”\r\n002B: “Next load arriving now.”\r\n\r\nThis isn’t a human crew talking. It’s three robots building a utility-scale solar farm together. \r\n\r\nOur AI control system enables specialized robots to collaborate, learn reusable construction skills, like alignment, fastening, and manipulation, and transfer them across workflows, from solar farms to data centers. 🚧 🦺",
+      "categories": [
+        "Industrials",
+        "Manufacturing and Robotics",
+        "Hard Tech",
+        "Robotics",
+        "Construction",
+        "Energy",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "libra-robotics",
+        "source_url": "https://www.ycombinator.com/companies/libra-robotics",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "control-seat",
+      "name": "Control Seat",
+      "website_url": "https://www.controlseat.com/",
+      "canonical_domain": "controlseat.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/control-seat",
+      "tagline": "Predictive maintenance on your plant data and sensors.",
+      "description": "Control Seat builds the hardware and software that helps industrial teams see, understand, and run their operations.\r\n\r\nOur platform creates one clear source of truth across the plant. It connects the systems teams already use, brings control, monitoring, history, and machine health together, and adds an intelligence layer that continuously watches for meaningful changes. Teams can understand what happened, catch problems earlier, and act before they become downtime.\r\n\r\nThe result is fewer surprises, faster decisions, and less time spent piecing together information across disconnected tools.\r\n\r\nWe work with manufacturers, utilities, energy companies, and other industrial operators modernizing existing facilities or building new ones.",
+      "categories": [
+        "Industrials",
+        "Workflow Automation",
+        "Monitoring",
+        "Industrial"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "control-seat",
+        "source_url": "https://www.ycombinator.com/companies/control-seat",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "poth-labs",
+      "name": "Poth Labs",
+      "website_url": "https://pothlabs.com/",
+      "canonical_domain": "pothlabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/poth-labs",
+      "tagline": "Helping companies understand why users behave the way they do",
+      "description": "Poth is an agentic research platform that connects to your company data, creates hypotheses about what might be causing problems, and validates them using both existing data and adaptive user feedback.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "SaaS",
+        "Workflow Automation",
+        "Market Research"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "poth-labs",
+        "source_url": "https://www.ycombinator.com/companies/poth-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "palette-2",
+      "name": "Palette",
+      "website_url": "https://palettelabs.com/",
+      "canonical_domain": "palettelabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/palette-2",
+      "tagline": "An AI-Native Media Platform",
+      "description": "Palette is a self-improving AI-native media platform built by MIT computer scientists and multimodal researchers that unifies the creative workflow into a single generation engine. We eliminate tool and context fragmentation for creative and marketing teams in enterprises and allow content creators to transform static assets into controllable, repeatable, and self-improving workflows in order to autonomously improve quality and revenue growth.",
+      "categories": [
+        "B2B",
+        "Generative AI",
+        "Video",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "palette-2",
+        "source_url": "https://www.ycombinator.com/companies/palette-2",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "marker",
+      "name": "Marker",
+      "website_url": "https://onmarker.com/",
+      "canonical_domain": "onmarker.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/marker",
+      "tagline": "Platform and FDEs for rebuilding businesses agent-first",
+      "description": "Marker embeds with companies, learns how their organization actually works, and ships custom AI agents into production in weeks via the Marker Command Center. Each agent deepens our understanding, so the next one launches faster until the whole org is agent-first.",
+      "categories": [
+        "B2B",
+        "Productivity",
+        "Artificial Intelligence",
+        "Generative AI",
+        "SaaS",
+        "Workflow Automation"
+      ],
+      "founders": [],
+      "team_size": 3,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA; Remote",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "marker",
+        "source_url": "https://www.ycombinator.com/companies/marker",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "rindler",
+      "name": "Rindler",
+      "website_url": "https://rindler.ai/",
+      "canonical_domain": "rindler.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/rindler",
+      "tagline": "The translation layer between AI agents and the web",
+      "description": "Rindler turns any website into deterministic abstractions that AI agents can operate on with speed, efficiency, and reliability.\r\n\r\nRindler drives a real browser to execute tasks on websites. It signs in, handles one-time verification codes, navigates to the right screen, retrieves records or completes forms, and returns structured output in a caller-defined schema.\r\n\r\nMost browser agents re-process and re-compute the same website every time they visit it. Rindler remembers. Our infrastructure gets faster and cheaper the more it is used, and when a site changes underneath it, Rindler detects the break and heals itself.\r\n\r\nFor operations leaders, Rindler takes on the repetitive website work your team does by hand, giving them their time back for the work that matters.\r\n\r\nFor agent builders, Rindler is a single endpoint that carries out tasks on the web, so you do not have to build or run browser infrastructure of your own.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Workflow Automation",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Boston, MA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "rindler",
+        "source_url": "https://www.ycombinator.com/companies/rindler",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "zomma",
+      "name": "Zomma",
+      "website_url": "https://zommalabs.com/",
+      "canonical_domain": "zommalabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/zomma",
+      "tagline": "Computer Use Agents for back offices in finance",
+      "description": "Zomma builds Computer Use Agents that do the repetitive screen work in finance: logging into portals, pulling reports, reconciling books, and filling forms across systems that will never get an API. Our agents use the same screens your ops team uses today, so there is no integration project. Every action stops for human approval before anything submits. Hedge funds, asset managers, and fintech firms use Zomma for reconciliation, client onboarding, KYC, and investor reporting: the work that was never automatable until now.",
+      "categories": [
+        "B2B",
+        "Artificial Intelligence",
+        "Robotic Process Automation",
+        "Finance",
+        "Workflow Automation"
+      ],
+      "founders": [],
+      "team_size": 5,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "zomma",
+        "source_url": "https://www.ycombinator.com/companies/zomma",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "understudy-labs",
+      "name": "Understudy Labs",
+      "website_url": "https://understudylabs.com/",
+      "canonical_domain": "understudylabs.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/understudy-labs",
+      "tagline": "Self-optimizing neocloud that cuts LLM bills by 80%",
+      "description": "Understudy is an inference cloud. We capture your AI work traces, train smaller models, and automatically deploy them (only when they outperform the expensive model you are currently paying for).\r\n\r\nInstead of renting the same frontier model forever, your AI infrastructure gets faster, smarter, and cheaper every time it runs.\r\n\r\nSuppose your product uses Claude for a repetitive legal workflow.\r\n\r\nUnderstudy observes successful production runs, learns the specific tools and judgment required for that workflow, and trains a specialized open-weight model.\r\n\r\nOnce that model matches or beats Claude on a held-out evaluation, Understudy starts routing production traffic to it.\r\n\r\nAs more work is completed, the model keeps improving.\r\n\r\nWe started Understudy because we believe every company using AI should be accumulating intelligence, not accumulating API bills.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Artificial Intelligence",
+        "Open Source",
+        "AI",
+        "ML"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "understudy-labs",
+        "source_url": "https://www.ycombinator.com/companies/understudy-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    }
+  ],
+  "incomplete_candidates": [],
+  "errors": []
+}

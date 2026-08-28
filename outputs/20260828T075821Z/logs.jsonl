@@ -1,0 +1,47 @@
+{"at": "2026-08-28T07:58:21.179512+00:00", "event": "run_started", "selector": "topic=\"AI agents\""}
+{"at": "2026-08-28T07:58:21.180271+00:00", "event": "stage_started", "stage": "01_sourcing"}
+{"at": "2026-08-28T07:58:21.271988+00:00", "event": "stage_finished", "stage": "01_sourcing", "status": "completed", "summary": {"loaded": 236, "matched": 34, "deduplicated": 34, "eligible": 20, "rejected": 14}, "errors": 0}
+{"at": "2026-08-28T07:58:21.274287+00:00", "event": "stage_started", "stage": "02_analysis"}
+{"at": "2026-08-28T07:58:46.206615+00:00", "event": "candidate_analyzed", "index": 1, "total": 20, "candidate": "Async", "status": "complete"}
+{"at": "2026-08-28T07:59:30.361499+00:00", "event": "candidate_analyzed", "index": 2, "total": 20, "candidate": "Archal", "status": "complete"}
+{"at": "2026-08-28T07:59:59.499628+00:00", "event": "candidate_analyzed", "index": 3, "total": 20, "candidate": "Atlia", "status": "complete"}
+{"at": "2026-08-28T08:00:23.722714+00:00", "event": "candidate_analyzed", "index": 4, "total": 20, "candidate": "Cova", "status": "complete"}
+{"at": "2026-08-28T08:00:48.197203+00:00", "event": "candidate_analyzed", "index": 5, "total": 20, "candidate": "Marker", "status": "complete"}
+{"at": "2026-08-28T08:01:11.578884+00:00", "event": "candidate_analyzed", "index": 6, "total": 20, "candidate": "Amorphic Labs", "status": "complete"}
+{"at": "2026-08-28T08:02:01.723705+00:00", "event": "candidate_analyzed", "index": 7, "total": 20, "candidate": "Rindler", "status": "failed \u00b7 evidence E2 link returned 410: https://rindler.ai/docs (cite a page that loads, or drop..."}
+{"at": "2026-08-28T08:02:29.359100+00:00", "event": "candidate_analyzed", "index": 8, "total": 20, "candidate": "Olam Labs", "status": "complete"}
+{"at": "2026-08-28T08:03:02.370917+00:00", "event": "candidate_analyzed", "index": 9, "total": 20, "candidate": "Trope", "status": "complete"}
+{"at": "2026-08-28T08:04:00.972446+00:00", "event": "candidate_analyzed", "index": 10, "total": 20, "candidate": "Rex", "status": "complete"}
+{"at": "2026-08-28T08:04:32.469322+00:00", "event": "candidate_analyzed", "index": 11, "total": 20, "candidate": "RealPact", "status": "complete"}
+{"at": "2026-08-28T08:05:21.154032+00:00", "event": "candidate_analyzed", "index": 12, "total": 20, "candidate": "Buildbox", "status": "complete"}
+{"at": "2026-08-28T08:05:41.459188+00:00", "event": "candidate_analyzed", "index": 13, "total": 20, "candidate": "Marble", "status": "complete"}
+{"at": "2026-08-28T08:06:11.256577+00:00", "event": "candidate_analyzed", "index": 14, "total": 20, "candidate": "Context.dev", "status": "complete"}
+{"at": "2026-08-28T08:06:41.760913+00:00", "event": "candidate_analyzed", "index": 15, "total": 20, "candidate": "screenpipe", "status": "complete"}
+{"at": "2026-08-28T08:07:01.497679+00:00", "event": "candidate_analyzed", "index": 16, "total": 20, "candidate": "Stratum Industries", "status": "complete"}
+{"at": "2026-08-28T08:07:34.394392+00:00", "event": "candidate_analyzed", "index": 17, "total": 20, "candidate": "Pluto", "status": "complete"}
+{"at": "2026-08-28T08:08:02.172798+00:00", "event": "candidate_analyzed", "index": 18, "total": 20, "candidate": "machine0", "status": "complete"}
+{"at": "2026-08-28T08:08:27.702002+00:00", "event": "candidate_analyzed", "index": 19, "total": 20, "candidate": "Ooak Data", "status": "complete"}
+{"at": "2026-08-28T08:08:50.185058+00:00", "event": "candidate_analyzed", "index": 20, "total": 20, "candidate": "Whitespace", "status": "complete"}
+{"at": "2026-08-28T08:08:50.207165+00:00", "event": "stage_finished", "stage": "02_analysis", "status": "completed", "summary": {"valid": 19, "failed": 1}, "errors": 1}
+{"at": "2026-08-28T08:08:50.210725+00:00", "event": "stage_started", "stage": "03_recommendation"}
+{"at": "2026-08-28T08:08:54.698144+00:00", "event": "memo_rendered", "rank": 1, "total": 19, "candidate": "Rex", "status": "Take a meeting"}
+{"at": "2026-08-28T08:08:58.925851+00:00", "event": "memo_rendered", "rank": 2, "total": 19, "candidate": "Whitespace", "status": "Take a meeting"}
+{"at": "2026-08-28T08:09:06.206541+00:00", "event": "memo_rendered", "rank": 3, "total": 19, "candidate": "Marble", "status": "Watch"}
+{"at": "2026-08-28T08:09:10.044471+00:00", "event": "memo_rendered", "rank": 4, "total": 19, "candidate": "Async", "status": "Watch"}
+{"at": "2026-08-28T08:09:13.862155+00:00", "event": "memo_rendered", "rank": 5, "total": 19, "candidate": "Context.dev", "status": "Watch"}
+{"at": "2026-08-28T08:09:18.031601+00:00", "event": "memo_rendered", "rank": 6, "total": 19, "candidate": "Cova", "status": "Watch"}
+{"at": "2026-08-28T08:09:24.024333+00:00", "event": "memo_rendered", "rank": 7, "total": 19, "candidate": "RealPact", "status": "Watch"}
+{"at": "2026-08-28T08:09:28.220150+00:00", "event": "memo_rendered", "rank": 8, "total": 19, "candidate": "Olam Labs", "status": "Watch"}
+{"at": "2026-08-28T08:09:32.035488+00:00", "event": "memo_rendered", "rank": 9, "total": 19, "candidate": "screenpipe", "status": "Watch"}
+{"at": "2026-08-28T08:09:37.039686+00:00", "event": "memo_rendered", "rank": 10, "total": 19, "candidate": "Pluto", "status": "Watch"}
+{"at": "2026-08-28T08:09:41.586144+00:00", "event": "memo_rendered", "rank": 11, "total": 19, "candidate": "Marker", "status": "Pass"}
+{"at": "2026-08-28T08:09:47.661540+00:00", "event": "memo_rendered", "rank": 12, "total": 19, "candidate": "Atlia", "status": "Watch"}
+{"at": "2026-08-28T08:09:50.867053+00:00", "event": "memo_rendered", "rank": 13, "total": 19, "candidate": "Archal", "status": "Watch"}
+{"at": "2026-08-28T08:09:54.734194+00:00", "event": "memo_rendered", "rank": 14, "total": 19, "candidate": "Trope", "status": "Watch"}
+{"at": "2026-08-28T08:09:58.633567+00:00", "event": "memo_rendered", "rank": 15, "total": 19, "candidate": "Buildbox", "status": "Watch"}
+{"at": "2026-08-28T08:10:03.627792+00:00", "event": "memo_rendered", "rank": 16, "total": 19, "candidate": "machine0", "status": "Watch"}
+{"at": "2026-08-28T08:10:07.767657+00:00", "event": "memo_rendered", "rank": 17, "total": 19, "candidate": "Ooak Data", "status": "Pass"}
+{"at": "2026-08-28T08:10:11.547533+00:00", "event": "memo_rendered", "rank": 18, "total": 19, "candidate": "Stratum Industries", "status": "Pass"}
+{"at": "2026-08-28T08:10:15.801435+00:00", "event": "memo_rendered", "rank": 19, "total": 19, "candidate": "Amorphic Labs", "status": "Pass"}
+{"at": "2026-08-28T08:10:16.413207+00:00", "event": "stage_finished", "stage": "03_recommendation", "status": "completed", "summary": {"memos": 19, "render_failed": 0, "meeting": 2, "watch": 13, "pass": 4}, "errors": 0}
+{"at": "2026-08-28T08:10:16.419016+00:00", "event": "run_finished", "status": "completed"}
