@@ -5,11 +5,11 @@ from dataclasses import dataclass
 from time import monotonic
 from typing import Any
 
-from openai import OpenAI, OpenAIError
+from openai import AuthenticationError, OpenAI, OpenAIError, PermissionDeniedError
 from pydantic import BaseModel, ValidationError
 
 from investment_pipeline.shared.config import PipelineConfig
-from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
+from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1, api_message
 from investment_pipeline.shared.schemas import OpenAIResponseMetadataV1, TokenUsageV1
 
 
@@ -29,12 +29,12 @@ class StructuredOpenAIClient:
         self._configuration_error: str | None = None
 
         if not self._model:
-            self._configuration_error = "OPENAI_MODEL is required"
+            self._configuration_error = "OPENAI_MODEL is required in .env"
             self._client = None
         elif client is not None:
             self._client = client
         elif config.openai_api_key is None:
-            self._configuration_error = "OPENAI_API_KEY is required"
+            self._configuration_error = "OPENAI_API_KEY is required in .env"
             self._client = None
         else:
             self._client = OpenAI(
@@ -99,13 +99,22 @@ class StructuredOpenAIClient:
                     validate(parsed, last_metadata)
                 return ParsedOpenAIResponse(parsed=parsed, metadata=last_metadata)
             except OpenAIError as exc:
+                # Account-level refusals (no credits, bad key, forbidden) will fail every call:
+                # report them as configuration errors so the stage stops after the first one.
+                account_problem = isinstance(
+                    exc, (AuthenticationError, PermissionDeniedError)
+                ) or "insufficient_quota" in str(exc)
                 return ParsedOpenAIResponse(
                     error=ErrorRecordV1(
-                        code=ErrorCode.MODEL_REQUEST_FAILED,
-                        message=f"OpenAI request failed: {type(exc).__name__}",
+                        code=ErrorCode.INVALID_CONFIG
+                        if account_problem
+                        else ErrorCode.MODEL_REQUEST_FAILED,
+                        message=f"OpenAI account problem: {api_message(str(exc))}"
+                        if account_problem
+                        else f"OpenAI request failed: {type(exc).__name__}",
                         stage=stage,
                         candidate_id=candidate_id,
-                        retryable=True,
+                        retryable=not account_problem,
                         details={"error": str(exc)[:500]},
                     )
                 )

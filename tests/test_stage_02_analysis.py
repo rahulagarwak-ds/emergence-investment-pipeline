@@ -6,7 +6,9 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
+import httpx
 import pytest
+from openai import RateLimitError
 from pydantic import ValidationError
 
 from investment_pipeline.shared.config import PipelineConfig
@@ -173,6 +175,45 @@ def test_analysis_repairs_once_preserves_failure_and_calculates_scores(tmp_path:
     assert len(lines) == 10
     assert {line["record_type"] for line in lines} == {"analysis", "error"}
     assert all(request_instruction for request_instruction in responses.instructions)
+
+
+def test_exhausted_credits_stop_the_stage_after_the_first_call(tmp_path: Path) -> None:
+    """An account-level refusal would fail every candidate; stop at once with the API's message."""
+    calls: list[str] = []
+
+    class NoCredits:
+        def parse(self, **request: Any) -> Any:
+            calls.append(json.loads(request["input"])["candidate_id"])
+            raise RateLimitError(
+                "Error code: 429 - {'error': {'message': 'You have no credits remaining.', "
+                "'type': 'insufficient_quota', 'code': 'credit_balance_exhausted'}}",
+                response=httpx.Response(
+                    429, request=httpx.Request("POST", "https://api.openai.com/v1/responses")
+                ),
+                body=None,
+            )
+
+    candidate_set = run_sourcing(_FIXTURE, tmp_path / "01_sourcing")
+    client = StructuredOpenAIClient(
+        PipelineConfig(openai_model="test-model", _env_file=None),
+        client=SimpleNamespace(responses=NoCredits()),
+    )
+    statuses: list[str] = []
+
+    result = run_analysis(
+        candidate_set,
+        tmp_path / "02_analysis",
+        client,
+        on_candidate=lambda i, n, name, status: statuses.append(status),
+        check_url=lambda url: 200,
+    )
+
+    assert calls == ["example-01"]
+    assert result.analyses == []
+    assert [error.code for error in result.errors] == [ErrorCode.INVALID_CONFIG]
+    assert result.errors[0].retryable is False
+    assert "You have no credits remaining" in result.errors[0].message
+    assert statuses == ["failed · You have no credits remaining."]
 
 
 def test_model_facing_schemas_avoid_unsupported_json_schema_formats() -> None:

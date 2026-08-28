@@ -12,7 +12,7 @@ from urllib.request import Request, urlopen
 
 from pydantic import AwareDatetime, Field, HttpUrl
 
-from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
+from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1, failure_reason
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.schemas import (
     AnalysisRecordV1,
@@ -119,7 +119,8 @@ def run_analysis(
                 )
             )
         if on_candidate is not None:
-            on_candidate(index, total, candidate.name, "complete" if succeeded else "failed")
+            status = "complete" if succeeded else f"failed · {failure_reason(errors[-1])}"
+            on_candidate(index, total, candidate.name, status)
         if response.error is not None and response.error.code is ErrorCode.INVALID_CONFIG:
             break
 

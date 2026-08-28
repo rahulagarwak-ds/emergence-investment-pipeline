@@ -134,7 +134,7 @@ def test_semantic_judge_is_skipped_without_model_configuration(
     report = json.loads(
         (tmp_path / "reports" / f"{result.run_dir.name}.json").read_text(encoding="utf-8")
     )
-    assert report["semantic"] == {"skipped": "OPENAI_MODEL is required"}
+    assert report["semantic"] == {"skipped": "OPENAI_MODEL is required in .env"}
 
 
 def test_semantic_judge_averages_ratings_and_keeps_per_memo_errors(run: RunPipeline) -> None:

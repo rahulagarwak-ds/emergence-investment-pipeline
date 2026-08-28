@@ -78,7 +78,7 @@ def test_fresh_run_persists_manifest_logs_and_artifacts(
     assert f"Run {run_dir.name}" in out
     assert "10 eligible · 1 incomplete · 4 rejected · saved candidates.json" in out
     assert "1/10 Example 01 · complete" in out
-    assert "9/10 Example 09 · failed" in out
+    assert "9/10 Example 09 · failed · unsupported evidence URL" in out
     assert "10/10 complete · 9 valid · 1 failed" in out
     assert "8 memos · 1 meeting · 4 watch · 4 pass" in out
     assert out.splitlines()[-1].startswith("Done")
@@ -151,7 +151,7 @@ def test_missing_model_configuration_stops_with_actionable_message(
     assert manifest.stages["02_analysis"].status is StageStatus.FAILED
     assert manifest.stages["03_recommendation"].status is StageStatus.PENDING
     assert manifest.versions["model"] == "unset"
-    assert "OPENAI_MODEL is required · set it in .env" in capsys.readouterr().out
+    assert "OPENAI_MODEL is required in .env" in capsys.readouterr().out
 
 
 def test_replayed_analyses_with_unconfigured_model_fail_in_stage_03(

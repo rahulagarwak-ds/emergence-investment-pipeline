@@ -346,7 +346,7 @@ def _analyze(
         f"{len(analysis_set.analyses)} valid · {len(analysis_set.errors)} failed",
     )
     if config_error is not None:
-        _say("Failed", f"{config_error.message} · set it in .env")
+        _say("Failed", config_error.message)
         return None
     if not analysis_set.analyses:
         _say(
@@ -422,7 +422,7 @@ def _recommend(
     _close(stage, status, run_dir, _RECOMMENDATION, manifest)
     _say(label, f"{memos} memos · {meeting} meeting · {watch} watch · {passed} pass")
     if config_error is not None:
-        _say("Failed", f"{config_error.message} · set it in .env")
+        _say("Failed", config_error.message)
         return False
     return True
 

@@ -9,7 +9,7 @@ from pathlib import Path
 
 from pydantic import Field
 
-from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1
+from investment_pipeline.shared.errors import ErrorCode, ErrorRecordV1, failure_reason
 from investment_pipeline.shared.openai_client import StructuredOpenAIClient
 from investment_pipeline.shared.schemas import (
     THESIS_WEIGHTS,
@@ -131,12 +131,11 @@ def run_recommendation(
             )
         )
         if on_candidate is not None:
-            on_candidate(
-                rank,
-                len(analyses),
-                analysis.candidate_name,
-                recommendation.value if memo_path else "render failed",
-            )
+            status = recommendation.value
+            if memo_path is None:
+                reason = failure_reason(errors[-1]) if errors else "rendering disabled"
+                status = f"render failed · {reason}"
+            on_candidate(rank, len(analyses), analysis.candidate_name, status)
 
     result = RecommendationSetV1(
         created_at=datetime.now(UTC),

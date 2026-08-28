@@ -1,5 +1,6 @@
 """Structured failures preserved in pipeline artifacts."""
 
+import re
 from enum import StrEnum
 from typing import Literal
 
@@ -34,3 +35,18 @@ class ErrorRecordV1(BaseModel):
     candidate_id: str | None = None
     retryable: bool = False
     details: dict[str, JsonValue] = {}
+
+
+def api_message(text: str, limit: int = 160) -> str:
+    """Unwrap an SDK error body to its message and collapse whitespace."""
+    if match := re.search(r"'message': '([^']+)'", text):
+        text = match.group(1)
+    text = " ".join(text.split())
+    return text if len(text) <= limit else text[: limit - 3] + "..."
+
+
+def failure_reason(error: ErrorRecordV1, limit: int = 90) -> str:
+    """One short line for live progress: the validation reason or the API's own message."""
+    detail = str(error.details.get("reason") or error.details.get("error") or error.message)
+    return api_message(detail, limit)
+
