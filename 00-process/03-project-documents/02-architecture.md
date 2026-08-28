@@ -40,8 +40,8 @@ flowchart LR
 │   ├── stage_01_sourcing/       # YC adapter, normalization, dedupe
 │   ├── stage_02_analysis/       # analysis + versioned prompt
 │   └── stage_03_recommendation/ # policy, renderer + prompt
-├── tests/{unit,contract,integration,fixtures}/
-├── evals/{dataset.jsonl,graders.py,run.py,reports/}/
+├── tests/                       # flat deterministic tests, shared fixtures in tests/fixtures/
+├── evals/{graders.py,run.py,judge_prompt_v1.md,reports/}  # grades a finished run directory
 ├── outputs/<run_id>/
 ├── 00-process/                  # decision trail
 └── _resources/                  # supplied material

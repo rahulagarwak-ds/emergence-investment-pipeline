@@ -91,6 +91,7 @@ Do not silently make major scoping, thesis, scoring, or investment decisions.
 - `src/` contains pipeline implementation and runtime prompts.
 - `evals/` contains AI and output-quality evaluations.
 - `tests/` contains deterministic software tests.
+- `inputs/` contains the captured YC snapshot and its provenance sidecar.
 - `outputs/` contains committed pipeline outputs.
 - `_resources/` contains supplied reference material.
 

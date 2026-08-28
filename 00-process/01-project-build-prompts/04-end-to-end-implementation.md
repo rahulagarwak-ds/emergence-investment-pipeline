@@ -296,3 +296,46 @@ Do not call the project complete until all of the following are true:
 10. Full correctness review and Ponytail audit pass, and the implementation remains within the documented non-goals.
 
 Ship that and stop.
+
+# End-to-End Implementation: Prompt 2
+
+Context: Chunks 1 to 6 are complete. The first live runs exposed requirements that Prompt 1 did not
+anticipate. Apply the changes below inside the same chunked, reviewable workflow. Nothing here
+reopens the thesis, the score weights, or the recommendation gates.
+
+## Snapshot acquisition
+
+- Capture the Stage 01 input from the yc-oss open dataset, a daily republication of YC's public
+  Algolia index limited to launched companies, through an `investment-pipeline snapshot` command
+  that writes the snapshot and a provenance sidecar (dataset URLs, `last_updated`, upstream SHA-256,
+  capture time, current batch, skipped records). Never scrape ycombinator.com.
+- `current_batch` is the batch in session on the capture date. Future batches already listed in the
+  directory are not "current".
+- Founders, founding year, and traction are absent from that dataset. Keep them empty in the
+  snapshot and unknown downstream; do not fabricate them.
+
+## Live model boundary
+
+- OpenAI strict structured outputs reject `format: uri`. Model-facing drafts carry URLs as strings
+  and Python converts them into the strict contracts.
+- Evidence grounding accepts the YC profile, any page on the candidate's canonical domain (always
+  self-reported), and URLs returned by web search. Compare URLs without query strings.
+- The repair retry states the exact rejection. `MODEL_REQUEST_FAILED` records keep the API error
+  text and `INVALID_MODEL_OUTPUT` records keep the validation reason.
+- Evidence ids are short tokens, never URLs; they become the memo citation labels.
+
+## Run settings and committed artifacts
+
+- Representative runs use `MAX_CANDIDATES=10` and low reasoning effort. A rerun replaces the earlier
+  attempt so only the final run of each topic is kept.
+- Run a partner-style topic set end to end: B2B as the representative run, plus AI agents,
+  developer tools, and healthcare; both replay paths; and one honest insufficient-candidates
+  failure. Commit those runs with their evals reports and un-ignore them individually.
+- Artifacts are byte-stable on every platform: writers force LF and `.gitattributes` sets
+  `eol=lf`. Run storage retries transient file locks, and a crash never depends on the log file.
+
+## Working mode for this session
+
+- Do not commit or push. Save each meaningful step as a named stash for review and cherry-picking,
+  excluding `outputs/` while any run is writing there.
+- Record every material discovery in the process trail when it happens, including mistakes.
