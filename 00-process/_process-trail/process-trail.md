@@ -76,3 +76,4 @@ Day 5(28th Aug 2026):
     - The citations grader's root-page heuristic (flag a homepage link when a deeper verified page exists) produced 52 false positives on that run because many claims genuinely live on the homepage; the heuristic was removed and the grader keeps only the hard check that every memo link is verified evidence, leaving page specificity to the semantic judge
     - memo-v3: pillar scores display out of 100 each for a consistent read; raw weighted scores are unchanged in the analysis artifact; grader and tests follow
     - A 20-candidate run failed all 20 analyses in 50 seconds because the OpenAI account had no credits left, and the live output only said failed. Account-level errors (no credits, bad key, forbidden) now stop the run after the first call with the API's own message on screen, and every failed candidate or memo line carries a short reason
+    - final 20 candidate run successfull and committed, final commit now
