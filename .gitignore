@@ -8,3 +8,4 @@ __pycache__/
 .DS_Store
 outputs/*
 !outputs/.gitkeep
+!outputs/20260827T213043Z/

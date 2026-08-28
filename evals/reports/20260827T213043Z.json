@@ -1,0 +1,104 @@
+{
+  "run_id": "20260827T213043Z",
+  "model": "gpt-5",
+  "analysis_prompt": "analysis-v1@1f2ee6fac6363a92945980475067430d5ce0dff89be8802f1f819f7ce7926c0d",
+  "memo_prompt": "memo-v1@73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+  "graded_at": "2026-08-27T21:46:39.969139+00:00",
+  "deterministic": {
+    "findings": [],
+    "passed": true
+  },
+  "semantic": {
+    "judge_prompt": "judge-v1@4e723be639cab367eb7482215f455fba5652eb7985b226f50389e524bb37a174",
+    "ratings": {
+      "rapidfolio": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "The memo underweights key thesis dimensions\u2014especially founder execution fit and employee-to-team expansion\u2014so it reads more like generic company quality than a thesis-driven call."
+      },
+      "datoric": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 4,
+        "notes": "Rationale underweights key Adoption-Before-Procurement dimensions, especially employee-to-team expansion and founder execution fit."
+      },
+      "prescience-inc": {
+        "thesis_adherence": 2,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Rationale leans on generic team/product strength and platform scope rather than explicitly arguing the five B2B Adoption Before Procurement dimensions."
+      },
+      "withasync": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 4,
+        "notes": "The rationale underweights core thesis dimensions\u2014especially employee-to-team expansion and founder execution fit\u2014which aren\u2019t addressed explicitly."
+      },
+      "dream": {
+        "thesis_adherence": 4,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "The memo underweights the enterprise procurement/expansion path, with little on stakeholder buy-in or how deployments grow from a lane to multi-site contracts. Strengthening this dimension would better align with the B2B Adoption Before Procurement thesis."
+      },
+      "onetriangle": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "The memo leans on technical feasibility and performance claims rather than the B2B Adoption Before Procurement dimensions, with little on enterprise procurement path or founder execution fit. Strengthen rationale explicitly across those dimensions."
+      },
+      "os3": {
+        "thesis_adherence": 2,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "Rationale leans generic (team, product, interest) and under-argues core B2B Adoption dimensions\u2014especially workflow habit/importance and employee-to-team expansion."
+      },
+      "archal": {
+        "thesis_adherence": 2,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 5,
+        "notes": "The rationale doesn\u2019t map the case to the five B2B Adoption Before Procurement dimensions, focusing instead on product description and market tailwinds."
+      },
+      "assemble": {
+        "thesis_adherence": 3,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 5,
+        "specificity": 5,
+        "notes": "It underweights the thesis dimensions of workflow habit/importance and employee-to-team expansion, focusing less on how usage spreads within teams."
+      },
+      "induction-labs": {
+        "thesis_adherence": 2,
+        "faithfulness": 5,
+        "clarity": 5,
+        "risk_quality": 4,
+        "specificity": 4,
+        "notes": "The memo focuses on technical performance and founder research rather than arguing the B2B Adoption Before Procurement dimensions (adoption, workflow habit, team expansion, procurement path). It needs explicit analysis of how enterprises would adopt and buy this product."
+      }
+    },
+    "errors": {},
+    "averages": {
+      "thesis_adherence": 2.8,
+      "faithfulness": 5,
+      "clarity": 5,
+      "risk_quality": 4.4,
+      "specificity": 4.7
+    }
+  }
+}
