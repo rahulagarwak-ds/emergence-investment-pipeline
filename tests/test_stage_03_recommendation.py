@@ -114,8 +114,8 @@ def test_policy_memos_failures_and_ranked_index(tmp_path: Path) -> None:
     assert lines[0] == "# Company 01"
     assert lines[2] == "**Recommendation: Take a meeting**"
     assert "**Thesis score:** 90/100 · **Evidence coverage:** 100%" in lines
-    assert "| Product adoption | 25/25 | [e1](<https://evidence.test/company-01>) |" in lines
-    assert "| Founder execution fit | 5/15 | [e1](<https://evidence.test/company-01>) |" in lines
+    assert "| Product adoption | 100/100 | [e1](<https://evidence.test/company-01>) |" in lines
+    assert "| Founder execution fit | 33/100 | [e1](<https://evidence.test/company-01>) |" in lines
     assert lines.index("| Pillar | Score | Evidence |") < lines.index("## Rationale")
     assert "[e1 · self-reported](<https://evidence.test/company-01>)" in memo
     assert len(memo.split()) <= MEMO_MAX_WORDS
@@ -142,7 +142,7 @@ def test_unverified_evidence_never_becomes_a_memo_link() -> None:
     with pytest.raises(ValueError, match="not verified"):
         _validate_draft(analysis, Recommendation.WATCH, draft, metadata)
     memo = _render_memo(analysis, Recommendation.WATCH, draft)
-    assert "| Product adoption | 25/25 | e1 (unverified) |" in memo.splitlines()
+    assert "| Product adoption | 100/100 | e1 (unverified) |" in memo.splitlines()
 
 
 def _analysis(

@@ -173,8 +173,9 @@ def grade_memos(run: GradedRun) -> list[Finding]:
         if header_format and analysis:
             for score in analysis.dimension_scores:
                 label = score.dimension.value.replace("_", " ").capitalize()
-                points = "unknown" if score.score is None else str(score.score)
-                row = f"| {label} | {points}/{THESIS_WEIGHTS[score.dimension]} |"
+                weight = THESIS_WEIGHTS[score.dimension]
+                points = "unknown" if score.score is None else round(score.score * 100 / weight)
+                row = f"| {label} | {points}/100 |"
                 if not any(line.startswith(row) for line in lines):
                     problems.append(f"pillar table row missing or wrong for {label}")
         problems.extend(

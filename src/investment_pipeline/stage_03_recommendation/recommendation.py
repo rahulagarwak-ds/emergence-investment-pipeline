@@ -25,8 +25,9 @@ from investment_pipeline.shared.schemas import (
     RecommendationSetV1,
 )
 
-# memo-v2: call in the header, pillar table above the rationale, verified citations only.
-PROMPT_VERSION = "memo-v2"
+# memo-v3: call in the header, pillar table (each pillar out of 100) above the rationale,
+# verified citations only.
+PROMPT_VERSION = "memo-v3"
 MEMO_MAX_WORDS = 350
 _PROMPT = Path(__file__).with_name("prompt_v2.md").read_text(encoding="utf-8")
 PROMPT_HASH = sha256(_PROMPT.encode()).hexdigest()
@@ -238,16 +239,18 @@ def _render_memo(
 
 
 def _pillar_row(score: DimensionScoreV1, evidence: dict[str, EvidenceItemV1]) -> str:
-    """One pillar per line; null shows as unknown, and only verified links are clickable."""
+    """One pillar per line, shown out of 100 (display only; weights stay 25/25/20/15/15 in the
+    data); null shows as unknown, and only verified links are clickable."""
     label = score.dimension.value.replace("_", " ").capitalize()
-    points = "unknown" if score.score is None else str(score.score)
+    weight = THESIS_WEIGHTS[score.dimension]
+    points = "unknown" if score.score is None else str(round(score.score * 100 / weight))
     links = " ".join(
         f"[{evidence_id}](<{evidence[evidence_id].source_url}>)"
         if evidence[evidence_id].verified
         else f"{evidence_id} (unverified)"
         for evidence_id in score.evidence_ids
     )
-    return f"| {label} | {points}/{THESIS_WEIGHTS[score.dimension]} | {links or '—'} |"
+    return f"| {label} | {points}/100 | {links or '—'} |"
 
 
 def _memo_point(point: CitedFindingV1, evidence: dict[str, EvidenceItemV1]) -> str:

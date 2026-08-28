@@ -76,11 +76,11 @@ missing-data honesty, memo structure and length, and citations (every memo link 
 URL verified during Stage 02). The optional semantic judge rates thesis adherence, faithfulness,
 clarity, risk quality, and specificity per memo.
 
-## Memo format (memo-v2)
+## Memo format (memo-v3)
 
 Top-down for a 60-second read: the call under the company name, then score and evidence coverage,
-then a five-row pillar table (score/maximum, `unknown` when evidence was missing, links to the
-evidence), then rationale, key risks, and the two or three questions that would change the
-decision. Every link in a memo was requested during Stage 02 (`http_status` and `verified_at` are
+then a five-row pillar table (each pillar shown out of 100 for readability — the weighted raw
+scores stay in `analyses.jsonl` — `unknown` when evidence was missing, links to the evidence),
+then rationale, key risks, and the two or three questions that would change the decision. Every link in a memo was requested during Stage 02 (`http_status` and `verified_at` are
 stored on the evidence item); evidence whose link did not verify is kept in the analysis but never
 cited in the memo. Runs before `20260828` use the earlier format with the call as the last line.

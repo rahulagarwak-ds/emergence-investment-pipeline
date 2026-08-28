@@ -32,7 +32,7 @@ def test_fresh_run_persists_manifest_logs_and_artifacts(
     assert manifest.input.snapshot_captured_at is not None
     assert manifest.versions["model"] == "test-model"
     assert manifest.versions["analysis_prompt"].startswith("analysis-v2@")
-    assert manifest.versions["memo_prompt"].startswith("memo-v2@")
+    assert manifest.versions["memo_prompt"].startswith("memo-v3@")
     assert manifest.stages["01_sourcing"].summary["eligible"] == 10
     assert manifest.stages["02_analysis"].summary == {"valid": 9, "failed": 1}
     assert manifest.stages["02_analysis"].usage is not None
