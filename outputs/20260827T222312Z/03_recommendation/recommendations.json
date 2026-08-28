@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T22:35:50.506220Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "marker",
+      "candidate_name": "Marker",
+      "rank": 1,
+      "total_score": 74,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0ccc46a4b06df77f016a90bb3ed78c87d09e1bad85f1687ebc",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7798,
+        "usage": {
+          "input_tokens": 2353,
+          "output_tokens": 687,
+          "total_tokens": 3040
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/marker.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "withasync",
+      "candidate_name": "Async",
+      "rank": 2,
+      "total_score": 64,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0eccd503899afd6d016a90bb46a91887d0beb7415602ec7e4f",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8255,
+        "usage": {
+          "input_tokens": 2726,
+          "output_tokens": 758,
+          "total_tokens": 3484
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/withasync.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "rindler",
+      "candidate_name": "Rindler",
+      "rank": 3,
+      "total_score": 58,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "security_or_compliance_blocker"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0030641edb04192c016a90bb4ef32887d09247dc69cc3d025f",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 13484,
+        "usage": {
+          "input_tokens": 2722,
+          "output_tokens": 1212,
+          "total_tokens": 3934
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/rindler.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "archal",
+      "candidate_name": "Archal",
+      "rank": 4,
+      "total_score": 57,
+      "evidence_coverage": 100,
+      "critical_risks": [
+        "no_enterprise_procurement_path"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0bcc627efd83c0f3016a90bb5d985087d09cb67281e9e654bc",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 51167,
+        "usage": {
+          "input_tokens": 2716,
+          "output_tokens": 905,
+          "total_tokens": 3621
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/archal.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "cova",
+      "candidate_name": "Cova",
+      "rank": 5,
+      "total_score": 55,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_089d286762c65010016a90bb8fcdec87d0b8bf600e3ca46c25",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10601,
+        "usage": {
+          "input_tokens": 2906,
+          "output_tokens": 997,
+          "total_tokens": 3903
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/cova.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "trope",
+      "candidate_name": "Trope",
+      "rank": 6,
+      "total_score": 55,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_02f2cad72ac8797b016a90bb9a4b8487d08e2ccfeb9c73a7ae",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 10486,
+        "usage": {
+          "input_tokens": 3142,
+          "output_tokens": 894,
+          "total_tokens": 4036
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/trope.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "olam-labs",
+      "candidate_name": "Olam Labs",
+      "rank": 7,
+      "total_score": 54,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_05b0de5433354253016a90bba4d1d087d09e5ac23bfe5a8b22",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 12916,
+        "usage": {
+          "input_tokens": 2474,
+          "output_tokens": 1179,
+          "total_tokens": 3653
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/olam-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "amorphic-labs",
+      "candidate_name": "Amorphic Labs",
+      "rank": 8,
+      "total_score": 45,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0d537bb497fa41b7016a90bbb1c8c487d0a3ce5f7d16f8a218",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 9482,
+        "usage": {
+          "input_tokens": 2700,
+          "output_tokens": 908,
+          "total_tokens": 3608
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/amorphic-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "atlia",
+      "candidate_name": "Atlia",
+      "rank": 9,
+      "total_score": 40,
+      "evidence_coverage": 80,
+      "critical_risks": [
+        "requires_upfront_procurement"
+      ],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_04ba0da844dc9a3f016a90bbbb48f087d0992ca50befbf9a50",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 11537,
+        "usage": {
+          "input_tokens": 3139,
+          "output_tokens": 831,
+          "total_tokens": 3970
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/atlia.md"
+    }
+  ],
+  "errors": []
+}

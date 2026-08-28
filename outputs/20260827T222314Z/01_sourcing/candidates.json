@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T22:23:14.999255Z",
+  "input_summary": "topic=\"developer tools\"",
+  "stats": {
+    "loaded": 236,
+    "matched": 23,
+    "deduplicated": 23,
+    "eligible": 10,
+    "rejected": 13
+  },
+  "candidates": [
+    {
+      "candidate_id": "waddle-labs",
+      "name": "Waddle Labs",
+      "website_url": "https://www.waddlelabs.ai/",
+      "canonical_domain": "waddlelabs.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/waddle-labs",
+      "tagline": "Agents for robotics control.",
+      "description": "Agents for robotics control.",
+      "categories": [
+        "Industrials",
+        "Manufacturing and Robotics",
+        "Developer Tools",
+        "Generative AI",
+        "Robotics",
+        "Automation"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "Boston, MA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "waddle-labs",
+        "source_url": "https://www.ycombinator.com/companies/waddle-labs",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "archal",
+      "name": "Archal",
+      "website_url": "https://www.archal.ai/",
+      "canonical_domain": "archal.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/archal",
+      "tagline": "API sandboxes, built for AI agents",
+      "description": "Archal provisions sandboxes with the API environments your CI, tests, and evals need. Your coding agent can start the sandbox & environments, connect to your API integrations, run tests, and inspect state changes. Sandboxes and environments are startable within seconds and take milliseconds to reset.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Artificial Intelligence",
+        "Developer Tools",
+        "API"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "archal",
+        "source_url": "https://www.ycombinator.com/companies/archal",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "mentlio",
+      "name": "Mentlio",
+      "website_url": "https://mentlio.com/",
+      "canonical_domain": "mentlio.com",
+      "yc_profile_url": "https://www.ycombinator.com/companies/mentlio",
+      "tagline": "Engineering Intelligence and Token Optimization for the AI-Coding Era",
+      "description": "Mentlio an applied research lab focused on optimizing AI ROI for the modern enterprise. We help engineering teams draw a line between their AI spend and delivery, per engineer. We then cut ~30% of AI spend via Mentlio's custom ML-based intelligent routing, context optimization, and prompt compression.",
+      "categories": [
+        "B2B",
+        "Developer Tools",
+        "Machine Learning",
+        "Productivity"
+      ],
+      "founders": [],
+      "team_size": null,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "mentlio",
+        "source_url": "https://www.ycombinator.com/companies/mentlio",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "gitcafe",
+      "name": "GitCafe",
+      "website_url": "https://git.cafe/",
+      "canonical_domain": "git.cafe",
+      "yc_profile_url": "https://www.ycombinator.com/companies/gitcafe",
+      "tagline": "The Git forge for the next hundred billion commits",
+      "description": "We are GitCafe and we build GitHub for agents. We're rebuilding the infrastructure for the next hundred billion commits and CI jobs with hundreds of engineers already making the move.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Developer Tools",
+        "DevOps"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "gitcafe",
+        "source_url": "https://www.ycombinator.com/companies/gitcafe",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "hoplite",
+      "name": "Hoplite",
+      "website_url": "https://hoplite.sh/",
+      "canonical_domain": "hoplite.sh",
+      "yc_profile_url": "https://www.ycombinator.com/companies/hoplite",
+      "tagline": "Effortlessly deploy cloud software factories.",
+      "description": "Effortlessly deploy cloud software factories.",
+      "categories": [
+        "B2B",
+        "Engineering, Product and Design",
+        "Developer Tools",
+        "Cloud Computing",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "hoplite",
+        "source_url": "https://www.ycombinator.com/companies/hoplite",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "prized",
+      "name": "Prized",
+      "website_url": "https://prized.dev/",
+      "canonical_domain": "prized.dev",
+      "yc_profile_url": "https://www.ycombinator.com/companies/prized",
+      "tagline": "A cloud devbox that feels local",
+      "description": "Prized is a cloud development environment that feels local on your Mac. \r\n\r\nDevelopers get a dedicated, persistent machine with their repos, dependencies, and tools already configured. \r\n\r\nFiles sync into a real local folder, remote ports appear on localhost, and terminals persist through tmux, so developers and coding agents can keep working even after the laptop closes. \r\n\r\nMachines can be resized or cloned as workloads grow, without rebuilding the development environment.",
+      "categories": [
+        "B2B",
+        "Engineering, Product and Design",
+        "Developer Tools",
+        "SaaS"
+      ],
+      "founders": [],
+      "team_size": 2,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "prized",
+        "source_url": "https://www.ycombinator.com/companies/prized",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "speko",
+      "name": "Speko",
+      "website_url": "https://speko.ai/?utm_source=ycombinator&utm_medium=profile",
+      "canonical_domain": "speko.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/speko",
+      "tagline": "OpenRouter for Voice",
+      "description": "Speko is a router for voice models: one API key, and your voice agent runs on the speech-to-text, LLM, and text-to-speech models we measured as best for your language and use case. The measurements are public at benchmarks.speko.ai: we test new models the day they ship and re-route when the numbers change, so you rewrite nothing. We ran this bake-off by hand for four years at Hupo, shipping production voice for Morgan Stanley, Prudential, HSBC, and Grab.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Developer Tools",
+        "AI",
+        "Conversational AI"
+      ],
+      "founders": [],
+      "team_size": 4,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "speko",
+        "source_url": "https://www.ycombinator.com/companies/speko",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "jcode",
+      "name": "Jcode",
+      "website_url": "https://jcode.sh/",
+      "canonical_domain": "jcode.sh",
+      "yc_profile_url": "https://www.ycombinator.com/companies/jcode",
+      "tagline": "The harness company",
+      "description": "An agent is LLM + harness: We work purely on that second component. We do research to produce the most capable harness for coding, and we also make an open source, terminal based, coding agent product with 18k github stars.",
+      "categories": [
+        "Consumer",
+        "Developer Tools",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": 1,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "jcode",
+        "source_url": "https://www.ycombinator.com/companies/jcode",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "riften",
+      "name": "Riften",
+      "website_url": "https://riften.ai/",
+      "canonical_domain": "riften.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/riften",
+      "tagline": "Earned intelligence for every company",
+      "description": "Intelligence will be the most valuable asset a company owns. Today, almost every company rents it.\r\n\r\nCompanies pay a handful of labs one token at a time. Each dollar buys an answer, not an asset. They spend more, but own nothing more.\r\n\r\nRiften reverses that.\r\n\r\nChange one environment variable and Riften becomes the gateway for a company's AI traffic. We route each request to the lowest-cost model that can do the job, serving most work on open-weight models we host. Customers save money immediately without rebuilding their products.\r\n\r\nThe gateway is the entry point. Over time, Riften turns the company's work into private models built on open weights and shaped around the business. What begins as cheaper inference becomes an intelligence stack the company owns, runs on infrastructure it controls, and uses to power its most important applications.\r\n\r\nWe call this earned intelligence. It is created by the company's own work, controlled by the company, and accumulated over time.\r\n\r\nThe next generation of companies will not rent their intelligence. They will earn it, own it, and compound it. Riften is how they get there.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Developer Tools",
+        "Reinforcement Learning",
+        "Open Source",
+        "AI"
+      ],
+      "founders": [],
+      "team_size": null,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "riften",
+        "source_url": "https://www.ycombinator.com/companies/riften",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    },
+    {
+      "candidate_id": "codag",
+      "name": "Codag",
+      "website_url": "https://codag.ai/",
+      "canonical_domain": "codag.ai",
+      "yc_profile_url": "https://www.ycombinator.com/companies/codag",
+      "tagline": "Tool call compression for agents.",
+      "description": "Codag compresses tool call outputs before agents read them, which reduces token spend by  20-30% while retaining output accuracy.\r\n\r\nGovern and see analytics on agent dollars across all model providers and internal agents.",
+      "categories": [
+        "B2B",
+        "Infrastructure",
+        "Developer Tools"
+      ],
+      "founders": [],
+      "team_size": 1,
+      "founded_year": null,
+      "yc_batch": "Summer 2026",
+      "status": "Active",
+      "location": "San Francisco, CA, USA",
+      "traction": null,
+      "is_current_batch": true,
+      "source": {
+        "schema_version": "1.0",
+        "source_record_id": "codag",
+        "source_url": "https://www.ycombinator.com/companies/codag",
+        "captured_at": "2026-08-27T20:41:29.204931Z",
+        "self_reported": true
+      }
+    }
+  ],
+  "incomplete_candidates": [],
+  "errors": []
+}

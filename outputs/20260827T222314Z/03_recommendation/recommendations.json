@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-08-27T22:34:15.679017Z",
+  "recommendations": [
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "codag",
+      "candidate_name": "Codag",
+      "rank": 1,
+      "total_score": 75,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Take a meeting",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0c37f0f1cd5f7920016a90bb1a501887d08f634139d72663de",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7152,
+        "usage": {
+          "input_tokens": 2940,
+          "output_tokens": 724,
+          "total_tokens": 3664
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/codag.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "prized",
+      "candidate_name": "Prized",
+      "rank": 2,
+      "total_score": 67,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0a060c57b63fc126016a90bb217d7487d08e83b1cd3f873562",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 6890,
+        "usage": {
+          "input_tokens": 2659,
+          "output_tokens": 680,
+          "total_tokens": 3339
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/prized.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "gitcafe",
+      "candidate_name": "GitCafe",
+      "rank": 3,
+      "total_score": 62,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0a59a2b3809f4bb4016a90bb286a9487d094123161430ee60d",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 8234,
+        "usage": {
+          "input_tokens": 3222,
+          "output_tokens": 892,
+          "total_tokens": 4114
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/gitcafe.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "hoplite",
+      "candidate_name": "Hoplite",
+      "rank": 4,
+      "total_score": 61,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0773bd0e1685a4f2016a90bb30ca8887d091b5546f00f7e7b9",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 6784,
+        "usage": {
+          "input_tokens": 3005,
+          "output_tokens": 628,
+          "total_tokens": 3633
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/hoplite.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "speko",
+      "candidate_name": "Speko",
+      "rank": 5,
+      "total_score": 60,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0cee566f051a981a016a90bb380d1487d08bee2bd44ac630d0",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7243,
+        "usage": {
+          "input_tokens": 2493,
+          "output_tokens": 735,
+          "total_tokens": 3228
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/speko.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "mentlio",
+      "candidate_name": "Mentlio",
+      "rank": 6,
+      "total_score": 58,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_05d38d85ea7f1966016a90bb3ec4f087d0b92895e47188b447",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 6509,
+        "usage": {
+          "input_tokens": 2230,
+          "output_tokens": 669,
+          "total_tokens": 2899
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/mentlio.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "riften",
+      "candidate_name": "Riften",
+      "rank": 7,
+      "total_score": 55,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Watch",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0ddf8d93238842c2016a90bb454d2887d0baf1ad050448c047",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 7651,
+        "usage": {
+          "input_tokens": 2734,
+          "output_tokens": 752,
+          "total_tokens": 3486
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/riften.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "waddle-labs",
+      "candidate_name": "Waddle Labs",
+      "rank": 8,
+      "total_score": 51,
+      "evidence_coverage": 100,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_07772a91a7906464016a90bb4cf8c887d0baf0adea663fd2e0",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 12595,
+        "usage": {
+          "input_tokens": 2122,
+          "output_tokens": 1112,
+          "total_tokens": 3234
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/waddle-labs.md"
+    },
+    {
+      "schema_version": "1.0",
+      "record_type": "recommendation",
+      "candidate_id": "archal",
+      "candidate_name": "Archal",
+      "rank": 9,
+      "total_score": 48,
+      "evidence_coverage": 80,
+      "critical_risks": [],
+      "recommendation": "Pass",
+      "prompt_version": "memo-v1",
+      "prompt_hash": "73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+      "response": {
+        "response_id": "resp_0cd186811e588ffb016a90bb599a3c87d0964568085b1cdee6",
+        "model": "gpt-5-2025-08-07",
+        "latency_ms": 14403,
+        "usage": {
+          "input_tokens": 2322,
+          "output_tokens": 1185,
+          "total_tokens": 3507
+        },
+        "source_urls": []
+      },
+      "memo_path": "memos/archal.md"
+    }
+  ],
+  "errors": []
+}

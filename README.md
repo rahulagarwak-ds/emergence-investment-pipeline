@@ -39,9 +39,14 @@ Committed runs from the Summer 2026 snapshot (`MAX_CANDIDATES=10`, `gpt-5`, low 
 | [`20260827T214810Z`](outputs/20260827T214810Z/) | `run --from-artifact …/213043Z/02_analysis/analyses.jsonl` | Stage 02 replayed, memos re-rendered only |
 | [`20260827T214813Z`](outputs/20260827T214813Z/) | `run --from-artifact …/213043Z/01_sourcing/candidates.json` | Stage 01 replayed, analysis and memos regenerated |
 | [`20260827T214901Z`](outputs/20260827T214901Z/) | `run --topic "AI agents for SMBs"` | honest failure: 0 literal matches, `INSUFFICIENT_CANDIDATES`, partial run preserved |
-| [`20260827T214905Z`](outputs/20260827T214905Z/) | `run --topic "AI agents"` | partner-style topic run |
-| [`20260827T214907Z`](outputs/20260827T214907Z/) | `run --topic "developer tools"` | partner-style topic run |
-| [`20260827T214909Z`](outputs/20260827T214909Z/) | `run --topic healthcare` | partner-style topic run |
+| [`20260827T214909Z`](outputs/20260827T214909Z/) | `run --topic healthcare` | 10 memos: 0 meeting, 4 watch, 6 pass |
+| [`20260827T222312Z`](outputs/20260827T222312Z/) | `run --topic "AI agents"` | 9 memos (1 analysis rejected for an unsupported URL): 0 meeting, 4 watch, 5 pass |
+| [`20260827T222314Z`](outputs/20260827T222314Z/) | `run --topic "developer tools"` | 9 memos (1 analysis rejected for dangling evidence ids): 1 meeting, 6 watch, 2 pass |
+
+Every run has an [evals report](evals/reports/). The B2B run passes all deterministic graders; the
+two later topic runs carry `memos` findings for one company each whose citation labels are raw URLs,
+a prompt gap fixed after those runs started (evidence ids are now constrained to short tokens).
+Rejected analyses stay in `02_analysis/analyses.jsonl` as error records with the validation reason.
 
 ### Trace one startup end to end
 

@@ -1,0 +1,68 @@
+{
+  "run_id": "20260827T222312Z",
+  "model": "gpt-5",
+  "analysis_prompt": "analysis-v1@1f2ee6fac6363a92945980475067430d5ce0dff89be8802f1f819f7ce7926c0d",
+  "memo_prompt": "memo-v1@73e1d46bc36d8cba079d423008c942cf88802321c75dccc93b1c2c90a9b3b976",
+  "graded_at": "2026-08-27T22:36:00.500000+00:00",
+  "deterministic": {
+    "findings": [
+      {
+        "grader": "memos",
+        "candidate_id": "archal",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "archal",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "archal",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "archal",
+        "message": "uncited bullet under '## Key risks'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "archal",
+        "message": "uncited bullet under '## Key risks'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Rationale'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Key risks'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Key risks'"
+      },
+      {
+        "grader": "memos",
+        "candidate_id": "trope",
+        "message": "uncited bullet under '## Key risks'"
+      }
+    ],
+    "passed": false
+  },
+  "semantic": null
+}
